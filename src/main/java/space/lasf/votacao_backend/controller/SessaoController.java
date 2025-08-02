@@ -96,6 +96,21 @@ public class SessaoController {
         return ResponseEntity.ok(Map.of(idSessao, isValid));
     }
 
+    @PostMapping("/{idSessao}/votar")
+    public ResponseEntity<Map<String, Boolean>> publicarVoto(@PathVariable String idSessao) {
+        Optional<Sessao> sessao = sessaoService.buscarSessaoPorId(idSessao);
+        if (sessao.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        SessaoDto dto = SessaoMapper.toSessaoDto(sessao.get());
+        sessaoValidator.validate(dto);
+        boolean isValid = SessaoStatus.OPEN_TO_VOTE.name().equals(dto.getStatus());
+
+        return ResponseEntity.ok(Map.of(idSessao, isValid));
+    }
+
+
     @GetMapping("/com-votos")
     public ResponseEntity<List<SessaoDto>> buscarSessaoComVotos() {
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON)

@@ -9,14 +9,17 @@ No cooperativismo,
 - solução mobile para gerenciar e participar dessas sessões de votação.
 
 Solução cloud com as seguintes API REST:
-- Cadastro de nova pauta
+- Cadastro de nova pauta (PautaController->criarPauta)
 - Abertura de sessão de votação (para uma pauta)
   * Sessão aberta por tempo determinado na solicitação (default 1 min)
+  (SessaoController->criarSessao)
   * Contabilização dos votos no fim da sessão
+  (SessaoController->finalizarSessao)
 - Recebimento dos votos de uma sessão 
   * Votos contabilizados no formato ('Sim'/'Não'). 
   * Associado identificado por seu id único
   * Cada associado possui apenas 1 voto por pauta
+  (SessaoController->finalizarSessao)
 - Consulta de resultado da votação para uma pauta   
 
 
