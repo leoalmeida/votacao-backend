@@ -1,0 +1,1053 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/local/Cellar/maven/3.9.10/libexec/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for space.lasf:ms-pautas:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot-devtools:jar -> duplicate declaration of version (?) @ line 109, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------< space.lasf:ms-pautas >------------------------
+[INFO] Building ms-pautas 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.4:run (default-cli) > test-compile @ ms-pautas >>>
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ ms-pautas ---
+[INFO] argLine set to -javaagent:/Users/leoalmeida/.m2/repository/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-pautas ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ ms-pautas ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-pautas ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ ms-pautas ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 11 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/controller/PautaControllerTest.java:[74,41] method criarPauta in interface space.lasf.pautas.service.PautaService cannot be applied to given types;
+  required: space.lasf.pautas.dto.PautaDto,boolean
+  found:    space.lasf.pautas.dto.PautaDto
+  reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/controller/PautaControllerTest.java:[87,39] method criarPauta in interface space.lasf.pautas.service.PautaService cannot be applied to given types;
+  required: space.lasf.pautas.dto.PautaDto,boolean
+  found:    space.lasf.pautas.dto.PautaDto
+  reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/service/PautaServiceTest.java:[85,38] method criarPauta in class space.lasf.pautas.service.impl.PautaServiceImpl cannot be applied to given types;
+  required: space.lasf.pautas.dto.PautaDto,boolean
+  found:    space.lasf.pautas.dto.PautaDto
+  reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/service/impl/PautaServiceImplTest.java:[65,25] method criarPauta in class space.lasf.pautas.service.impl.PautaServiceImpl cannot be applied to given types;
+  required: space.lasf.pautas.dto.PautaDto,boolean
+  found:    space.lasf.pautas.dto.PautaDto
+  reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/service/impl/PautaServiceImplTest.java:[80,39] method criarPauta in class space.lasf.pautas.service.impl.PautaServiceImpl cannot be applied to given types;
+  required: space.lasf.pautas.dto.PautaDto,boolean
+  found:    space.lasf.pautas.dto.PautaDto
+  reason: actual and formal argument lists differ in length
+[INFO] 5 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.053 s
+[INFO] Finished at: 2025-08-08T17:07:11-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.0:testCompile (default-testCompile) on project ms-pautas: Compilation failure: Compilation failure: 
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/controller/PautaControllerTest.java:[74,41] method criarPauta in interface space.lasf.pautas.service.PautaService cannot be applied to given types;
+[ERROR]   required: space.lasf.pautas.dto.PautaDto,boolean
+[ERROR]   found:    space.lasf.pautas.dto.PautaDto
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/controller/PautaControllerTest.java:[87,39] method criarPauta in interface space.lasf.pautas.service.PautaService cannot be applied to given types;
+[ERROR]   required: space.lasf.pautas.dto.PautaDto,boolean
+[ERROR]   found:    space.lasf.pautas.dto.PautaDto
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/service/PautaServiceTest.java:[85,38] method criarPauta in class space.lasf.pautas.service.impl.PautaServiceImpl cannot be applied to given types;
+[ERROR]   required: space.lasf.pautas.dto.PautaDto,boolean
+[ERROR]   found:    space.lasf.pautas.dto.PautaDto
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/service/impl/PautaServiceImplTest.java:[65,25] method criarPauta in class space.lasf.pautas.service.impl.PautaServiceImpl cannot be applied to given types;
+[ERROR]   required: space.lasf.pautas.dto.PautaDto,boolean
+[ERROR]   found:    space.lasf.pautas.dto.PautaDto
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/src/test/java/space/lasf/pautas/service/impl/PautaServiceImplTest.java:[80,39] method criarPauta in class space.lasf.pautas.service.impl.PautaServiceImpl cannot be applied to given types;
+[ERROR]   required: space.lasf.pautas.dto.PautaDto,boolean
+[ERROR]   found:    space.lasf.pautas.dto.PautaDto
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/local/Cellar/maven/3.9.10/libexec/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for space.lasf:ms-pautas:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot-devtools:jar -> duplicate declaration of version (?) @ line 109, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------< space.lasf:ms-pautas >------------------------
+[INFO] Building ms-pautas 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.4:run (default-cli) > test-compile @ ms-pautas >>>
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ ms-pautas ---
+[INFO] argLine set to -javaagent:/Users/leoalmeida/.m2/repository/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-pautas ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ ms-pautas ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-pautas ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ ms-pautas ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.5.4:run (default-cli) < test-compile @ ms-pautas <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.4:run (default-cli) @ ms-pautas ---
+[INFO] Attaching agents: []
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-08T17:18:43.082-03:00  INFO 959 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : Starting PautasBackendApplication using Java 24.0.1 with PID 959 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-08T17:18:43.095-03:00  INFO 959 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-08-08T17:18:43.936-03:00  INFO 959 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-08T17:18:43.937-03:00  INFO 959 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-08T17:18:52.678-03:00  INFO 959 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-08T17:18:53.166-03:00  INFO 959 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 465 ms. Found 1 JPA repository interface.
+2025-08-08T17:18:54.427-03:00  INFO 959 --- [ms-pautas] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b91be346-b702-342d-9e77-1cee1f91a46b
+2025-08-08T17:18:57.063-03:00  INFO 959 --- [ms-pautas] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-08T17:18:57.287-03:00  INFO 959 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-08T17:18:57.288-03:00  INFO 959 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-08T17:18:57.504-03:00  INFO 959 --- [ms-pautas] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-08T17:18:57.508-03:00  INFO 959 --- [ms-pautas] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 13564 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-08T17:18:58.100-03:00  WARN 959 --- [ms-pautas] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+2025-08-08T17:18:58.110-03:00  INFO 959 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-08T17:18:58.178-03:00  INFO 959 --- [ms-pautas] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-08T17:18:58.236-03:00 ERROR 959 --- [ms-pautas] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at space.lasf.pautas.PautasBackendApplication.main(PautasBackendApplication.java:12) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getIfUnique(DefaultListableBeanFactory.java:2574) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration$FlywayConfiguration.flyway(FlywayAutoConfiguration.java:173) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 26 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 41 common frames omitted
+Caused by: java.lang.IllegalArgumentException: 'url' must start with "jdbc"
+	at org.springframework.util.Assert.isTrue(Assert.java:116) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.boot.jdbc.DatabaseDriver.fromJdbcUrl(DatabaseDriver.java:310) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.findDriverClassName(DataSourceProperties.java:189) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:174) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:62) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:127) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 44 common frames omitted
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  47.921 s
+[INFO] Finished at: 2025-08-08T17:18:58-03:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/local/Cellar/maven/3.9.10/libexec/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for space.lasf:ms-pautas:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot-devtools:jar -> duplicate declaration of version (?) @ line 109, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------< space.lasf:ms-pautas >------------------------
+[INFO] Building ms-pautas 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.4:run (default-cli) > test-compile @ ms-pautas >>>
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ ms-pautas ---
+[INFO] argLine set to -javaagent:/Users/leoalmeida/.m2/repository/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-pautas ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ ms-pautas ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-pautas ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ ms-pautas ---
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 11 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.5.4:run (default-cli) < test-compile @ ms-pautas <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.4:run (default-cli) @ ms-pautas ---
+[INFO] Attaching agents: []
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-08T17:52:24.234-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : Starting PautasBackendApplication using Java 24.0.1 with PID 5375 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-08T17:52:24.239-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-08-08T17:52:24.411-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-08T17:52:24.411-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-08T17:52:27.261-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-08T17:52:27.723-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 434 ms. Found 1 JPA repository interface.
+2025-08-08T17:52:28.918-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5ac3d1f7-fcf9-3073-a9db-5587d4b5da27
+2025-08-08T17:52:32.318-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-08T17:52:32.390-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-08T17:52:32.393-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-08T17:52:33.034-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-08T17:52:33.041-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8625 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-08T17:52:34.682-03:00  WARN 5375 --- [ms-pautas] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+2025-08-08T17:52:34.691-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-08T17:52:35.039-03:00  INFO 5375 --- [ms-pautas] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-08T17:52:35.599-03:00 ERROR 5375 --- [ms-pautas] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at space.lasf.pautas.PautasBackendApplication.main(PautasBackendApplication.java:14) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getIfUnique(DefaultListableBeanFactory.java:2574) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration$FlywayConfiguration.flyway(FlywayAutoConfiguration.java:173) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 26 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 41 common frames omitted
+Caused by: java.lang.IllegalArgumentException: 'url' must start with "jdbc"
+	at org.springframework.util.Assert.isTrue(Assert.java:116) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.boot.jdbc.DatabaseDriver.fromJdbcUrl(DatabaseDriver.java:310) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.findDriverClassName(DataSourceProperties.java:189) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:174) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:62) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:127) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 44 common frames omitted
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  36.161 s
+[INFO] Finished at: 2025-08-08T17:52:35-03:00
+[INFO] ------------------------------------------------------------------------
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/local/Cellar/maven/3.9.10/libexec/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for space.lasf:ms-pautas:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot-devtools:jar -> duplicate declaration of version (?) @ line 109, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------< space.lasf:ms-pautas >------------------------
+[INFO] Building ms-pautas 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.4:run (default-cli) > test-compile @ ms-pautas >>>
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ ms-pautas ---
+[INFO] argLine set to -javaagent:/Users/leoalmeida/.m2/repository/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-pautas ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ ms-pautas ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-pautas ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ ms-pautas ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.5.4:run (default-cli) < test-compile @ ms-pautas <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.4:run (default-cli) @ ms-pautas ---
+[INFO] Attaching agents: []
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-08T18:03:24.834-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : Starting PautasBackendApplication using Java 24.0.1 with PID 5880 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-08T18:03:24.839-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-08-08T18:03:25.109-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-08T18:03:25.109-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-08T18:03:30.380-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-08T18:03:30.974-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 567 ms. Found 1 JPA repository interface.
+2025-08-08T18:03:32.318-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5ac3d1f7-fcf9-3073-a9db-5587d4b5da27
+2025-08-08T18:03:34.362-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-08T18:03:34.403-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-08T18:03:34.404-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-08T18:03:34.536-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-08T18:03:34.538-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9425 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-08T18:03:34.890-03:00  WARN 5880 --- [ms-pautas] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+2025-08-08T18:03:34.897-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-08T18:03:34.946-03:00  INFO 5880 --- [ms-pautas] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-08T18:03:35.010-03:00 ERROR 5880 --- [ms-pautas] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.9.jar:6.2.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.4.jar:3.5.4]
+	at space.lasf.pautas.PautasBackendApplication.main(PautasBackendApplication.java:14) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.4.jar:3.5.4]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1683) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getIfUnique(DefaultListableBeanFactory.java:2574) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration$FlywayConfiguration.flyway(FlywayAutoConfiguration.java:173) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 26 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: 'url' must start with "jdbc"
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169) ~[spring-beans-6.2.9.jar:6.2.9]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 41 common frames omitted
+Caused by: java.lang.IllegalArgumentException: 'url' must start with "jdbc"
+	at org.springframework.util.Assert.isTrue(Assert.java:116) ~[spring-core-6.2.9.jar:6.2.9]
+	at org.springframework.boot.jdbc.DatabaseDriver.fromJdbcUrl(DatabaseDriver.java:310) ~[spring-boot-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.findDriverClassName(DataSourceProperties.java:189) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:174) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.PropertiesJdbcConnectionDetails.getDriverClassName(PropertiesJdbcConnectionDetails.java:49) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:62) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Hikari.dataSource(DataSourceConfiguration.java:127) ~[spring-boot-autoconfigure-3.5.4.jar:3.5.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172) ~[spring-beans-6.2.9.jar:6.2.9]
+	... 44 common frames omitted
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  38.174 s
+[INFO] Finished at: 2025-08-08T18:03:35-03:00
+[INFO] ------------------------------------------------------------------------
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-09T14:21:48.639-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : Starting PautasBackendApplication using Java 17.0.15 with PID 14355 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-09T14:21:48.645-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-08-09T14:21:48.768-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-09T14:21:48.769-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-09T14:21:50.892-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-09T14:21:51.201-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 288 ms. Found 1 JPA repository interface.
+2025-08-09T14:21:51.974-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=eda52a83-667f-3cf1-9813-3d95c628b0db
+2025-08-09T14:21:53.258-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-09T14:21:53.326-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-09T14:21:53.327-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-09T14:21:53.443-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-09T14:21:53.447-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4674 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-09T14:21:54.008-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-09T14:21:54.629-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@502210d0
+2025-08-09T14:21:54.633-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-09T14:21:54.726-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/spacevote-pautas?createDatabaseIfNotExist=true (MySQL 8.4)
+2025-08-09T14:21:54.765-03:00  WARN 14355 --- [ms-pautas] [  restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2025-08-09T14:21:54.879-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.085s)
+2025-08-09T14:21:54.932-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `spacevote-pautas`: 1
+2025-08-09T14:21:54.939-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.f.core.internal.command.DbMigrate      : Schema `spacevote-pautas` is up to date. No migration necessary.
+2025-08-09T14:21:55.202-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-09T14:21:55.319-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-09T14:21:55.388-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-09T14:21:55.945-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-09T14:21:56.132-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-09T14:21:57.757-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-09T14:21:57.762-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-09T14:21:58.569-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-09T14:21:59.662-03:00  WARN 14355 --- [ms-pautas] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-09T14:21:59.764-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-08-09T14:21:59.966-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'ms-sessoes' URL not provided. Will try picking an instance via load-balancing.
+2025-08-09T14:22:01.437-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-08-09T14:22:01.559-03:00  WARN 14355 --- [ms-pautas] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-08-09T14:22:01.690-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 53748 (http) with context path '/'
+2025-08-09T14:22:01.691-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 53748
+2025-08-09T14:22:01.698-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-08-09T14:22:01.735-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-08-09T14:22:01.740-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:22:01.756-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-08-09T14:22:01.756-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-08-09T14:22:01.756-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-08-09T14:22:01.757-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-08-09T14:22:01.757-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-08-09T14:22:01.757-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-08-09T14:22:01.757-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-08-09T14:22:02.856-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-08-09T14:22:02.966-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-08-09T14:22:02.971-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-08-09T14:22:02.981-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1754760122979 with initial instances count: 1
+2025-08-09T14:22:02.993-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MS-PAUTAS with eureka with status UP
+2025-08-09T14:22:02.995-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1754760122995, current=UP, previous=STARTING]
+2025-08-09T14:22:02.998-03:00  INFO 14355 --- [ms-pautas] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-PAUTAS/ms-pautas:1470117688: registering service...
+2025-08-09T14:22:03.063-03:00  INFO 14355 --- [ms-pautas] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-PAUTAS/ms-pautas:1470117688 - registration status: 204
+2025-08-09T14:22:03.115-03:00  INFO 14355 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : Started PautasBackendApplication in 15.77 seconds (process running for 17.395)
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-09T14:25:39.877-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : Starting AssociadosBackendApplication using Java 17.0.15 with PID 15251 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-associados/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-09T14:25:39.883-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-08-09T14:25:40.047-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-09T14:25:40.047-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-09T14:25:42.185-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-09T14:25:42.515-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 306 ms. Found 1 JPA repository interface.
+2025-08-09T14:25:43.264-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5fdef657-5827-35a1-9820-24d103ab7d2b
+2025-08-09T14:25:44.374-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-09T14:25:44.400-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-09T14:25:44.401-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-09T14:25:44.496-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-09T14:25:44.499-03:00  INFO 15251 --- [ms-associados] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4448 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-09T14:25:45.217-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-09T14:25:46.285-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27dc6125
+2025-08-09T14:25:46.298-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-09T14:25:46.849-03:00  INFO 15251 --- [ms-associados] [  restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/spacevote-associados?createDatabaseIfNotExist=true (MySQL 8.4)
+2025-08-09T14:25:47.123-03:00  WARN 15251 --- [ms-associados] [  restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2025-08-09T14:25:47.502-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.337s)
+2025-08-09T14:25:47.705-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `spacevote-associados`: 1
+2025-08-09T14:25:47.713-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.f.core.internal.command.DbMigrate      : Schema `spacevote-associados` is up to date. No migration necessary.
+2025-08-09T14:25:48.050-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-09T14:25:48.199-03:00  INFO 15251 --- [ms-associados] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-09T14:25:48.344-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-09T14:25:49.050-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-09T14:25:49.271-03:00  INFO 15251 --- [ms-associados] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-09T14:25:52.895-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-09T14:25:52.903-03:00  INFO 15251 --- [ms-associados] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-09T14:25:53.573-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-09T14:25:57.706-03:00  WARN 15251 --- [ms-associados] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-09T14:25:58.385-03:00  WARN 15251 --- [ms-associados] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-08-09T14:25:58.671-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'ms-sessoes' URL not provided. Will try picking an instance via load-balancing.
+2025-08-09T14:26:01.918-03:00  INFO 15251 --- [ms-associados] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-08-09T14:26:02.031-03:00  WARN 15251 --- [ms-associados] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-08-09T14:26:02.952-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 53838 (http) with context path '/'
+2025-08-09T14:26:02.955-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 53838
+2025-08-09T14:26:03.058-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-08-09T14:26:03.288-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-08-09T14:26:03.299-03:00  INFO 15251 --- [ms-associados] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:26:03.318-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-08-09T14:26:03.319-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-08-09T14:26:03.319-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-08-09T14:26:03.320-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-08-09T14:26:03.320-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-08-09T14:26:03.320-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-08-09T14:26:03.320-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-08-09T14:26:06.379-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-08-09T14:26:06.641-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-08-09T14:26:06.648-03:00  INFO 15251 --- [ms-associados] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-08-09T14:26:06.652-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1754760366650 with initial instances count: 2
+2025-08-09T14:26:06.669-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MS-ASSOCIADOS with eureka with status UP
+2025-08-09T14:26:06.671-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1754760366671, current=UP, previous=STARTING]
+2025-08-09T14:26:06.674-03:00  INFO 15251 --- [ms-associados] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-ASSOCIADOS/ms-associados:1603853666: registering service...
+2025-08-09T14:26:06.748-03:00  INFO 15251 --- [ms-associados] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-ASSOCIADOS/ms-associados:1603853666 - registration status: 204
+2025-08-09T14:26:07.025-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : Started AssociadosBackendApplication in 28.216 seconds (process running for 29.991)
+2025-08-09T14:27:01.759-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:31:03.315-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:32:01.751-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:36:03.308-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:37:01.744-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:41:03.303-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:42:01.736-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:44:30.219-03:00  INFO 15251 --- [ms-associados] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-09T14:44:30.220-03:00  INFO 15251 --- [ms-associados] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-09T14:44:30.223-03:00  INFO 15251 --- [ms-associados] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+Hibernate: select a1_0.id,a1_0.email,a1_0.nome,a1_0.telefone from associados a1_0
+2025-08-09T14:44:53.296-03:00  INFO 14355 --- [ms-pautas] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-09T14:44:53.297-03:00  INFO 14355 --- [ms-pautas] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-09T14:44:53.303-03:00  INFO 14355 --- [ms-pautas] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+Hibernate: select p1_0.id,p1_0.categoria,p1_0.descricao,p1_0.associado_id,p1_0.sessao_id,p1_0.nome from pautas p1_0
+2025-08-09T14:46:03.277-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:47:01.710-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:51:03.271-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:52:01.703-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:56:03.262-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T14:57:01.697-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:01:03.256-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:02:01.690-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:06:03.250-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:07:01.681-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:11:03.241-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:12:01.672-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:16:03.251-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:17:01.666-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:21:03.243-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:22:01.657-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:26:03.238-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:27:01.661-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:31:03.230-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:32:01.655-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:36:03.222-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:37:01.656-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:41:03.212-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:42:01.650-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:46:03.204-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:47:01.646-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:51:03.197-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:52:01.641-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:56:03.215-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T15:57:01.665-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:01:03.208-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:02:01.657-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:06:03.203-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:07:01.653-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:11:03.195-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:12:01.649-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:16:03.187-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:17:01.641-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:21:03.185-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:22:01.633-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:26:03.178-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:27:01.626-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:31:03.170-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:32:01.619-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:36:03.166-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:37:01.613-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:41:03.161-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:42:01.611-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:46:03.156-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:47:01.614-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:51:03.149-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:52:01.607-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:56:03.142-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T16:57:01.600-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:01:03.139-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:02:01.593-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:06:03.138-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:07:01.601-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:11:03.139-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:12:01.604-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:16:03.145-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:17:01.598-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:21:03.176-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:22:01.599-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:26:03.169-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:27:01.595-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:31:03.163-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:32:01.607-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:36:03.156-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:37:01.602-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:41:03.149-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:42:01.596-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:46:03.144-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:47:01.588-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:51:03.139-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:52:01.581-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:56:03.134-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T17:57:01.574-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:01:03.130-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:02:01.569-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:06:03.132-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:07:01.564-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:11:03.125-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:12:01.563-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:16:03.108-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:17:01.546-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:21:03.100-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:22:01.538-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:26:03.092-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:27:01.534-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:31:03.087-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:32:01.526-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:36:03.079-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:37:01.522-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:41:03.071-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:42:01.516-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:46:03.063-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:47:01.508-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:51:03.059-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:52:01.501-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:56:03.075-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T18:57:01.496-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:01:03.093-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:02:01.489-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:06:03.088-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:07:01.484-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:11:03.083-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:12:01.478-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:16:03.076-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:17:01.471-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:21:03.068-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:22:01.463-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:26:03.044-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:27:01.436-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:31:03.043-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:32:01.432-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select p1_0.id,p1_0.categoria,p1_0.descricao,p1_0.associado_id,p1_0.sessao_id,p1_0.nome from pautas p1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.nome,a1_0.telefone from associados a1_0 where a1_0.id=?
+2025-08-09T19:34:33.379-03:00  WARN 15251 --- [ms-associados] [o-auto-1-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.persistence.EntityNotFoundException]
+2025-08-09T19:36:03.039-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:37:01.426-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:37:40.465-03:00  INFO 15251 --- [ms-associados] [   File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 27 class path changes (0 additions, 27 deletions, 0 modifications)
+2025-08-09T19:37:40.470-03:00  INFO 15251 --- [ms-associados] [       Thread-1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MS-ASSOCIADOS with eureka with status DOWN
+2025-08-09T19:37:40.470-03:00  INFO 15251 --- [ms-associados] [       Thread-1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1754779060470, current=DOWN, previous=UP]
+2025-08-09T19:37:40.471-03:00  INFO 15251 --- [ms-associados] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-ASSOCIADOS/ms-associados:1603853666: registering service...
+2025-08-09T19:37:40.477-03:00  INFO 15251 --- [ms-associados] [       Thread-1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-08-09T19:37:40.504-03:00  INFO 15251 --- [ms-associados] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-08-09T19:37:40.508-03:00  INFO 15251 --- [ms-associados] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-ASSOCIADOS/ms-associados:1603853666 - registration status: 204
+2025-08-09T19:37:40.528-03:00  INFO 15251 --- [ms-associados] [       Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-09T19:37:40.550-03:00  INFO 15251 --- [ms-associados] [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-08-09T19:37:40.559-03:00  INFO 15251 --- [ms-associados] [       Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-08-09T19:37:40.562-03:00  INFO 15251 --- [ms-associados] [       Thread-1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2025-08-09T19:37:43.568-03:00  INFO 15251 --- [ms-associados] [       Thread-1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2025-08-09T19:37:43.569-03:00  WARN 15251 --- [ms-associados] [coveryClient-%d] c.netflix.discovery.TimedSupervisorTask  : task supervisor shutting down, can't accept the task
+2025-08-09T19:37:43.581-03:00  INFO 15251 --- [ms-associados] [       Thread-1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-ASSOCIADOS/ms-associados:1603853666 - deregister  status: 200
+2025-08-09T19:37:43.582-03:00  INFO 15251 --- [ms-associados] [       Thread-1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-09T19:37:44.064-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : Starting AssociadosBackendApplication using Java 17.0.15 with PID 15251 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-associados/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-09T19:37:44.065-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-08-09T19:37:46.379-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-09T19:37:46.439-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 1 JPA repository interface.
+2025-08-09T19:37:47.278-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5fdef657-5827-35a1-9820-24d103ab7d2b
+2025-08-09T19:37:48.216-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-08-09T19:37:48.219-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-09T19:37:48.219-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-09T19:37:48.481-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-09T19:37:48.481-03:00  INFO 15251 --- [ms-associados] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4355 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-09T19:37:48.759-03:00  WARN 15251 --- [ms-associados] [  restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flyway' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flyway' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Failed to instantiate [org.flywaydb.core.Flyway]: Factory method 'flyway' threw exception with message: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception with message: Failed to determine a suitable driver class
+2025-08-09T19:37:48.772-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-08-09T19:37:48.809-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-09T19:37:49.018-03:00 ERROR 15251 --- [ms-associados] [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-09T19:37:50.568-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : Starting AssociadosBackendApplication using Java 17.0.15 with PID 15251 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-associados/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-09T19:37:50.568-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-08-09T19:37:52.120-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-09T19:37:52.157-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 1 JPA repository interface.
+2025-08-09T19:37:52.865-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5fdef657-5827-35a1-9820-24d103ab7d2b
+2025-08-09T19:37:53.328-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-09T19:37:53.337-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-09T19:37:53.337-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-09T19:37:53.402-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-08-09T19:37:53.403-03:00  INFO 15251 --- [ms-associados] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2828 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-09T19:37:54.003-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-08-09T19:37:54.046-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@625eb588
+2025-08-09T19:37:54.047-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-08-09T19:37:54.063-03:00  INFO 15251 --- [ms-associados] [  restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/spacevote-associados?createDatabaseIfNotExist=true (MySQL 8.4)
+2025-08-09T19:37:54.233-03:00  WARN 15251 --- [ms-associados] [  restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2025-08-09T19:37:54.268-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.029s)
+2025-08-09T19:37:54.296-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `spacevote-associados`: 1
+2025-08-09T19:37:54.298-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.f.core.internal.command.DbMigrate      : Schema `spacevote-associados` is up to date. No migration necessary.
+2025-08-09T19:37:54.414-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-09T19:37:54.420-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-09T19:37:54.487-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-09T19:37:54.497-03:00  INFO 15251 --- [ms-associados] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.4.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-09T19:37:55.398-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-09T19:37:55.399-03:00  INFO 15251 --- [ms-associados] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-09T19:37:56.260-03:00  WARN 15251 --- [ms-associados] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-09T19:37:56.319-03:00  WARN 15251 --- [ms-associados] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-08-09T19:37:56.498-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'ms-sessoes' URL not provided. Will try picking an instance via load-balancing.
+2025-08-09T19:37:58.214-03:00  INFO 15251 --- [ms-associados] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-08-09T19:37:58.287-03:00  WARN 15251 --- [ms-associados] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-08-09T19:37:58.406-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 59111 (http) with context path '/'
+2025-08-09T19:37:58.407-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 59111
+2025-08-09T19:37:58.409-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-08-09T19:37:58.413-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-08-09T19:37:58.414-03:00  INFO 15251 --- [ms-associados] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:37:58.414-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-08-09T19:37:58.415-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-08-09T19:37:58.415-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-08-09T19:37:58.415-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-08-09T19:37:58.415-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-08-09T19:37:58.415-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-08-09T19:37:58.415-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-08-09T19:37:58.489-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-08-09T19:37:58.490-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-08-09T19:37:58.491-03:00  INFO 15251 --- [ms-associados] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-08-09T19:37:58.492-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1754779078491 with initial instances count: 4
+2025-08-09T19:37:58.499-03:00  INFO 15251 --- [ms-associados] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MS-ASSOCIADOS with eureka with status UP
+2025-08-09T19:37:58.500-03:00  INFO 15251 --- [ms-associados] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1754779078500, current=UP, previous=STARTING]
+2025-08-09T19:37:58.500-03:00  INFO 15251 --- [ms-associados] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-ASSOCIADOS/ms-associados:-1937853034: registering service...
+2025-08-09T19:37:58.513-03:00  INFO 15251 --- [ms-associados] [  restartedMain] s.l.a.AssociadosBackendApplication       : Started AssociadosBackendApplication in 8.059 seconds (process running for 18742.049)
+2025-08-09T19:37:58.517-03:00  INFO 15251 --- [ms-associados] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-ASSOCIADOS/ms-associados:-1937853034 - registration status: 204
+2025-08-09T19:37:58.585-03:00  INFO 15251 --- [ms-associados] [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-08-09T19:42:01.420-03:00  INFO 14355 --- [ms-pautas] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:42:58.407-03:00  INFO 15251 --- [ms-associados] [rap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:43:35.474-03:00  INFO 15251 --- [ms-associados] [o-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-09T19:43:35.474-03:00  INFO 15251 --- [ms-associados] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-09T19:43:35.477-03:00  INFO 15251 --- [ms-associados] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+Hibernate: select p1_0.id,p1_0.categoria,p1_0.descricao,p1_0.associado_id,p1_0.sessao_id,p1_0.nome from pautas p1_0
+Hibernate: select a1_0.id,a1_0.email,a1_0.nome,a1_0.telefone from associados a1_0 where a1_0.id=?
+2025-08-09T19:43:35.511-03:00  WARN 15251 --- [ms-associados] [o-auto-2-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.persistence.EntityNotFoundException]
+Hibernate: select a1_0.id,a1_0.email,a1_0.nome,a1_0.telefone from associados a1_0 where a1_0.id=?
+2025-08-09T19:44:08.447-03:00  WARN 15251 --- [ms-associados] [o-auto-2-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [jakarta.persistence.EntityNotFoundException]
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.4)
+
+2025-08-09T19:46:53.181-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : Starting PautasBackendApplication using Java 17.0.15 with PID 29838 (/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas/target/classes started by leoalmeida in /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-pautas)
+2025-08-09T19:46:53.187-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-08-09T19:46:53.315-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-08-09T19:46:53.316-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-08-09T19:46:55.312-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-09T19:46:55.723-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 384 ms. Found 1 JPA repository interface.
+2025-08-09T19:46:56.569-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=eda52a83-667f-3cf1-9813-3d95c628b0db
+2025-08-09T19:46:57.770-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-08-09T19:46:57.799-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-08-09T19:46:57.800-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-09T19:46:57.924-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-08-09T19:46:57.927-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4607 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2025-08-09T19:46:58.463-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-08-09T19:46:59.114-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@34113f01
+2025-08-09T19:46:59.118-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-08-09T19:46:59.220-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/spacevote-pautas?createDatabaseIfNotExist=true (MySQL 8.4)
+2025-08-09T19:46:59.261-03:00  WARN 29838 --- [ms-pautas] [  restartedMain] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: MySQL 8.4 is newer than this version of Flyway and support has not been tested. The latest supported version of MySQL is 8.1.
+2025-08-09T19:46:59.372-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.090s)
+2025-08-09T19:46:59.411-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema `spacevote-pautas`: 1
+2025-08-09T19:46:59.418-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.f.core.internal.command.DbMigrate      : Schema `spacevote-pautas` is up to date. No migration necessary.
+2025-08-09T19:46:59.664-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-09T19:46:59.775-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-09T19:46:59.855-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-08-09T19:47:00.406-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-09T19:47:00.651-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-09T19:47:02.652-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-09T19:47:02.660-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-09T19:47:03.455-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-09T19:47:05.173-03:00  WARN 29838 --- [ms-pautas] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-09T19:47:05.331-03:00  WARN 29838 --- [ms-pautas] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-08-09T19:47:05.561-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'ms-sessoes' URL not provided. Will try picking an instance via load-balancing.
+2025-08-09T19:47:07.431-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-08-09T19:47:07.541-03:00  WARN 29838 --- [ms-pautas] [  restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-08-09T19:47:07.811-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 59879 (http) with context path '/'
+2025-08-09T19:47:07.813-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 59879
+2025-08-09T19:47:07.834-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-08-09T19:47:07.903-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-08-09T19:47:07.913-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-08-09T19:47:07.935-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-08-09T19:47:07.935-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-08-09T19:47:07.935-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-08-09T19:47:07.935-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-08-09T19:47:07.936-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-08-09T19:47:07.936-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-08-09T19:47:07.936-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-08-09T19:47:08.834-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-08-09T19:47:08.844-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-08-09T19:47:08.849-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-08-09T19:47:08.854-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1754779628853 with initial instances count: 5
+2025-08-09T19:47:08.866-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MS-PAUTAS with eureka with status UP
+2025-08-09T19:47:08.868-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1754779628868, current=UP, previous=STARTING]
+2025-08-09T19:47:08.870-03:00  INFO 29838 --- [ms-pautas] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-PAUTAS/ms-pautas:486618735: registering service...
+2025-08-09T19:47:08.926-03:00  INFO 29838 --- [ms-pautas] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MS-PAUTAS/ms-pautas:486618735 - registration status: 204
+2025-08-09T19:47:09.009-03:00  INFO 29838 --- [ms-pautas] [  restartedMain] s.lasf.pautas.PautasBackendApplication   : Started PautasBackendApplication in 16.886 seconds (process running for 18.479)
+2025-08-09T19:48:02.337-03:00  INFO 29838 --- [ms-pautas] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-09T19:48:02.338-03:00  INFO 29838 --- [ms-pautas] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-08-09T19:48:02.347-03:00  INFO 29838 --- [ms-pautas] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+Hibernate: select p1_0.id,p1_0.categoria,p1_0.descricao,p1_0.associado_id,p1_0.sessao_id,p1_0.nome from pautas p1_0

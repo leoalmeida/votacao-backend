@@ -1,0 +1,483 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/usr/local/Cellar/maven/3.9.10/libexec/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for space.lasf:ms-sessoes:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework.boot:spring-boot-devtools:jar -> duplicate declaration of version (?) @ line 109, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------------< space.lasf:ms-sessoes >------------------------
+[INFO] Building ms-sessoes 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.4:run (default-cli) > test-compile @ ms-sessoes >>>
+[INFO] 
+[INFO] --- jacoco:0.8.13:prepare-agent (default) @ ms-sessoes ---
+[INFO] argLine set to -javaagent:/Users/leoalmeida/.m2/repository/org/jacoco/org.jacoco.agent/0.8.13/org.jacoco.agent-0.8.13-runtime.jar=destfile=/Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/target/jacoco.exec
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ms-sessoes ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ ms-sessoes ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ ms-sessoes ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ ms-sessoes ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 11 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/basicos/AbstractIntegrationTest.java:[30,55] cannot access space.lasf.sessoes.basicos.TestFactory
+  bad source file: /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/basicos/TestFactory.java
+    file does not contain class space.lasf.sessoes.basicos.TestFactory
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[17,44] cannot find symbol
+  symbol:   class AssociadoRepository
+  location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[18,44] cannot find symbol
+  symbol:   class VotoRepository
+  location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[27,13] cannot find symbol
+  symbol:   class VotoRepository
+  location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[30,13] cannot find symbol
+  symbol:   class AssociadoRepository
+  location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[33,13] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[31,37] package space.lasf.sessoes.dto.mapper does not exist
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[39,58] cannot find symbol
+  symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[19,39] cannot find symbol
+  symbol:   class Associado
+  location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[29,54] cannot find symbol
+  symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[37,5] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[25,39] cannot find symbol
+  symbol:   class Associado
+  location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[26,39] cannot find symbol
+  symbol:   class Pauta
+  location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[30,44] cannot find symbol
+  symbol:   class AssociadoRepository
+  location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[31,44] cannot find symbol
+  symbol:   class PautaRepository
+  location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[37,41] cannot find symbol
+  symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[43,13] cannot find symbol
+  symbol:   class AssociadoRepository
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[49,13] cannot find symbol
+  symbol:   class PautaRepository
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[52,13] cannot find symbol
+  symbol:   class ObjectsValidator
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[57,5] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[24,39] cannot find symbol
+  symbol:   class Associado
+  location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[28,39] cannot find symbol
+  symbol:   class Pauta
+  location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[29,44] cannot find symbol
+  symbol:   class AssociadoRepository
+  location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[31,44] cannot find symbol
+  symbol:   class PautaRepository
+  location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[32,44] cannot find symbol
+  symbol:   class VotoRepository
+  location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[34,39] cannot find symbol
+  symbol:   class PautaServiceImpl
+  location: package space.lasf.sessoes.service.impl
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[36,39] cannot find symbol
+  symbol:   class PautaServiceImpl
+  location: package space.lasf.sessoes.service.impl
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[42,55] cannot find symbol
+  symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[44,5] cannot find symbol
+  symbol:   class PautaRepository
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[47,5] cannot find symbol
+  symbol:   class AssociadoRepository
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[50,5] cannot find symbol
+  symbol:   class VotoRepository
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[93,5] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[94,5] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[95,5] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[59,9] cannot find symbol
+  symbol:   class PautaRepository
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[62,9] cannot find symbol
+  symbol:   class AssociadoRepository
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[65,9] cannot find symbol
+  symbol:   class VotoRepository
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[75,16] cannot find symbol
+  symbol:   class PautaService
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[84,33] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[39,21] cannot find symbol
+  symbol:   method gerarAssociado(java.lang.String,java.lang.String)
+  location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[55,36] cannot find symbol
+  symbol:   variable SESSAO_API_ENDPOINT
+  location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerTest.java:[40,56] no suitable method found for thenReturn(java.util.Optional<java.lang.Object>)
+    method org.mockito.stubbing.OngoingStubbing.thenReturn(space.lasf.sessoes.dto.SessaoDto) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that java.util.Optional<T> conforms to space.lasf.sessoes.dto.SessaoDto)
+    method org.mockito.stubbing.OngoingStubbing.thenReturn(space.lasf.sessoes.dto.SessaoDto,space.lasf.sessoes.dto.SessaoDto...) is not applicable
+      (argument mismatch; no instance(s) of type variable(s) T exist so that java.util.Optional<T> conforms to space.lasf.sessoes.dto.SessaoDto)
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[54,9] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[54,31] cannot find symbol
+  symbol:   variable Associado
+  location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[61,59] incompatible types: java.lang.String cannot be converted to space.lasf.sessoes.domain.model.SessaoStatus
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[64,63] incompatible types: java.lang.String cannot be converted to space.lasf.sessoes.domain.model.SessaoStatus
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[68,18] cannot find symbol
+  symbol:   variable SessaoMapper
+  location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[71,25] cannot find symbol
+  symbol:   variable SESSAO_API_ENDPOINT
+  location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[43,9] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[43,31] cannot find symbol
+  symbol:   method gerarAssociado(<nulltype>,<nulltype>)
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[45,41] cannot find symbol
+  symbol:   method gerarPauta()
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[46,41] cannot find symbol
+  symbol:   method gerarPauta()
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[47,41] cannot find symbol
+  symbol:   method gerarPauta()
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[67,9] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[67,28] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[61,23] cannot find symbol
+  symbol:   method gerarPauta()
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[70,9] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[70,40] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[75,69] cannot find symbol
+  symbol:   class Associado
+  location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[82,58] cannot find symbol
+  symbol:   method getIdAssociado()
+  location: variable createdSessao of type space.lasf.sessoes.domain.model.Sessao
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[100,65] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[122,58] incompatible types: java.util.List<space.lasf.sessoes.dto.SessaoDto> cannot be converted to java.util.List<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[138,17] cannot find symbol
+  symbol:   method contabilizarVoto(space.lasf.sessoes.domain.model.VotoOpcao,long)
+  location: class space.lasf.sessoes.domain.model.Sessao
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[76,24] cannot find symbol
+  symbol:   class PautaServiceImpl
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[85,41] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[101,22] cannot find symbol
+  symbol:   method gerarAssociado(java.lang.String,java.lang.String)
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[102,22] cannot find symbol
+  symbol:   method gerarAssociado(java.lang.String,java.lang.String)
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[105,17] cannot find symbol
+  symbol:   method gerarPauta()
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[127,9] cannot find symbol
+  symbol:   class Pauta
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[127,27] cannot find symbol
+  symbol:   method gerarPauta()
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[135,55] cannot find symbol
+  symbol:   method getIdAssociado()
+  location: variable createdSessao of type space.lasf.sessoes.domain.model.Sessao
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[139,71] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[151,76] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[162,71] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[175,64] incompatible types: java.util.List<space.lasf.sessoes.dto.SessaoDto> cannot be converted to java.util.List<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[191,75] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[207,75] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[220,97] cannot find symbol
+  symbol:   method gerarPauta()
+  location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[INFO] 78 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.871 s
+[INFO] Finished at: 2025-08-08T17:08:22-03:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.0:testCompile (default-testCompile) on project ms-sessoes: Compilation failure: Compilation failure: 
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/basicos/AbstractIntegrationTest.java:[30,55] cannot access space.lasf.sessoes.basicos.TestFactory
+[ERROR]   bad source file: /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/basicos/TestFactory.java
+[ERROR]     file does not contain class space.lasf.sessoes.basicos.TestFactory
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[17,44] cannot find symbol
+[ERROR]   symbol:   class AssociadoRepository
+[ERROR]   location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[18,44] cannot find symbol
+[ERROR]   symbol:   class VotoRepository
+[ERROR]   location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[27,13] cannot find symbol
+[ERROR]   symbol:   class VotoRepository
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[30,13] cannot find symbol
+[ERROR]   symbol:   class AssociadoRepository
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[33,13] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[31,37] package space.lasf.sessoes.dto.mapper does not exist
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[39,58] cannot find symbol
+[ERROR]   symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[19,39] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[29,54] cannot find symbol
+[ERROR]   symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[37,5] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[25,39] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[26,39] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[30,44] cannot find symbol
+[ERROR]   symbol:   class AssociadoRepository
+[ERROR]   location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[31,44] cannot find symbol
+[ERROR]   symbol:   class PautaRepository
+[ERROR]   location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[37,41] cannot find symbol
+[ERROR]   symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[43,13] cannot find symbol
+[ERROR]   symbol:   class AssociadoRepository
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[49,13] cannot find symbol
+[ERROR]   symbol:   class PautaRepository
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[52,13] cannot find symbol
+[ERROR]   symbol:   class ObjectsValidator
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[57,5] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[24,39] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[28,39] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: package space.lasf.sessoes.domain.model
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[29,44] cannot find symbol
+[ERROR]   symbol:   class AssociadoRepository
+[ERROR]   location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[31,44] cannot find symbol
+[ERROR]   symbol:   class PautaRepository
+[ERROR]   location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[32,44] cannot find symbol
+[ERROR]   symbol:   class VotoRepository
+[ERROR]   location: package space.lasf.sessoes.domain.repository
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[34,39] cannot find symbol
+[ERROR]   symbol:   class PautaServiceImpl
+[ERROR]   location: package space.lasf.sessoes.service.impl
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[36,39] cannot find symbol
+[ERROR]   symbol:   class PautaServiceImpl
+[ERROR]   location: package space.lasf.sessoes.service.impl
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[42,55] cannot find symbol
+[ERROR]   symbol: class TestFactory
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[44,5] cannot find symbol
+[ERROR]   symbol:   class PautaRepository
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[47,5] cannot find symbol
+[ERROR]   symbol:   class AssociadoRepository
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[50,5] cannot find symbol
+[ERROR]   symbol:   class VotoRepository
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[93,5] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[94,5] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[95,5] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[59,9] cannot find symbol
+[ERROR]   symbol:   class PautaRepository
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[62,9] cannot find symbol
+[ERROR]   symbol:   class AssociadoRepository
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[65,9] cannot find symbol
+[ERROR]   symbol:   class VotoRepository
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[75,16] cannot find symbol
+[ERROR]   symbol:   class PautaService
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[84,33] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[39,21] cannot find symbol
+[ERROR]   symbol:   method gerarAssociado(java.lang.String,java.lang.String)
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerIntegrationTest.java:[55,36] cannot find symbol
+[ERROR]   symbol:   variable SESSAO_API_ENDPOINT
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoControllerTest.java:[40,56] no suitable method found for thenReturn(java.util.Optional<java.lang.Object>)
+[ERROR]     method org.mockito.stubbing.OngoingStubbing.thenReturn(space.lasf.sessoes.dto.SessaoDto) is not applicable
+[ERROR]       (argument mismatch; no instance(s) of type variable(s) T exist so that java.util.Optional<T> conforms to space.lasf.sessoes.dto.SessaoDto)
+[ERROR]     method org.mockito.stubbing.OngoingStubbing.thenReturn(space.lasf.sessoes.dto.SessaoDto,space.lasf.sessoes.dto.SessaoDto...) is not applicable
+[ERROR]       (argument mismatch; no instance(s) of type variable(s) T exist so that java.util.Optional<T> conforms to space.lasf.sessoes.dto.SessaoDto)
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[54,9] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[54,31] cannot find symbol
+[ERROR]   symbol:   variable Associado
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[61,59] incompatible types: java.lang.String cannot be converted to space.lasf.sessoes.domain.model.SessaoStatus
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[64,63] incompatible types: java.lang.String cannot be converted to space.lasf.sessoes.domain.model.SessaoStatus
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[68,18] cannot find symbol
+[ERROR]   symbol:   variable SessaoMapper
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/controller/SessaoRestControllerIntegrationTest.java:[71,25] cannot find symbol
+[ERROR]   symbol:   variable SESSAO_API_ENDPOINT
+[ERROR]   location: class space.lasf.sessoes.controller.SessaoRestControllerIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[43,9] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[43,31] cannot find symbol
+[ERROR]   symbol:   method gerarAssociado(<nulltype>,<nulltype>)
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[45,41] cannot find symbol
+[ERROR]   symbol:   method gerarPauta()
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[46,41] cannot find symbol
+[ERROR]   symbol:   method gerarPauta()
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[47,41] cannot find symbol
+[ERROR]   symbol:   method gerarPauta()
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[67,9] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/domain/repository/SessaoRepositoryIntegrationTest.java:[67,28] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.domain.repository.SessaoRepositoryIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[61,23] cannot find symbol
+[ERROR]   symbol:   method gerarPauta()
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[70,9] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[70,40] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[75,69] cannot find symbol
+[ERROR]   symbol:   class Associado
+[ERROR]   location: class space.lasf.sessoes.service.SessaoServiceTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[82,58] cannot find symbol
+[ERROR]   symbol:   method getIdAssociado()
+[ERROR]   location: variable createdSessao of type space.lasf.sessoes.domain.model.Sessao
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[100,65] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[122,58] incompatible types: java.util.List<space.lasf.sessoes.dto.SessaoDto> cannot be converted to java.util.List<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/SessaoServiceTest.java:[138,17] cannot find symbol
+[ERROR]   symbol:   method contabilizarVoto(space.lasf.sessoes.domain.model.VotoOpcao,long)
+[ERROR]   location: class space.lasf.sessoes.domain.model.Sessao
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[76,24] cannot find symbol
+[ERROR]   symbol:   class PautaServiceImpl
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[85,41] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest.SessaoServiceImplTestContextConfiguration
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[101,22] cannot find symbol
+[ERROR]   symbol:   method gerarAssociado(java.lang.String,java.lang.String)
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[102,22] cannot find symbol
+[ERROR]   symbol:   method gerarAssociado(java.lang.String,java.lang.String)
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[105,17] cannot find symbol
+[ERROR]   symbol:   method gerarPauta()
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[127,9] cannot find symbol
+[ERROR]   symbol:   class Pauta
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[127,27] cannot find symbol
+[ERROR]   symbol:   method gerarPauta()
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[135,55] cannot find symbol
+[ERROR]   symbol:   method getIdAssociado()
+[ERROR]   location: variable createdSessao of type space.lasf.sessoes.domain.model.Sessao
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[139,71] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[151,76] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[162,71] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[175,64] incompatible types: java.util.List<space.lasf.sessoes.dto.SessaoDto> cannot be converted to java.util.List<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[191,75] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[207,75] incompatible types: space.lasf.sessoes.dto.SessaoDto cannot be converted to java.util.Optional<space.lasf.sessoes.domain.model.Sessao>
+[ERROR] /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes/src/test/java/space/lasf/sessoes/service/impl/SessaoServiceImplIntegrationTest.java:[220,97] cannot find symbol
+[ERROR]   symbol:   method gerarPauta()
+[ERROR]   location: class space.lasf.sessoes.service.impl.SessaoServiceImplIntegrationTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+env: db: No such file or directory
+nohup: /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-se: No such file or directory
+nohup: /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes: Permission denied
+nohup: /Users/leoalmeida/Documents/Projetos/desafios/space-votes/ms-sessoes: Permission denied
