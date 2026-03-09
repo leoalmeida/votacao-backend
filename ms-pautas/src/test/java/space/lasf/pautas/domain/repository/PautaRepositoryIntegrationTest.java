@@ -1,65 +1,57 @@
 package space.lasf.pautas.domain.repository;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import java.util.Arrays;
-import java.util.Optional;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
-import org.springframework.test.context.ActiveProfiles;
-
-import space.lasf.pautas.basicos.TestFactory;
 import space.lasf.pautas.domain.model.Pauta;
 
+@Testcontainers(disabledWithoutDocker = true)
+@DataJpaTest(properties = {
+        "spring.flyway.enabled=false",
+        "spring.jpa.hibernate.ddl-auto=create-drop"
+})
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@Tag("docker")
+class PautaRepositoryIntegrationTest {
 
-//@ExtendWith(SpringExtension.class)
-@DataMongoTest
-@ActiveProfiles("test")
-public class PautaRepositoryIntegrationTest extends TestFactory{
+    @Container
+    static final MySQLContainer<?> MYSQL = new MySQLContainer<>("mysql:8.4.4");
+
+    @DynamicPropertySource
+    static void mysqlProps(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", MYSQL::getJdbcUrl);
+        registry.add("spring.datasource.username", MYSQL::getUsername);
+        registry.add("spring.datasource.password", MYSQL::getPassword);
+    }
 
     @Autowired
-    private PautaRepository pautaRepository;
-
-    Pauta pauta1;
-    Pauta pauta2;
-
-    @BeforeEach
-    public void setUp() {
-        // Cria pautas para testes básicos
-        pauta1 = gerarPauta();
-        pauta2 = gerarPauta();
-        pautaRepository.saveAll(Arrays.asList(pauta1,pauta2));
-    }
-
-    
-    @AfterEach
-    void clean() {
-        pautaRepository.delete(pauta1);
-        pautaRepository.delete(pauta2);
-    }
+    private PautaRepository repository;
 
     @Test
-    public void shouldBeNotEmpty() {
-        assertTrue(pautaRepository.findAll().size()>0);
-    }
+    void deveSalvarEPesquisarPorNome() {
+        Pauta pauta = Pauta.builder()
+                .nome("Pauta Teste")
+                .descricao("Descricao")
+                .idAssociado(1L)
+                .build();
+        repository.save(pauta);
 
-    @Test
-    void dadoPauta_quandoCriarPauta_entaoPautaPersistido() {
-        // given
-        Pauta pauta1 = gerarPauta();
+        List<Pauta> result = repository.searchByNome("Pauta Teste");
 
-        // when
-        pautaRepository.save(pauta1);
-
-        // then
-        Optional<Pauta> retrievedPauta = pautaRepository.findById(pauta1.getId());
-        assertTrue(retrievedPauta.isPresent());
-        assertEquals(pauta1.getId(), retrievedPauta.get().getId());
-        assertEquals(pauta1.getNome(), retrievedPauta.get().getNome());
+        assertFalse(result.isEmpty());
+        assertEquals("Pauta Teste", result.get(0).getNome());
     }
 }

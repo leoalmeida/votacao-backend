@@ -3,159 +3,112 @@ package space.lasf.associados.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.times;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.modelmapper.ModelMapper;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.util.ReflectionTestUtils;
 
-import space.lasf.associados.basicos.TestFactory;
+import jakarta.persistence.EntityNotFoundException;
 import space.lasf.associados.core.util.ObjectsValidator;
 import space.lasf.associados.domain.model.Associado;
 import space.lasf.associados.domain.repository.AssociadoRepository;
 import space.lasf.associados.dto.AssociadoDto;
+import space.lasf.associados.dto.VotoDto;
+import space.lasf.associados.http.SessaoClient;
 import space.lasf.associados.service.impl.AssociadoServiceImpl;
 
-@ExtendWith(SpringExtension.class)
-public class AssociadoServiceTest extends TestFactory{
+@ExtendWith(MockitoExtension.class)
+class AssociadoServiceTest {
 
     @Mock
     private AssociadoRepository repository;
 
     @Mock
-    private ObjectsValidator<AssociadoDto> validator;
-    
+    private ObjectsValidator<Associado> validator;
+
+    @Mock
+    private ModelMapper modelMapper;
+
+    @Mock
+    private SessaoClient sessaoClient;
+
     @InjectMocks
     private AssociadoServiceImpl service;
 
-    AssociadoDto associadoDto;
-    AssociadoDto associadoDto2;
-    AssociadoDto associadoDto3;
-    AssociadoDto pedido;
-    List<AssociadoDto> associadosAssets;
-
-    @BeforeEach
-    public void setUp() {
-        associadoDto = gerarAssociadoDto("João Silva","(11) 99999-1111");
-        associadoDto2 = gerarAssociadoDto("Maria Santos","(11) 99999-2222");
-        associadoDto3 = gerarAssociadoDto("Pedro Oliveira","(11) 99999-3333");
-        associadosAssets = Arrays.asList(associadoDto,associadoDto2,associadoDto3);
-    }
-
-    
-    @Test
-    public void testeCriacaoDeNovoAssociado() {
-        // Configura os mocks
-        doReturn(associadoDto).when(validator)
-            .validate(associadoDto);
-        doReturn(associadoDto).when(repository).save(any(Associado.class));
-        
-        // Executa o método
-        AssociadoDto createdAssociadoDto = service.criarAssociado(associadoDto);
-
-        // Verifica o resultado
-        assertNotNull(createdAssociadoDto, "AssociadoDto criado não deveria ser nulo");
-        assertEquals(associadoDto.getId(), createdAssociadoDto.getId(), "AssociadoDto deveria ter o id correto");
-
-        // Verifica se os métodos foram chamados
-        verify(repository, atLeastOnce()).save(any(Associado.class));
+    private void wireAutowiredFields() {
+        ReflectionTestUtils.setField(service, "modelMapper", modelMapper);
+        ReflectionTestUtils.setField(service, "sessaoClient", sessaoClient);
     }
 
     @Test
-    public void testeCriacaoDeAssociadoComEmailInvalido() {
-        associadoDto.setEmail("email-invalido");
+    void criarAssociadoDeveSalvarQuandoEmailValido() {
+        wireAutowiredFields();
+        AssociadoDto input = AssociadoDto.builder().nome("Joao").email("joao@example.com").build();
+        Associado entity = Associado.builder().id(10L).nome("Joao").email("joao@example.com").build();
+        Associado saved = Associado.builder().id(11L).nome("Joao").email("joao@example.com").build();
+        AssociadoDto output = AssociadoDto.builder().id(11L).nome("Joao").email("joao@example.com").build();
 
-        // Chamada ao serviço que deve lançar uma IllegalArgumentException
-        Throwable  throwable  = 
-            assertThrows(IllegalArgumentException.class, () ->{
-                // Executa o método - deveria falhar para associados com email inválido
-                service.criarAssociado(associadoDto);
-        
-                // Uma exceção deveria ter sido lançada ao salvar um AssociadoDto inválido
-                assertTrue(true, "Exception não lançada ao salvar AssociadoDto com email inválido");
-            });
-        // O teste deve falhar caso não seja gerada uma exception
-        assertEquals(IllegalArgumentException.class, throwable.getClass(), 
-                            "Exception gerada sem relação ao email do AssociadoDto Inválido:" + throwable.getMessage());
-        assertEquals("Email inválido: " + associadoDto.getEmail(), throwable.getMessage());
+        when(modelMapper.map(input, Associado.class)).thenReturn(entity);
+        when(validator.validate(entity)).thenReturn(entity);
+        when(repository.save(entity)).thenReturn(saved);
+        when(modelMapper.map(saved, AssociadoDto.class)).thenReturn(output);
+
+        AssociadoDto result = service.criarAssociado(input);
+
+        assertNotNull(result);
+        assertEquals(11L, result.getId());
+        verify(repository).save(entity);
     }
 
     @Test
-    public void testeBuscarAssociadoPorIdAssociado() {
-         // Configura os mocks
-        doReturn(Optional.of(associadoDto)).when(repository).findById(associadoDto.getId());
+    void criarAssociadoDeveLancarErroQuandoEmailInvalido() {
+        wireAutowiredFields();
+        AssociadoDto input = AssociadoDto.builder().nome("Joao").email("email-invalido").build();
+        Associado entity = Associado.builder().nome("Joao").email("email-invalido").build();
+        when(modelMapper.map(input, Associado.class)).thenReturn(entity);
 
-        // Executa o método
-        AssociadoDto foundAssociadoDto = service.buscarAssociadoPorId(associadoDto.getId());
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> service.criarAssociado(input));
 
-        // Verifica o resultado
-        assertNotNull(foundAssociadoDto,"AssociadoDto deveria ser encontrado");
-        assertEquals(associadoDto.getId(), foundAssociadoDto.getId(),
-                "AssociadoDto encontrado deveria ter o ID correto");
-
-        // Verifica se o método foi chamado
-        verify(repository, times(1)).findById(associadoDto.getId());
-    }
-
-    
-    @Test
-    public void testeBuscarAssociadoPorEmail() {
-        // Configura o mock
-        doReturn(Optional.of(associadoDto)).when(repository).findByEmail(associadoDto.getEmail());
-
-        // Executa o método
-        AssociadoDto foundAssociado = service.buscarAssociadoPorEmail(associadoDto.getEmail());
-
-        // Verifica o resultado
-        assertNotNull(foundAssociado,"AssociadoDto deveria ser encontrado");
-        assertEquals(associadoDto.getEmail(), foundAssociado.getEmail(),"AssociadoDto encontrado deveria ter o email correto");
-
-        // Verifica se os métodos foram chamados
-        verify(repository, times(1)).findByEmail(associadoDto.getEmail());
+        assertEquals("Email inválido: email-invalido", ex.getMessage());
+        verify(repository, never()).save(any(Associado.class));
     }
 
     @Test
-    public void testeBuscarAssociadoPorNome() {
-        // Configura o mock
-        doReturn(Arrays.asList(associadoDto)).when(repository).findByNomeContaining(associadoDto.getNome());
+    void buscarAssociadoPorIdDeveAnexarVotos() {
+        wireAutowiredFields();
+        Long associadoId = 22L;
+        Associado entity = Associado.builder().id(associadoId).nome("Maria").email("maria@example.com").build();
+        AssociadoDto dto = AssociadoDto.builder().id(associadoId).nome("Maria").email("maria@example.com").build();
+        Map<Long, VotoDto> votos = Map.of(100L, VotoDto.builder().id(1L).idAssociado(associadoId).idSessao(100L).build());
 
-        // Executa o método
-        List<AssociadoDto> foundListAssociados = service.buscarAssociadosPorNome(associadoDto.getNome());
+        when(repository.findById(associadoId)).thenReturn(Optional.of(entity));
+        when(modelMapper.map(entity, AssociadoDto.class)).thenReturn(dto);
+        when(sessaoClient.pesquisarVotosAssociado(associadoId)).thenReturn(votos);
 
-        // Verifica o resultado
-        assertEquals(1,foundListAssociados.size(),"Apenas 1 AssociadoDto deveria ser encontrado");
-        assertEquals(associadoDto.getNome(), foundListAssociados.get(0).getNome(),"AssociadoDto encontrado deveria ter o nome correto");
+        AssociadoDto result = service.buscarAssociadoPorId(associadoId);
 
-        // Verifica se os métodos foram chamados
-        verify(repository, times(1)).findByNomeContaining(associadoDto.getNome());
+        assertEquals(1, result.getVotacaoAssociado().size());
+        assertEquals(100L, result.getVotacaoAssociado().keySet().iterator().next());
     }
 
     @Test
-    public void testeBucarTodosOsAssociados() {
-        // Configura o mock
-        doReturn(associadosAssets).when(repository).findAll();
+    void removerAssociadoDeveLancarErroQuandoNaoEncontrado() {
+        wireAutowiredFields();
+        Long associadoId = 999L;
+        when(repository.findById(eq(associadoId))).thenReturn(Optional.empty());
 
-        // Executa o método
-        List<AssociadoDto> associados = service.buscarTodosAssociados();
-
-        // Verifica o resultado
-        assertEquals( associadosAssets.size(), associados.size(), 
-                "Deveria encontrar a quantidade correta de associados");
-
-        // Verifica se os métodos foram chamados
-        verify(repository, times(1)).findAll();
+        assertThrows(EntityNotFoundException.class, () -> service.removerAssociado(associadoId));
     }
-
 }
