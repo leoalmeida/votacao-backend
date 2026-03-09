@@ -34,7 +34,11 @@ class DiscoveryApplicationTests {
 	@Test
 	void contextLoadsSemServidorWeb() {
 		assertDoesNotThrow(() -> new SpringApplicationBuilder(DiscoveryApplication.class)
-				.properties("spring.main.web-application-type=none")
+				.properties(
+						"spring.main.web-application-type=servlet",
+						"server.port=0",
+						"eureka.client.register-with-eureka=false",
+						"eureka.client.fetch-registry=false")
 				.run()
 				.close());
 	}
