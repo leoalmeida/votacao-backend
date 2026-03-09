@@ -21,11 +21,12 @@ public class SessaoDto {
     private Long id;
     private SessaoStatus status;
     private String resultado;
+
     @Singular(value = "totalizadores")
     List<TotalizadorOpcao> totalizadores;
+
     private LocalDateTime dataFimSessao;
     private LocalDateTime dataInicioSessao;
     private PautaDto pautaDto;
     private VotoDto votoAssociado;
-
 }

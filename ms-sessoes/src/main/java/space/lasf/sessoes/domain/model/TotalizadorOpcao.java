@@ -1,6 +1,5 @@
 package space.lasf.sessoes.domain.model;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,13 +22,14 @@ import lombok.Setter;
 @Builder
 public class TotalizadorOpcao {
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToOne(optional=false)
+    @ManyToOne(optional = false)
     private Sessao sessao;
 
     @Column(name = "opcao")
     private VotoOpcao opcaoVoto;
+
     private Long quantidade;
 }

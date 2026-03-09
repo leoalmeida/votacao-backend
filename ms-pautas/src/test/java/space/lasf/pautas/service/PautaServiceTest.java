@@ -1,23 +1,20 @@
 package space.lasf.pautas.service;
 
-import java.util.Optional;
-
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.modelmapper.ModelMapper;
+import java.util.Optional;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
+import org.modelmapper.ModelMapper;
 import space.lasf.pautas.core.exception.BusinessException;
 import space.lasf.pautas.core.util.ObjectsValidator;
 import space.lasf.pautas.domain.model.Pauta;
@@ -47,11 +44,17 @@ class PautaServiceTest {
 
     @Test
     void testeCriarPautaComSessao() {
-        PautaDto input = PautaDto.builder().nome("Pauta 1").descricao("Descricao").build();
+        PautaDto input =
+                PautaDto.builder().nome("Pauta 1").descricao("Descricao").build();
         Pauta entityIn = Pauta.builder().nome("Pauta 1").descricao("Descricao").build();
-        Pauta entityOut = Pauta.builder().id(10L).nome("Pauta 1").descricao("Descricao").build();
+        Pauta entityOut =
+                Pauta.builder().id(10L).nome("Pauta 1").descricao("Descricao").build();
         SessaoDto sessao = SessaoDto.builder().id(88L).build();
-        PautaDto dtoOut = PautaDto.builder().id(10L).nome("Pauta 1").descricao("Descricao").build();
+        PautaDto dtoOut = PautaDto.builder()
+                .id(10L)
+                .nome("Pauta 1")
+                .descricao("Descricao")
+                .build();
 
         when(modelMapper.map(input, Pauta.class)).thenReturn(entityIn);
         when(validator.validate(entityIn)).thenReturn(entityIn);

@@ -22,5 +22,4 @@ public class SessaoDto {
     private LocalDateTime dataFimSessao;
     private LocalDateTime dataInicioSessao;
     private VotoDto votoAssociado;
-
 }

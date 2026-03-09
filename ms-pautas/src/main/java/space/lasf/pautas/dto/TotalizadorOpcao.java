@@ -1,9 +1,7 @@
 package space.lasf.pautas.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-
 
 @AllArgsConstructor
 @NoArgsConstructor

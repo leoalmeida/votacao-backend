@@ -19,5 +19,4 @@ public class PautaDto {
     private String categoria;
     private Long idAssociado;
     private SessaoDto sessaoDto;
-
 }

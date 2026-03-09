@@ -8,19 +8,17 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.modelmapper.ModelMapper;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import jakarta.persistence.EntityNotFoundException;
+import org.modelmapper.ModelMapper;
 import space.lasf.sessoes.core.exception.BusinessException;
 import space.lasf.sessoes.core.util.ObjectsValidator;
 import space.lasf.sessoes.domain.model.Voto;
@@ -49,10 +47,25 @@ class VotoServiceImplTest {
 
     @Test
     void criarVotoDeveSalvarQuandoSessaoAberta() {
-        VotoDto input = VotoDto.builder().idAssociado(1L).idSessao(2L).opcao(VotoOpcao.SIM).build();
-        Voto entity = Voto.builder().idAssociado(1L).idSessao(2L).opcao(VotoOpcao.SIM).build();
-        Voto saved = Voto.builder().id(9L).idAssociado(1L).idSessao(2L).opcao(VotoOpcao.SIM).build();
-        VotoDto output = VotoDto.builder().id(9L).idAssociado(1L).idSessao(2L).opcao(VotoOpcao.SIM).build();
+        VotoDto input = VotoDto.builder()
+                .idAssociado(1L)
+                .idSessao(2L)
+                .opcao(VotoOpcao.SIM)
+                .build();
+        Voto entity =
+                Voto.builder().idAssociado(1L).idSessao(2L).opcao(VotoOpcao.SIM).build();
+        Voto saved = Voto.builder()
+                .id(9L)
+                .idAssociado(1L)
+                .idSessao(2L)
+                .opcao(VotoOpcao.SIM)
+                .build();
+        VotoDto output = VotoDto.builder()
+                .id(9L)
+                .idAssociado(1L)
+                .idSessao(2L)
+                .opcao(VotoOpcao.SIM)
+                .build();
 
         when(modelMapper.map(input, Voto.class)).thenReturn(entity);
         when(validadorDeVoto.validate(entity)).thenReturn(entity);
@@ -69,8 +82,13 @@ class VotoServiceImplTest {
 
     @Test
     void criarVotoDeveLancarErroQuandoSessaoFechada() {
-        VotoDto input = VotoDto.builder().idAssociado(1L).idSessao(2L).opcao(VotoOpcao.NAO).build();
-        Voto entity = Voto.builder().idAssociado(1L).idSessao(2L).opcao(VotoOpcao.NAO).build();
+        VotoDto input = VotoDto.builder()
+                .idAssociado(1L)
+                .idSessao(2L)
+                .opcao(VotoOpcao.NAO)
+                .build();
+        Voto entity =
+                Voto.builder().idAssociado(1L).idSessao(2L).opcao(VotoOpcao.NAO).build();
 
         when(modelMapper.map(input, Voto.class)).thenReturn(entity);
         when(validadorDeVoto.validate(entity)).thenReturn(entity);
@@ -82,8 +100,18 @@ class VotoServiceImplTest {
 
     @Test
     void buscarVotoPorIdDeveRetornarDto() {
-        Voto entity = Voto.builder().id(7L).idAssociado(1L).idSessao(2L).opcao(VotoOpcao.SIM).build();
-        VotoDto dto = VotoDto.builder().id(7L).idAssociado(1L).idSessao(2L).opcao(VotoOpcao.SIM).build();
+        Voto entity = Voto.builder()
+                .id(7L)
+                .idAssociado(1L)
+                .idSessao(2L)
+                .opcao(VotoOpcao.SIM)
+                .build();
+        VotoDto dto = VotoDto.builder()
+                .id(7L)
+                .idAssociado(1L)
+                .idSessao(2L)
+                .opcao(VotoOpcao.SIM)
+                .build();
 
         when(repository.findById(7L)).thenReturn(Optional.of(entity));
         when(modelMapper.map(entity, VotoDto.class)).thenReturn(dto);
@@ -98,8 +126,10 @@ class VotoServiceImplTest {
         Voto voto1 = Voto.builder().id(1L).idSessao(10L).build();
         Voto voto2 = Voto.builder().id(2L).idSessao(10L).build();
         when(repository.findVotosByIdSessao(10L)).thenReturn(List.of(voto1, voto2));
-        when(modelMapper.map(voto1, VotoDto.class)).thenReturn(VotoDto.builder().id(1L).idSessao(10L).build());
-        when(modelMapper.map(voto2, VotoDto.class)).thenReturn(VotoDto.builder().id(2L).idSessao(10L).build());
+        when(modelMapper.map(voto1, VotoDto.class))
+                .thenReturn(VotoDto.builder().id(1L).idSessao(10L).build());
+        when(modelMapper.map(voto2, VotoDto.class))
+                .thenReturn(VotoDto.builder().id(2L).idSessao(10L).build());
 
         List<VotoDto> result = service.buscarVotosSessao(10L);
 

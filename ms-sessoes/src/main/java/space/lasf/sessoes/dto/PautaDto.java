@@ -17,5 +17,4 @@ public class PautaDto {
     private String nome;
     private String descricao;
     private String categoria;
-
 }

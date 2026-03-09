@@ -1,6 +1,5 @@
 package space.lasf.sessoes.controller;
 
-
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import space.lasf.sessoes.domain.model.SessaoStatus;
 import space.lasf.sessoes.dto.PautaDto;
 import space.lasf.sessoes.dto.SessaoDto;
@@ -32,7 +30,6 @@ public class SessaoController {
     @Autowired
     private SessaoService sessaoService;
 
-
     @GetMapping
     public ResponseEntity<List<SessaoDto>> buscarTodasSessoes() {
         List<SessaoDto> sessoes = sessaoService.buscarTodasSessoes();
@@ -40,53 +37,49 @@ public class SessaoController {
     }
 
     @GetMapping("/{idSessao}")
-    public ResponseEntity<SessaoDto> buscarSessaoPorId(
-                                            @PathVariable Long idSessao) {
+    public ResponseEntity<SessaoDto> buscarSessaoPorId(@PathVariable final Long idSessao) {
         return ResponseEntity.ok(sessaoService.buscarSessaoPorId(idSessao));
     }
 
     @GetMapping("/{idSessao}/associado/{idAssociado}")
-    public ResponseEntity<SessaoDto> buscarSessaoPorId(
-                                            @PathVariable Long idSessao,
-                                            @PathVariable Long idAssociado) {
-        return ResponseEntity.ok(sessaoService.buscarSessaoPorId(idSessao,idAssociado));
+        public ResponseEntity<SessaoDto> buscarSessaoPorId(
+            @PathVariable final Long idSessao, @PathVariable final Long idAssociado) {
+        return ResponseEntity.ok(sessaoService.buscarSessaoPorId(idSessao, idAssociado));
     }
 
     @PostMapping
-    public ResponseEntity<SessaoDto> criarSessao(@RequestBody PautaDto pautaDto, 
-                                                @RequestParam boolean iniciarSessao) {
-        
+        public ResponseEntity<SessaoDto> criarSessao(
+            @RequestBody final PautaDto pautaDto, @RequestParam final boolean iniciarSessao) {
 
         SessaoDto sessaoCriada = sessaoService.criarSessao(pautaDto, iniciarSessao);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(sessaoCriada);
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(sessaoCriada);
     }
 
     @PostMapping("/{idSessao}/iniciar")
-    public ResponseEntity<SessaoDto> iniciarSessao(@PathVariable Long idSessao) {
+    public ResponseEntity<SessaoDto> iniciarSessao(@PathVariable final Long idSessao) {
         return ResponseEntity.ok(sessaoService.iniciarSessao(idSessao));
     }
 
     @PostMapping("/{idSessao}/finalizar")
-    public ResponseEntity<SessaoDto> finalizarSessao(@PathVariable Long idSessao) {
+    public ResponseEntity<SessaoDto> finalizarSessao(@PathVariable final Long idSessao) {
         return ResponseEntity.ok(sessaoService.finalizarSessao(idSessao));
     }
 
     @PostMapping("/{idSessao}/cancelar")
-    public ResponseEntity<Void> cancelarSessao(@PathVariable Long idSessao) {
+    public ResponseEntity<Void> cancelarSessao(@PathVariable final Long idSessao) {
         sessaoService.cancelarSessao(idSessao);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/{idSessao}/validar")
-    public ResponseEntity<Map<Long, Boolean>> validarSessao(@PathVariable Long idSessao) {
+    public ResponseEntity<Map<Long, Boolean>> validarSessao(@PathVariable final Long idSessao) {
         SessaoDto dto = sessaoService.buscarSessaoPorId(idSessao);
-        
+
         boolean isValid = SessaoStatus.OPEN_TO_VOTE.equals(dto.getStatus());
 
         return ResponseEntity.ok(Map.of(idSessao, isValid));
     }
-
 }

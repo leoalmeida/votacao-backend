@@ -12,6 +12,11 @@
     <name>votacao-backend-parent</name>
     <description>Aggregator for votacao-backend microservices and infrastructure components</description>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
     <modules>
         <module>service-discovery</module>
         <module>api-gateway</module>

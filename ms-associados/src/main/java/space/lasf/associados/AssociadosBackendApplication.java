@@ -10,8 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableFeignClients
 public class AssociadosBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AssociadosBackendApplication.class, args);
-	}
-
+    public static void main(final String[] args) {
+        SpringApplication.run(AssociadosBackendApplication.class, args);
+    }
 }

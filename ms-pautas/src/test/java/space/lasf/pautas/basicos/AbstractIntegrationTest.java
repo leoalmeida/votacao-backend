@@ -1,5 +1,7 @@
 package space.lasf.pautas.basicos;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,8 +21,6 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @TestInstance(Lifecycle.PER_CLASS)
 @AutoConfigureMockMvc
 @EnableConfigurationProperties
@@ -31,15 +31,16 @@ public abstract class AbstractIntegrationTest extends TestFactory {
 
     @Autowired
     protected MockMvc mockMvc;
-    protected final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules().configure(
-                    SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+
+    protected final ObjectMapper mapper = new ObjectMapper()
+            .findAndRegisterModules()
+            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     protected <T> T performPostRequest(String path, Object object, Class<T> responseType, ResultMatcher expectedStatus)
             throws Exception {
-        MvcResult mvcResult = getResultActions(path, object)
-                .andExpect(expectedStatus)
-                .andReturn();
+        MvcResult mvcResult =
+                getResultActions(path, object).andExpect(expectedStatus).andReturn();
         return convertStringToClass(mvcResult.getResponse().getContentAsString(), responseType);
     }
 

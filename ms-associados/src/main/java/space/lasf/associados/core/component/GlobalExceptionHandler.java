@@ -2,10 +2,10 @@ package space.lasf.associados.core.component;
 
 import jakarta.annotation.Resource;
 import jakarta.persistence.EntityNotFoundException;
-import space.lasf.associados.core.exception.BusinessException;
-import space.lasf.associados.core.exception.ControllerException;
-import space.lasf.associados.core.util.ResponseError;
-
+import java.net.URI;
+import java.time.Instant;
+import java.util.Locale;
+import java.util.NoSuchElementException;
 import org.springframework.cglib.proxy.UndeclaredThrowableException;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
@@ -17,25 +17,23 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import java.net.URI;
-import java.time.Instant;
-import java.util.Locale;
-import java.util.NoSuchElementException;
+import space.lasf.associados.core.exception.BusinessException;
+import space.lasf.associados.core.exception.ControllerException;
+import space.lasf.associados.core.util.ResponseError;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-    
+
     @Resource
     private MessageSource messageSource;
-    
-    private HttpHeaders headers(){
+
+    private HttpHeaders headers() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         return headers;
     }
 
-    private ResponseError responseError(String message,HttpStatus statusCode){
+    private ResponseError responseError(final String message, final HttpStatus statusCode) {
         ResponseError responseError = new ResponseError();
         responseError.setStatus("error");
         responseError.setError(message);
@@ -44,45 +42,48 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    private ResponseEntity<Object> handleGeneral(Exception e, WebRequest request) {
+    private ResponseEntity<Object> handleGeneral(final Exception e, final WebRequest request) {
         if (e.getClass().isAssignableFrom(UndeclaredThrowableException.class)) {
             UndeclaredThrowableException exception = (UndeclaredThrowableException) e;
             return handleBusinessException((BusinessException) exception.getUndeclaredThrowable(), request);
         } else {
-            String message = messageSource.getMessage("error.server", new Object[]{e.getMessage()}, Locale.getDefault());
-            ResponseError error = responseError(message,HttpStatus.INTERNAL_SERVER_ERROR);
+            String message =
+                    messageSource.getMessage("error.server", new Object[] {e.getMessage()}, Locale.getDefault());
+            ResponseError error = responseError(message, HttpStatus.INTERNAL_SERVER_ERROR);
             return handleExceptionInternal(e, error, headers(), HttpStatus.INTERNAL_SERVER_ERROR, request);
         }
     }
 
     @ExceptionHandler({EntityNotFoundException.class})
-    private ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException e, WebRequest request) {
-        ResponseError error = responseError(e.getMessage(),HttpStatus.NOT_FOUND);
+        private ResponseEntity<Object> handleEntityNotFoundException(
+            final EntityNotFoundException e, final WebRequest request) {
+        ResponseError error = responseError(e.getMessage(), HttpStatus.NOT_FOUND);
         return handleExceptionInternal(e, error, headers(), HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler({BusinessException.class})
-    private ResponseEntity<Object> handleBusinessException(BusinessException e, WebRequest request) {
-        ResponseError error = responseError(e.getMessage(),HttpStatus.UNPROCESSABLE_ENTITY);
+    private ResponseEntity<Object> handleBusinessException(final BusinessException e, final WebRequest request) {
+        ResponseError error = responseError(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
         return handleExceptionInternal(e, error, headers(), HttpStatus.UNPROCESSABLE_ENTITY, request);
     }
 
     @ExceptionHandler({NoSuchElementException.class})
-    private ResponseEntity<Object> handleNotFoundException(NoSuchElementException e, WebRequest request) {
-        ResponseError error = responseError(e.getMessage(),HttpStatus.NOT_FOUND);
+    private ResponseEntity<Object> handleNotFoundException(final NoSuchElementException e, final WebRequest request) {
+        ResponseError error = responseError(e.getMessage(), HttpStatus.NOT_FOUND);
         return handleExceptionInternal(e, error, headers(), HttpStatus.NOT_FOUND, request);
     }
-    
+
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException e, WebRequest request) {
-        ResponseError error = responseError(e.getMessage(),HttpStatus.BAD_REQUEST);
+        public ResponseEntity<Object> handleIllegalArgumentException(
+            final IllegalArgumentException e, final WebRequest request) {
+        ResponseError error = responseError(e.getMessage(), HttpStatus.BAD_REQUEST);
         return handleExceptionInternal(e, error, headers(), HttpStatus.BAD_REQUEST, request);
     }
 
     @ExceptionHandler(value = {ControllerException.class})
-    public ResponseEntity<ProblemDetail> handleIllegalStateException(ControllerException ex) {
-        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR,
-                ex.getMessage()); 
+    public ResponseEntity<ProblemDetail> handleIllegalStateException(final ControllerException ex) {
+        ProblemDetail problemDetail =
+                ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
         problemDetail.setTitle("Controller Exception");
         problemDetail.setDetail(ex.getErrorMessage());
         problemDetail.setType(URI.create("http://localhost:8000/errors/500"));

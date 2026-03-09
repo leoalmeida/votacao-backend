@@ -9,18 +9,16 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import jakarta.persistence.EntityNotFoundException;
 import java.util.Map;
 import java.util.Optional;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.modelmapper.ModelMapper;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 import org.springframework.test.util.ReflectionTestUtils;
-
-import jakarta.persistence.EntityNotFoundException;
 import space.lasf.associados.core.util.ObjectsValidator;
 import space.lasf.associados.domain.model.Associado;
 import space.lasf.associados.domain.repository.AssociadoRepository;
@@ -55,10 +53,23 @@ class AssociadoServiceTest {
     @Test
     void criarAssociadoDeveSalvarQuandoEmailValido() {
         wireAutowiredFields();
-        AssociadoDto input = AssociadoDto.builder().nome("Joao").email("joao@example.com").build();
-        Associado entity = Associado.builder().id(10L).nome("Joao").email("joao@example.com").build();
-        Associado saved = Associado.builder().id(11L).nome("Joao").email("joao@example.com").build();
-        AssociadoDto output = AssociadoDto.builder().id(11L).nome("Joao").email("joao@example.com").build();
+        AssociadoDto input =
+                AssociadoDto.builder().nome("Joao").email("joao@example.com").build();
+        Associado entity = Associado.builder()
+                .id(10L)
+                .nome("Joao")
+                .email("joao@example.com")
+                .build();
+        Associado saved = Associado.builder()
+                .id(11L)
+                .nome("Joao")
+                .email("joao@example.com")
+                .build();
+        AssociadoDto output = AssociadoDto.builder()
+                .id(11L)
+                .nome("Joao")
+                .email("joao@example.com")
+                .build();
 
         when(modelMapper.map(input, Associado.class)).thenReturn(entity);
         when(validator.validate(entity)).thenReturn(entity);
@@ -75,8 +86,10 @@ class AssociadoServiceTest {
     @Test
     void criarAssociadoDeveLancarErroQuandoEmailInvalido() {
         wireAutowiredFields();
-        AssociadoDto input = AssociadoDto.builder().nome("Joao").email("email-invalido").build();
-        Associado entity = Associado.builder().nome("Joao").email("email-invalido").build();
+        AssociadoDto input =
+                AssociadoDto.builder().nome("Joao").email("email-invalido").build();
+        Associado entity =
+                Associado.builder().nome("Joao").email("email-invalido").build();
         when(modelMapper.map(input, Associado.class)).thenReturn(entity);
 
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> service.criarAssociado(input));
@@ -89,9 +102,19 @@ class AssociadoServiceTest {
     void buscarAssociadoPorIdDeveAnexarVotos() {
         wireAutowiredFields();
         Long associadoId = 22L;
-        Associado entity = Associado.builder().id(associadoId).nome("Maria").email("maria@example.com").build();
-        AssociadoDto dto = AssociadoDto.builder().id(associadoId).nome("Maria").email("maria@example.com").build();
-        Map<Long, VotoDto> votos = Map.of(100L, VotoDto.builder().id(1L).idAssociado(associadoId).idSessao(100L).build());
+        Associado entity = Associado.builder()
+                .id(associadoId)
+                .nome("Maria")
+                .email("maria@example.com")
+                .build();
+        AssociadoDto dto = AssociadoDto.builder()
+                .id(associadoId)
+                .nome("Maria")
+                .email("maria@example.com")
+                .build();
+        Map<Long, VotoDto> votos = Map.of(
+                100L,
+                VotoDto.builder().id(1L).idAssociado(associadoId).idSessao(100L).build());
 
         when(repository.findById(associadoId)).thenReturn(Optional.of(entity));
         when(modelMapper.map(entity, AssociadoDto.class)).thenReturn(dto);

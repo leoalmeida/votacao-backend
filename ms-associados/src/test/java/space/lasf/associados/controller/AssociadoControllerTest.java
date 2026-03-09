@@ -11,17 +11,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import space.lasf.associados.dto.AssociadoDto;
 import space.lasf.associados.service.AssociadoService;
 
@@ -39,8 +36,16 @@ class AssociadoControllerTest {
 
     @Test
     void buscarAssociadosDeveRetornarLista() throws Exception {
-        AssociadoDto a = AssociadoDto.builder().id(1L).nome("Joao").email("joao@example.com").build();
-        AssociadoDto b = AssociadoDto.builder().id(2L).nome("Maria").email("maria@example.com").build();
+        AssociadoDto a = AssociadoDto.builder()
+                .id(1L)
+                .nome("Joao")
+                .email("joao@example.com")
+                .build();
+        AssociadoDto b = AssociadoDto.builder()
+                .id(2L)
+                .nome("Maria")
+                .email("maria@example.com")
+                .build();
         when(associadoService.buscarTodosAssociados()).thenReturn(List.of(a, b));
 
         mockMvc.perform(get("/v1/associados"))
@@ -52,8 +57,17 @@ class AssociadoControllerTest {
 
     @Test
     void criarAssociadoDeveRetornarCreated() throws Exception {
-        AssociadoDto input = AssociadoDto.builder().nome("Novo").email("novo@example.com").telefone("(11)99999-9999").build();
-        AssociadoDto output = AssociadoDto.builder().id(10L).nome("Novo").email("novo@example.com").telefone("(11)99999-9999").build();
+        AssociadoDto input = AssociadoDto.builder()
+                .nome("Novo")
+                .email("novo@example.com")
+                .telefone("(11)99999-9999")
+                .build();
+        AssociadoDto output = AssociadoDto.builder()
+                .id(10L)
+                .nome("Novo")
+                .email("novo@example.com")
+                .telefone("(11)99999-9999")
+                .build();
         when(associadoService.criarAssociado(any(AssociadoDto.class))).thenReturn(output);
 
         mockMvc.perform(post("/v1/associados")
@@ -76,7 +90,6 @@ class AssociadoControllerTest {
     void removerAssociadoDeveRetornarNoContent() throws Exception {
         doNothing().when(associadoService).removerAssociado(3L);
 
-        mockMvc.perform(delete("/v1/associados/3"))
-                .andExpect(status().isNoContent());
+        mockMvc.perform(delete("/v1/associados/3")).andExpect(status().isNoContent());
     }
 }

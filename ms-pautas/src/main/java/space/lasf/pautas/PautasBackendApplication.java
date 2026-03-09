@@ -10,8 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableFeignClients
 public class PautasBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PautasBackendApplication.class, args);
-	}
-
+    public static void main(final String[] args) {
+        SpringApplication.run(PautasBackendApplication.class, args);
+    }
 }

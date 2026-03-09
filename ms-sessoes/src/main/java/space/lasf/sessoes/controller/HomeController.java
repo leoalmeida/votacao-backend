@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-	@RequestMapping("/")
-	public @ResponseBody String greeting() {
-		return "Hello, ms-sessoes is running!";
-	}
-
+    @RequestMapping("/")
+    public @ResponseBody String greeting() {
+        return "Hello, ms-sessoes is running!";
+    }
 }

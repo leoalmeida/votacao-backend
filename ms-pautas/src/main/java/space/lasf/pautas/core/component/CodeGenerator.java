@@ -1,10 +1,9 @@
 package space.lasf.pautas.core.component;
 
-import org.springframework.stereotype.Component;
-
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Random;
+import org.springframework.stereotype.Component;
 
 @Component
 public class CodeGenerator {
@@ -16,7 +15,7 @@ public class CodeGenerator {
         return generateRandomCode(CODE_LENGTH);
     }
 
-    public static String generateRandomCode(Integer size) {
+    public static String generateRandomCode(final Integer size) {
         StringBuilder codeBuilder = new StringBuilder();
         try {
             SecureRandom random = SecureRandom.getInstanceStrong();

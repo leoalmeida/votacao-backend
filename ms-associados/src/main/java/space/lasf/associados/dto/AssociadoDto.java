@@ -1,7 +1,6 @@
 package space.lasf.associados.dto;
 
 import java.util.Map;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,6 +18,5 @@ public class AssociadoDto {
     private String email;
     private String nome;
     private String telefone;
-    private Map<Long,VotoDto> votacaoAssociado;
-
+    private Map<Long, VotoDto> votacaoAssociado;
 }
