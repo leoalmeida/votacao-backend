@@ -1,13 +1,42 @@
 package space.lasf.votes.discovery;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@SpringBootTest
+import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
 class DiscoveryApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void mainDeveInicializarAplicacao() {
+		try (MockedStatic<SpringApplication> springApplication = Mockito.mockStatic(SpringApplication.class)) {
+			springApplication.when(() -> SpringApplication.run(DiscoveryApplication.class, new String[] { "--test" }))
+					.thenReturn(null);
+
+			DiscoveryApplication.main(new String[] { "--test" });
+
+			springApplication.verify(() -> SpringApplication.run(DiscoveryApplication.class, new String[] { "--test" }));
+		}
+	}
+
+	@Test
+	void deveDeclararAnotacoesPrincipais() {
+		assertTrue(DiscoveryApplication.class.isAnnotationPresent(SpringBootApplication.class));
+		assertTrue(DiscoveryApplication.class.isAnnotationPresent(EnableEurekaServer.class));
+	}
+
+	@Test
+	void contextLoadsSemServidorWeb() {
+		assertDoesNotThrow(() -> new SpringApplicationBuilder(DiscoveryApplication.class)
+				.properties("spring.main.web-application-type=none")
+				.run()
+				.close());
 	}
 
 }
