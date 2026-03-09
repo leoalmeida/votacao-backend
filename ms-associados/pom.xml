@@ -204,7 +204,7 @@
 					<systemPropertyVariables>
 						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
 					</systemPropertyVariables>
-					<excludedTags>${excludedTags}</excludedTags>
+					<excludedGroups>${excludedTags}</excludedGroups>
 				</configuration>
 			</plugin>
 			<plugin>
