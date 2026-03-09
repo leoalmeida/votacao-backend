@@ -49,7 +49,7 @@ public class AssociadoController {
     @GetMapping("/{id}/existe")
     public ResponseEntity<Boolean> verificarAssociadoValido(@PathVariable final Long id) {
         AssociadoDto dto = associadoService.buscarAssociadoPorId(id);
-        return ResponseEntity.ok((null != dto));
+        return ResponseEntity.ok(null != dto);
     }
 
     @GetMapping("/email/{email}")

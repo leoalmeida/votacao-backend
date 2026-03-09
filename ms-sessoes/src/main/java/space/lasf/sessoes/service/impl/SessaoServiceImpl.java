@@ -57,7 +57,7 @@ public class SessaoServiceImpl implements SessaoService {
     @Override
     public boolean isSessaoAbertaParaVotacao(final Long id) {
         Sessao sessao = sessaoRepository.existSessaoOnStatus(SessaoStatus.OPEN_TO_VOTE, id);
-        return (null != sessao && sessao.getId().compareTo(id) == 0);
+        return null != sessao && sessao.getId().compareTo(id) == 0;
     }
 
     @Override
