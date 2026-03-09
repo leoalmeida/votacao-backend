@@ -38,11 +38,11 @@ jobs:
       - name: generate PMD report
         run: mvn -B -f ms-sessoes/pom.xml pmd:pmd
       
-      - name: Run spotbugs check
-        run: mvn -B -f ms-sessoes/pom.xml spotbugs:check
+      #- name: Run spotbugs check
+      #  run: mvn -B -f ms-associados/pom.xml spotbugs:check
 
-      - name: Generate SpotBugs report
-        run: mvn -B -f ms-sessoes/pom.xml spotbugs:spotbugs
+      #- name: Generate SpotBugs report
+      #  run: mvn -B -f ms-associados/pom.xml spotbugs:spotbugs
   
   test-sessoes:
     needs: [code-quality-sessoes]

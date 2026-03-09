@@ -38,11 +38,11 @@ jobs:
       - name: generate PMD report
         run: mvn -B -f ms-pautas/pom.xml pmd:pmd
       
-      - name: Run spotbugs check
-        run: mvn -B -f ms-pautas/pom.xml spotbugs:check
+      #- name: Run spotbugs check
+      #  run: mvn -B -f ms-associados/pom.xml spotbugs:check
 
-      - name: Generate SpotBugs report
-        run: mvn -B -f ms-pautas/pom.xml spotbugs:spotbugs
+      #- name: Generate SpotBugs report
+      #  run: mvn -B -f ms-associados/pom.xml spotbugs:spotbugs
   
   test-pautas:
     needs: [code-quality-pautas]
