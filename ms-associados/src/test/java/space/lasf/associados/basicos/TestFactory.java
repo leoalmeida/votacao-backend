@@ -28,12 +28,11 @@ public class TestFactory {
     public AssociadoDto gerarAssociadoDto(String nome, String telefone) {
         String regNome = (null == nome || nome.isBlank()) ? "Jonas Morgan" : nome;
         String email = removerAcentos(regNome).replace(" ", ".").concat("@example.com");
-        AssociadoDto associado1 = AssociadoDto.builder()
-                .id(Double.valueOf(Math.random() * 100000).longValue())
-                .nome(regNome)
-                .email(email)
-                .telefone((null == telefone || telefone.isBlank()) ? "(11) 99999-1111" : telefone)
-                .build();
+        AssociadoDto associado1 = new AssociadoDto();
+        associado1.setId(Double.valueOf(Math.random() * 100000).longValue());
+        associado1.setNome(regNome);
+        associado1.setEmail(email);
+        associado1.setTelefone((null == telefone || telefone.isBlank()) ? "(11) 99999-1111" : telefone);
         return associado1;
     }
 

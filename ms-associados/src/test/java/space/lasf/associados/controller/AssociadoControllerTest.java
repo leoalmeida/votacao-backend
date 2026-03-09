@@ -36,16 +36,14 @@ class AssociadoControllerTest {
 
     @Test
     void buscarAssociadosDeveRetornarLista() throws Exception {
-        AssociadoDto a = AssociadoDto.builder()
-                .id(1L)
-                .nome("Joao")
-                .email("joao@example.com")
-                .build();
-        AssociadoDto b = AssociadoDto.builder()
-                .id(2L)
-                .nome("Maria")
-                .email("maria@example.com")
-                .build();
+        AssociadoDto a = new AssociadoDto();
+        a.setId(1L);
+        a.setNome("Joao");
+        a.setEmail("joao@example.com");
+        AssociadoDto b = new AssociadoDto();
+        b.setId(2L);
+        b.setNome("Maria");
+        b.setEmail("maria@example.com");
         when(associadoService.buscarTodosAssociados()).thenReturn(List.of(a, b));
 
         mockMvc.perform(get("/v1/associados"))
@@ -57,17 +55,15 @@ class AssociadoControllerTest {
 
     @Test
     void criarAssociadoDeveRetornarCreated() throws Exception {
-        AssociadoDto input = AssociadoDto.builder()
-                .nome("Novo")
-                .email("novo@example.com")
-                .telefone("(11)99999-9999")
-                .build();
-        AssociadoDto output = AssociadoDto.builder()
-                .id(10L)
-                .nome("Novo")
-                .email("novo@example.com")
-                .telefone("(11)99999-9999")
-                .build();
+        AssociadoDto input = new AssociadoDto();
+        input.setNome("Novo");
+        input.setEmail("novo@example.com");
+        input.setTelefone("(11)99999-9999");
+        AssociadoDto output = new AssociadoDto();
+        output.setId(10L);
+        output.setNome("Novo");
+        output.setEmail("novo@example.com");
+        output.setTelefone("(11)99999-9999");
         when(associadoService.criarAssociado(any(AssociadoDto.class))).thenReturn(output);
 
         mockMvc.perform(post("/v1/associados")

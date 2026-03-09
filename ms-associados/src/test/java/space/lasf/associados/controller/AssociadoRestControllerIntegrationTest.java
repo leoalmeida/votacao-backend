@@ -29,21 +29,18 @@ class AssociadoRestControllerIntegrationTest {
 
     @Test
     void testeAssociadoQuandoConsultarAssociadosThenStatus200() throws Exception {
-        AssociadoDto joao = AssociadoDto.builder()
-                .id(1L)
-                .nome("Joao Silva")
-                .email("joao@example.com")
-                .build();
-        AssociadoDto maria = AssociadoDto.builder()
-                .id(2L)
-                .nome("Maria Santos")
-                .email("maria@example.com")
-                .build();
-        AssociadoDto pedro = AssociadoDto.builder()
-                .id(3L)
-                .nome("Pedro Oliveira")
-                .email("pedro@example.com")
-                .build();
+        AssociadoDto joao = new AssociadoDto();
+        joao.setId(1L);
+        joao.setNome("Joao Silva");
+        joao.setEmail("joao@example.com");
+        AssociadoDto maria = new AssociadoDto();
+        maria.setId(2L);
+        maria.setNome("Maria Santos");
+        maria.setEmail("maria@example.com");
+        AssociadoDto pedro = new AssociadoDto();
+        pedro.setId(3L);
+        pedro.setNome("Pedro Oliveira");
+        pedro.setEmail("pedro@example.com");
         List<AssociadoDto> todosAssociados = List.of(joao, maria, pedro);
 
         when(service.buscarTodosAssociados()).thenReturn(todosAssociados);

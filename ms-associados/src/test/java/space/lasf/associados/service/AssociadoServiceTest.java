@@ -53,8 +53,9 @@ class AssociadoServiceTest {
     @Test
     void criarAssociadoDeveSalvarQuandoEmailValido() {
         wireAutowiredFields();
-        AssociadoDto input =
-                AssociadoDto.builder().nome("Joao").email("joao@example.com").build();
+                AssociadoDto input = new AssociadoDto();
+                input.setNome("Joao");
+                input.setEmail("joao@example.com");
         Associado entity = Associado.builder()
                 .id(10L)
                 .nome("Joao")
@@ -65,11 +66,10 @@ class AssociadoServiceTest {
                 .nome("Joao")
                 .email("joao@example.com")
                 .build();
-        AssociadoDto output = AssociadoDto.builder()
-                .id(11L)
-                .nome("Joao")
-                .email("joao@example.com")
-                .build();
+        AssociadoDto output = new AssociadoDto();
+        output.setId(11L);
+        output.setNome("Joao");
+        output.setEmail("joao@example.com");
 
         when(modelMapper.map(input, Associado.class)).thenReturn(entity);
         when(validator.validate(entity)).thenReturn(entity);
@@ -86,8 +86,9 @@ class AssociadoServiceTest {
     @Test
     void criarAssociadoDeveLancarErroQuandoEmailInvalido() {
         wireAutowiredFields();
-        AssociadoDto input =
-                AssociadoDto.builder().nome("Joao").email("email-invalido").build();
+                AssociadoDto input = new AssociadoDto();
+                input.setNome("Joao");
+                input.setEmail("email-invalido");
         Associado entity =
                 Associado.builder().nome("Joao").email("email-invalido").build();
         when(modelMapper.map(input, Associado.class)).thenReturn(entity);
@@ -107,11 +108,10 @@ class AssociadoServiceTest {
                 .nome("Maria")
                 .email("maria@example.com")
                 .build();
-        AssociadoDto dto = AssociadoDto.builder()
-                .id(associadoId)
-                .nome("Maria")
-                .email("maria@example.com")
-                .build();
+        AssociadoDto dto = new AssociadoDto();
+        dto.setId(associadoId);
+        dto.setNome("Maria");
+        dto.setEmail("maria@example.com");
         Map<Long, VotoDto> votos = Map.of(
                 100L,
                 VotoDto.builder().id(1L).idAssociado(associadoId).idSessao(100L).build());

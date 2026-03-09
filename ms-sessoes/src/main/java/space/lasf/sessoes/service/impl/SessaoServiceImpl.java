@@ -90,7 +90,7 @@ public class SessaoServiceImpl implements SessaoService {
     @Override
     public SessaoDto buscarResultadoDeVotacao(final Long idSessao) {
         if (idSessao == null) {
-            throw new IllegalArgumentException("ID da sessao inválido: " + idSessao);
+            throw new IllegalArgumentException("ID da sessao inválido.");
         }
         Sessao sessao = sessaoRepository
                 .findById(idSessao)

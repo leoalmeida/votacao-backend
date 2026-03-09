@@ -19,7 +19,7 @@ public class ResponseError {
     }
 
     public Date getTimestamp() {
-        return timestamp;
+        return new Date(timestamp.getTime());
     }
 
     public String getStatus() {

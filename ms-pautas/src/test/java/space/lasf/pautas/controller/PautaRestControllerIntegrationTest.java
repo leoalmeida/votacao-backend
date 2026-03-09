@@ -29,8 +29,10 @@ class PautaRestControllerIntegrationTest {
 
     @Test
     void testePautaQuandoConsultarTodosPautasEntaoRetornaPautasComSucesso() throws Exception {
-        PautaDto pauta1 = PautaDto.builder().nome("Pauta1").build();
-        PautaDto pauta2 = PautaDto.builder().nome("Pauta2").build();
+        PautaDto pauta1 = new PautaDto();
+        pauta1.setNome("Pauta1");
+        PautaDto pauta2 = new PautaDto();
+        pauta2.setNome("Pauta2");
         List<PautaDto> todasPautas = List.of(pauta1, pauta2);
 
         when(service.buscarTodasPautas()).thenReturn(todasPautas);

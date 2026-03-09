@@ -44,17 +44,18 @@ class PautaServiceTest {
 
     @Test
     void testeCriarPautaComSessao() {
-        PautaDto input =
-                PautaDto.builder().nome("Pauta 1").descricao("Descricao").build();
+        PautaDto input = new PautaDto();
+        input.setNome("Pauta 1");
+        input.setDescricao("Descricao");
         Pauta entityIn = Pauta.builder().nome("Pauta 1").descricao("Descricao").build();
         Pauta entityOut =
                 Pauta.builder().id(10L).nome("Pauta 1").descricao("Descricao").build();
-        SessaoDto sessao = SessaoDto.builder().id(88L).build();
-        PautaDto dtoOut = PautaDto.builder()
-                .id(10L)
-                .nome("Pauta 1")
-                .descricao("Descricao")
-                .build();
+        SessaoDto sessao = new SessaoDto();
+        sessao.setId(88L);
+        PautaDto dtoOut = new PautaDto();
+        dtoOut.setId(10L);
+        dtoOut.setNome("Pauta 1");
+        dtoOut.setDescricao("Descricao");
 
         when(modelMapper.map(input, Pauta.class)).thenReturn(entityIn);
         when(validator.validate(entityIn)).thenReturn(entityIn);
@@ -82,8 +83,11 @@ class PautaServiceTest {
     @Test
     void testeBuscarPautaPorIdComDadosDaSessao() {
         Pauta entity = Pauta.builder().id(7L).idSessao(44L).nome("Pauta").build();
-        PautaDto dto = PautaDto.builder().id(7L).nome("Pauta").build();
-        SessaoDto sessao = SessaoDto.builder().id(44L).build();
+        PautaDto dto = new PautaDto();
+        dto.setId(7L);
+        dto.setNome("Pauta");
+        SessaoDto sessao = new SessaoDto();
+        sessao.setId(44L);
 
         when(repository.findById(7L)).thenReturn(Optional.of(entity));
         when(sessaoClient.buscarSessaoPorId(44L)).thenReturn(sessao);
@@ -97,7 +101,9 @@ class PautaServiceTest {
 
     @Test
     void testeAlterarPautaQuandoNaoExiste() {
-        PautaDto input = PautaDto.builder().id(5L).nome("Nova").build();
+        PautaDto input = new PautaDto();
+        input.setId(5L);
+        input.setNome("Nova");
         Pauta entity = Pauta.builder().id(5L).nome("Nova").build();
 
         when(modelMapper.map(input, Pauta.class)).thenReturn(entity);

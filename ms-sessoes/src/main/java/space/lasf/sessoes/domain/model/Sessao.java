@@ -15,7 +15,6 @@ import java.io.Serial;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -28,7 +27,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "sessoes")
 @Data
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Sessao {
 
@@ -59,6 +57,14 @@ public class Sessao {
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "sessao")
     private List<TotalizadorOpcao> totalizadores;
+
+    public List<TotalizadorOpcao> getTotalizadores() {
+        return copyTotalizadores(totalizadores);
+    }
+
+    public void setTotalizadores(final List<TotalizadorOpcao> totalizadores) {
+        this.totalizadores = copyTotalizadores(totalizadores);
+    }
 
     @Builder
     public Sessao(final Long id, final Long idPauta) {
@@ -110,10 +116,7 @@ public class Sessao {
         for (VotoOpcao opcao : VotoOpcao.values()) {
             Long contagem =
                     votos.stream().filter(v -> v.getOpcao().equals(opcao)).count();
-            this.totalizadores.add(TotalizadorOpcao.builder()
-                    .opcaoVoto(opcao)
-                    .quantidade(contagem)
-                    .build());
+            this.totalizadores.add(new TotalizadorOpcao(opcao, contagem));
         }
 
         this.resultado = this.totalizadores.stream()
@@ -122,5 +125,23 @@ public class Sessao {
                 .getOpcaoVoto();
 
         return this;
+    }
+
+    private static List<TotalizadorOpcao> copyTotalizadores(final List<TotalizadorOpcao> source) {
+        if (source == null) {
+            return null;
+        }
+
+        List<TotalizadorOpcao> copy = new ArrayList<>();
+        for (TotalizadorOpcao item : source) {
+            if (item == null) {
+                copy.add(null);
+            } else {
+                TotalizadorOpcao totalizador = new TotalizadorOpcao(item.getOpcaoVoto(), item.getQuantidade());
+                totalizador.setId(item.getId());
+                copy.add(totalizador);
+            }
+        }
+        return copy;
     }
 }

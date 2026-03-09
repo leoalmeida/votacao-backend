@@ -2,7 +2,7 @@ package space.lasf.pautas.core.component;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,9 +24,8 @@ public class CodeGenerator {
                 codeBuilder.append(SALT.charAt(randomIndex));
             }
         } catch (NoSuchAlgorithmException e) {
-            Random random = new Random();
             for (int i = 0; i < size; i++) {
-                int randomIndex = random.nextInt(SALT.length());
+                int randomIndex = ThreadLocalRandom.current().nextInt(SALT.length());
                 codeBuilder.append(SALT.charAt(randomIndex));
             }
         }

@@ -7,8 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,19 +16,24 @@ import lombok.Setter;
 @Table(name = "totalizadores")
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class TotalizadorOpcao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(optional = false)
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private Sessao sessao;
 
     @Column(name = "opcao")
     private VotoOpcao opcaoVoto;
 
     private Long quantidade;
+
+    public TotalizadorOpcao(final VotoOpcao opcaoVoto, final Long quantidade) {
+        this.opcaoVoto = opcaoVoto;
+        this.quantidade = quantidade;
+    }
 }

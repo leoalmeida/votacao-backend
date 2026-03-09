@@ -15,11 +15,10 @@ public class TestFactory {
 
     public PautaDto gerarPautaDto() {
         Integer regPauta = (int) (Math.random() * 999) + 1;
-        PautaDto produto = PautaDto.builder()
-                .id(Double.valueOf(Math.random() * 100000).longValue())
-                .nome("Pauta " + regPauta)
-                .descricao("Descrição da Pauta " + regPauta)
-                .build();
+        PautaDto produto = new PautaDto();
+        produto.setId(Double.valueOf(Math.random() * 100000).longValue());
+        produto.setNome("Pauta " + regPauta);
+        produto.setDescricao("Descrição da Pauta " + regPauta);
         return produto;
     }
 
