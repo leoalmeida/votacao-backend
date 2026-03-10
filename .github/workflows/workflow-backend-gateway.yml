@@ -20,12 +20,9 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       
-      - name: Run Checkstyle
-        run: mvn -B -f api-gateway/pom.xml spotless:apply
-
-      - name: Compile Backend Module
-        run: mvn -B -f api-gateway/pom.xml clean package -DskipTests
-
+      - name: Run spotless check
+        run: mvn -B -f api-gateway/pom.xml spotless:check
+        
       - name: Run Checkstyle
         run: mvn -B -f api-gateway/pom.xml checkstyle:check
 
@@ -38,11 +35,11 @@ jobs:
       - name: generate PMD report
         run: mvn -B -f api-gateway/pom.xml pmd:pmd
       
-      #- name: Run spotbugs check
-      #  run: mvn -B -f ms-associados/pom.xml spotbugs:check
+      - name: Run spotbugs check
+        run: mvn -B -f api-gateway/pom.xml spotbugs:check
 
-      #- name: Generate SpotBugs report
-      #  run: mvn -B -f ms-associados/pom.xml spotbugs:spotbugs
+      - name: Generate SpotBugs report
+        run: mvn -B -f api-gateway/pom.xml spotbugs:spotbugs
   
   test-gateway:
     needs: [code-quality-api-gateway]
