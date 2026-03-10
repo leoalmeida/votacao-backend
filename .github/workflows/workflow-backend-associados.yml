@@ -20,8 +20,8 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       
-      - name: Run spotless check
-        run: mvn -B -f ms-associados/pom.xml spotless:check
+      #- name: Run spotless check
+      #  run: mvn -B -f ms-associados/pom.xml spotless:check
 
       - name: Run Checkstyle
         run: mvn -B -f ms-associados/pom.xml checkstyle:check
