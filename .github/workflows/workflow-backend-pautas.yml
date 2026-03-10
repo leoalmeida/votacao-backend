@@ -21,7 +21,7 @@ jobs:
           cache: 'maven'
       
       #- name: Run spotless check
-        run: mvn -B -f ms-pautas/pom.xml spotless:check
+      #  run: mvn -B -f ms-pautas/pom.xml spotless:check
 
       - name: Run Checkstyle
         run: mvn -B -f ms-pautas/pom.xml checkstyle:check
