@@ -53,9 +53,9 @@ class AssociadoServiceTest {
     @Test
     void criarAssociadoDeveSalvarQuandoEmailValido() {
         wireAutowiredFields();
-                AssociadoDto input = new AssociadoDto();
-                input.setNome("Joao");
-                input.setEmail("joao@example.com");
+        AssociadoDto input = new AssociadoDto();
+        input.setNome("Joao");
+        input.setEmail("joao@example.com");
         Associado entity = Associado.builder()
                 .id(10L)
                 .nome("Joao")
@@ -86,9 +86,9 @@ class AssociadoServiceTest {
     @Test
     void criarAssociadoDeveLancarErroQuandoEmailInvalido() {
         wireAutowiredFields();
-                AssociadoDto input = new AssociadoDto();
-                input.setNome("Joao");
-                input.setEmail("email-invalido");
+        AssociadoDto input = new AssociadoDto();
+        input.setNome("Joao");
+        input.setEmail("email-invalido");
         Associado entity =
                 Associado.builder().nome("Joao").email("email-invalido").build();
         when(modelMapper.map(input, Associado.class)).thenReturn(entity);

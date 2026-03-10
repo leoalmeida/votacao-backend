@@ -47,13 +47,13 @@ public class PautaController {
     }
 
     @GetMapping("/{idPauta}/associado/{idAssociado}")
-        public ResponseEntity<PautaDto> buscarPautaById(
+    public ResponseEntity<PautaDto> buscarPautaById(
             @PathVariable final Long idPauta, @PathVariable final Long idAssociado) {
         return ResponseEntity.ok(pautaService.buscarPautaPorId(idPauta, idAssociado));
     }
 
     @PostMapping
-        public ResponseEntity<PautaDto> criarPauta(
+    public ResponseEntity<PautaDto> criarPauta(
             @RequestBody final PautaDto pautaDto, @RequestParam final boolean iniciarSessao) {
         PautaDto savedPauta = pautaService.criarPauta(pautaDto, iniciarSessao);
         return ResponseEntity.status(HttpStatus.CREATED)

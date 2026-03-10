@@ -42,13 +42,13 @@ public class SessaoController {
     }
 
     @GetMapping("/{idSessao}/associado/{idAssociado}")
-        public ResponseEntity<SessaoDto> buscarSessaoPorId(
+    public ResponseEntity<SessaoDto> buscarSessaoPorId(
             @PathVariable final Long idSessao, @PathVariable final Long idAssociado) {
         return ResponseEntity.ok(sessaoService.buscarSessaoPorId(idSessao, idAssociado));
     }
 
     @PostMapping
-        public ResponseEntity<SessaoDto> criarSessao(
+    public ResponseEntity<SessaoDto> criarSessao(
             @RequestBody final PautaDto pautaDto, @RequestParam final boolean iniciarSessao) {
 
         SessaoDto sessaoCriada = sessaoService.criarSessao(pautaDto, iniciarSessao);

@@ -49,7 +49,7 @@ public class VotosController {
     }
 
     @PostMapping
-        public ResponseEntity<VotoDto> criarVoto(
+    public ResponseEntity<VotoDto> criarVoto(
             @RequestBody final VotoDto votoDto, final UriComponentsBuilder uriBuilder) {
         VotoDto novoVoto = votoService.criarVoto(votoDto);
         URI endereco =

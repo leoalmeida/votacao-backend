@@ -51,8 +51,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             }
         }
 
-        String message =
-                messageSource.getMessage("error.server", new Object[] {e.getMessage()}, Locale.getDefault());
+        String message = messageSource.getMessage("error.server", new Object[] {e.getMessage()}, Locale.getDefault());
         ResponseError error = responseError(message, HttpStatus.INTERNAL_SERVER_ERROR);
         return handleExceptionInternal(e, error, headers(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }

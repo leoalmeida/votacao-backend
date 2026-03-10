@@ -1,7 +1,7 @@
 package space.lasf.associados.dto;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -53,10 +53,6 @@ public class AssociadoDto {
         }
 
         return new VotoDto(
-                source.getId(),
-                source.getIdAssociado(),
-                source.getIdSessao(),
-                source.getOpcao(),
-                source.getDataVoto());
+                source.getId(), source.getIdAssociado(), source.getIdSessao(), source.getOpcao(), source.getDataVoto());
     }
 }
