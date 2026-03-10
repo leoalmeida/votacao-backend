@@ -7,4 +7,3 @@ public final class ErrorConstant {
     public static final String E_ERROR_CONSTANT_UTILITY_CLASS = "ErrorConstant class cannot be instantiated";
     public static final String E_VALIDATE_UTILITY_CLASS = "ErrorConstant class cannot be instantiated";
 }
-
