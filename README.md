@@ -1,79 +1,112 @@
-# Space E-Commerce Microservices Solution
+# votacao-backend
 
-This repository contains a microservices-based solution for an e-commerce platform, structured into four main modules:
+[Português](README.md) | [English](README.en.md)
 
-- **service-discovery**: Eureka server for service registration and discovery.
-- **api-gateway**: API Gateway using Spring Cloud Gateway for routing and centralized access.
-- **pagamentos-ms**: Payment microservice for handling payment operations.
-- **pedidos-ms**: Order microservice for managing orders and their items.
+![Java](https://img.shields.io/badge/java-17-orange)
+![Spring Boot](https://img.shields.io/badge/spring--boot-3.5.x-6DB33F)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
 
-## Architecture Overview
+Backend de votacao baseado em microsservicos com Spring Boot, Spring Cloud e Eureka.
 
-The solution follows a typical microservices architecture, where each business capability is encapsulated in its own Spring Boot application. Service discovery is handled by Eureka, and all external requests are routed through the API Gateway. The services communicate with each other using REST APIs and leverage Spring Cloud features for resilience and scalability.
+## Sumario
 
-### Modules
+- [Visao Geral](#visao-geral)
+- [Portas e Discovery](#portas-e-discovery)
+- [Requisitos](#requisitos)
+- [Como Rodar](#como-rodar)
+- [Configuracao](#configuracao)
+- [Testes](#testes)
+- [Docker](#docker)
+- [Troubleshooting](#troubleshooting)
 
-#### 1. service-discovery
+## Visao Geral
 
-- Implements a Eureka server for service registration and discovery.
-- All other services register themselves here for dynamic discovery.
+- Java 17
+- Spring Boot 3.5.x
+- Spring Cloud 2025.0.0
+- Maven multi-modulo
 
-#### 2. api-gateway
+Modulos no agregador (`pom.xml` raiz):
 
-- Implements an API Gateway using Spring Cloud Gateway.
-- Routes external requests to the appropriate microservices.
-- Integrates with Eureka for dynamic routing.
+- `service-discovery` (Eureka Server)
+- `api-gateway` (Gateway de entrada)
+- `ms-associados`
+- `ms-pautas`
+- `ms-sessoes`
 
-#### 3. pagamentos-ms
+## Portas e Discovery
 
-- Handles all payment-related operations.
-- Communicates with the pedidos-ms to update order status after payment.
-- Uses Feign clients for inter-service communication.
-- Includes resilience patterns with Resilience4j.
+- `service-discovery`: `http://localhost:8761`
+- `api-gateway`: `http://localhost:8082`
+- `ms-associados`, `ms-pautas`, `ms-sessoes`: `server.port=0` (porta dinamica, registrada no Eureka)
 
-#### 4. pedidos-ms
+## Requisitos
 
-- Manages orders and their items.
-- Exposes endpoints for creating, updating, and querying orders.
-- Integrates with pagamentos-ms for payment status updates.
+- JDK 17
+- Maven 3.9+ (ou `mvnw`)
 
-## Running the Solution
+## Como Rodar
 
-**Start the modules in the following order:**
+### 1. Build completo
 
-1. **service-discovery**  
-   Start the Eureka server first to enable service registration.
-
-2. **api-gateway**  
-   Start the API Gateway to expose a unified entry point for all APIs.
-
-3. **pagamentos-ms**  
-   Start the payment service so it can register with Eureka and be available for requests.
-
-4. **pedidos-ms**  
-   Start the order service last, as it depends on the other services being available.
-
-Each module is a standalone Spring Boot application and can be started using Maven:
-
-```sh
-cd <module-directory>
-./mvnw spring-boot:run
+```powershell
+Set-Location "c:\Users\leo_a\projetos\votacao-backend"
+.\mvnw.cmd clean install
 ```
 
-Replace `<module-directory>` with one of: `service-discovery`, `api-gateway`, `pagamentos-ms`, or `pedidos-ms`.
+### 2. Subir servicos (ordem recomendada)
 
-## Configuration
+1. `service-discovery`
+2. `api-gateway`
+3. `ms-associados`
+4. `ms-pautas`
+5. `ms-sessoes`
 
-- Each service has its own `application.properties` for configuration.
-- Database connection details and Eureka URLs are externalized for flexibility.
-- Flyway is used for database migrations in `pagamentos-ms` and `pedidos-ms`.
+Exemplo (um modulo por terminal):
 
-## Additional Information
+```powershell
+Set-Location "c:\Users\leo_a\projetos\votacao-backend\service-discovery"
+..\mvnw.cmd spring-boot:run
+```
 
-- All services are written in Java 17 and use Spring Boot 3.5.x.
-- Inter-service communication is handled via REST and Feign clients.
-- Resilience4j is used for circuit breaker patterns in the payment service.
+Repita para os demais modulos trocando a pasta.
 
----
+## Configuracao
 
-For more details, refer to the source code of
+Os microsservicos de dominio usam import opcional de `.env` (`spring.config.import=optional:file:.env`) e esperam propriedades como:
+
+- `dburl-associados`, `dburl-pautas`, `dburl-sessoes`
+- `dbuser`, `dbpassword`
+- `eurekaurl`
+
+## Testes
+
+Rodar testes de todos os modulos:
+
+```powershell
+Set-Location "c:\Users\leo_a\projetos\votacao-backend"
+.\mvnw.cmd test
+```
+
+Rodar testes de um modulo especifico:
+
+```powershell
+Set-Location "c:\Users\leo_a\projetos\votacao-backend\ms-sessoes"
+..\mvnw.cmd test
+```
+
+## Docker
+
+Existe `docker-compose.yaml` no projeto para ambiente com app + MongoDB.
+
+```powershell
+docker compose up --build
+```
+
+Se usar variaveis por `.env`, ajuste os valores antes da subida.
+
+## Troubleshooting
+
+- Servicos nao aparecem no Eureka: confirme `eurekaurl` e se o discovery iniciou antes.
+- Erro de conexao com banco: valide as propriedades `dburl-*`, usuario e senha.
+- Erro de porta em `8082`/`8761`: altere `application.properties` dos modulos fixos.
