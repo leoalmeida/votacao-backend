@@ -22,6 +22,7 @@ Backend de votacao baseado em microsservicos com Spring Boot, Spring Cloud e Eur
 ## Sumario
 
 - [Visao Geral](#visao-geral)
+- [Documentacao dos Modulos](#documentacao-dos-modulos)
 - [Build, Testes e Cobertura](#build-testes-e-cobertura)
 - [Portas e Discovery](#portas-e-discovery)
 - [Requisitos](#requisitos)
@@ -45,6 +46,20 @@ Modulos no agregador (`pom.xml` raiz):
 - `ms-associados`
 - `ms-pautas`
 - `ms-sessoes`
+
+## Documentacao dos Modulos
+
+| Modulo | README PT-BR | README EN |
+| --- | --- | --- |
+| frontend | [README.md](frontend/README.md) | - |
+| ms-associados | [README.md](ms-associados/README.md) | [README.en.md](ms-associados/README.en.md) |
+| ms-pautas | [README.md](ms-pautas/README.md) | [README.en.md](ms-pautas/README.en.md) |
+| ms-sessoes | - | - |
+
+Modulos em repositorios dedicados:
+
+- `api-gateway` (com README PT/EN)
+- `service-discovery` (com README PT/EN)
 
 ## Portas e Discovery
 

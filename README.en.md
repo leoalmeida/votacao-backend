@@ -22,6 +22,7 @@ Voting backend based on a Spring Boot microservices architecture with Spring Clo
 ## Table of Contents
 
 - [Overview](#overview)
+- [Module Documentation](#module-documentation)
 - [Build, Tests and Coverage](#build-tests-and-coverage)
 - [Ports and Discovery](#ports-and-discovery)
 - [Requirements](#requirements)
@@ -45,6 +46,20 @@ Modules in the root aggregator (`pom.xml`):
 - `ms-associados`
 - `ms-pautas`
 - `ms-sessoes`
+
+## Module Documentation
+
+| Module | README PT-BR | README EN |
+| --- | --- | --- |
+| frontend | [README.md](frontend/README.md) | - |
+| ms-associados | [README.md](ms-associados/README.md) | [README.en.md](ms-associados/README.en.md) |
+| ms-pautas | [README.md](ms-pautas/README.md) | [README.en.md](ms-pautas/README.en.md) |
+| ms-sessoes | - | - |
+
+Modules in dedicated repositories:
+
+- `api-gateway` (with PT/EN README)
+- `service-discovery` (with PT/EN README)
 
 ## Ports and Discovery
 

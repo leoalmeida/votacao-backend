@@ -1,148 +1,115 @@
-<p align="center">
-  <img src=".github/assets/header.png">
-</p>
+# ms-pautas
 
-> 👨‍🚀 **Aplicação Angular 20 com o App de votação que utiliza as APIs criadas pela aplicação votacao-backend.**
+![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.4-6DB33F?logo=springboot&logoColor=white)
+![Spring Cloud](https://img.shields.io/badge/Spring_Cloud-2025.0.0-6DB33F?logo=spring&logoColor=white)
+![Eureka Client](https://img.shields.io/badge/Eureka-Client-E50914?logo=netflix&logoColor=white)
+![OpenFeign](https://img.shields.io/badge/OpenFeign-Client-6DB33F?logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)
+![JaCoCo](https://img.shields.io/badge/JaCoCo-Coverage-success)
+![Codecov](https://img.shields.io/badge/Codecov-enabled-F01F7A?logo=codecov&logoColor=white)
 
-# 🅰️ Sobre este repositório - Votação
+[PT-BR](README.md) | [EN](README.en.md)
 
-No cooperativismo, cada associado possui um voto e as decisões são tomadas em assembleias, por votação. Imagine que você deve criar uma solução para dispositivos móveis para gerenciar e participar dessas sessões de votação.
-Essa solução deve ser executada na nuvem e promover as seguintes funcionalidades através de uma API REST:
+Microsservico responsavel pelo dominio de pautas no ecossistema de votacao.
 
-- Cadastrar uma nova pauta
-- Abrir uma sessão de votação em uma pauta (a sessão de votação deve ficar aberta por
-  um tempo determinado na chamada de abertura ou 1 minuto por default)
-- Receber votos dos associados em pautas (os votos são apenas 'Sim'/'Não'. Cada associado
-  é identificado por um id único e pode votar apenas uma vez por pauta)
-- Contabilizar os votos e dar o resultado da votação na pauta
+## Visao geral
 
+- Projeto: `ms-pautas`
+- Porta: dinamica (`server.port=0`)
+- Registry: Eureka Client
+- Java: `17`
+- Spring Boot: `3.5.4`
+- Spring Cloud: `2025.0.0`
 
-### 📦 Componentes
+## Tecnologias
 
-| #   |     | sub competência     | 🔗                                                                                                                                                                                                                  |
-| --- | --- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | 🅰️  | web components      | [![Material de Apoio](https://img.shields.io/badge/Ver%20Material-E94D5F?style=for-the-badge)](https://github.com/felipeAguiarCode/angular-playground/tree/main/C1%20-%20Web%20Components)                          |
-                  |
+- Spring Boot Web
+- Spring Data JPA
+- Flyway
+- OpenFeign
+- Eureka Client
+- MySQL
+- Maven
+- JaCoCo
+- Checkstyle
+- PMD
+- SpotBugs
 
-### 📦 Organização e serviços
+## Configuracao
 
-| #   |     | sub competência  | 🔗                                                                                                                                                                                              |
-| --- | --- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 5   | 🅰️  | diretivas        | [![Material de Apoio](https://img.shields.io/badge/Ver%20Material-E94D5F?style=for-the-badge)](https://github.com/felipeAguiarCode/angular-playground/tree/main/C7%20-%20Diretivas)             |
+Arquivo principal: `src/main/resources/application.properties`
 
-## Como proceder
-
-Por favor, **CLONE** o repositório e implemente sua solução, ao final, notifique a conclusão e envie o link do seu repositório clonado no GitHub, para que possamos analisar o código implementado.
-
-Lembre de deixar todas as orientações necessárias para executar o seu código.
-
-### Tarefas bônus
-
-- Tarefa Bônus 1 - Integração com sistemas externos
-  - Criar uma Facade/Client Fake que retorna aleátoriamente se um CPF recebido é válido ou não.
-  - Caso o CPF seja inválido, a API retornará o HTTP Status 404 (Not found). Você pode usar geradores de CPF para gerar CPFs válidos
-  - Caso o CPF seja válido, a API retornará se o usuário pode (ABLE_TO_VOTE) ou não pode (UNABLE_TO_VOTE) executar a operação. Essa operação retorna resultados aleatórios, portanto um mesmo CPF pode funcionar em um teste e não funcionar no outro.
-
-```
-// CPF Ok para votar
-{
-    "status": "ABLE_TO_VOTE
-}
-// CPF Nao Ok para votar - retornar 404 no client tb
-{
-    "status": "UNABLE_TO_VOTE
-}
+```properties
+spring.config.import=optional:file:.env
+spring.application.name=ms-pautas
+spring.datasource.url=${dburl-pautas}
+spring.datasource.username=${dbuser}
+spring.datasource.password=${dbpassword}
+eureka.client.serviceUrl.defaultZone=${eurekaurl}
+server.port=0
 ```
 
-Exemplos de retorno do serviço
+Variaveis esperadas em `.env`:
 
-### Tarefa Bônus 2 - Performance
+- `dburl-pautas`
+- `dbuser`
+- `dbpassword`
+- `eurekaurl`
 
-- Imagine que sua aplicação possa ser usada em cenários que existam centenas de
-  milhares de votos. Ela deve se comportar de maneira performática nesses
-  cenários
-- Testes de performance são uma boa maneira de garantir e observar como sua
-  aplicação se comporta
+## Executar localmente
 
-### Tarefa Bônus 3 - Versionamento da API
+### Windows (PowerShell)
 
-○ Como você versionaria a API da sua aplicação? Que estratégia usar?
-
-## O que será analisado
-
-- Simplicidade no design da solução (evitar over engineering)
-- Organização do código
-- Arquitetura do projeto
-- Boas práticas de programação (manutenibilidade, legibilidade etc)
-- Possíveis bugs
-- Tratamento de erros e exceções
-- Explicação breve do porquê das escolhas tomadas durante o desenvolvimento da solução
-- Uso de testes automatizados e ferramentas de qualidade
-- Limpeza do código
-- Documentação do código e da API
-- Logs da aplicação
-- Mensagens e organização dos commits
-
-## Dicas
-
-- Teste bem sua solução, evite bugs
-- Deixe o domínio das URLs de callback passiveis de alteração via configuração, para facilitar
-  o teste tanto no emulador, quanto em dispositivos fisicos.
-  Observações importantes
-- Não inicie o teste sem sanar todas as dúvidas
-- Iremos executar a aplicação para testá-la, cuide com qualquer dependência externa e
-  deixe claro caso haja instruções especiais para execução do mesmo
-  Classificação da informação: Uso Interno
-
-## Anexo 1
-
-### Introdução
-
-A seguir serão detalhados os tipos de tela que o cliente mobile suporta, assim como os tipos de campos disponíveis para a interação do usuário.
-
-### Tipo de tela – FORMULARIO
-
-A tela do tipo FORMULARIO exibe uma coleção de campos (itens) e possui um ou dois botões de ação na parte inferior.
-
-O aplicativo envia uma requisição POST para a url informada e com o body definido pelo objeto dentro de cada botão quando o mesmo é acionado. Nos casos onde temos campos de entrada
-de dados na tela, os valores informados pelo usuário são adicionados ao corpo da requisição. Abaixo o exemplo da requisição que o aplicativo vai fazer quando o botão “Ação 1” for acionado:
-
-```
-POST http://seudominio.com/ACAO1
-{
-    “campo1”: “valor1”,
-    “campo2”: 123,
-    “idCampoTexto”: “Texto”,
-    “idCampoNumerico: 999
-    “idCampoData”: “01/01/2000”
-}
+```powershell
+.\mvnw spring-boot:run
 ```
 
-Obs: o formato da url acima é meramente ilustrativo e não define qualquer padrão de formato.
+### Linux/macOS
 
-### Tipo de tela – SELECAO
+```bash
+./mvnw spring-boot:run
+```
 
-A tela do tipo SELECAO exibe uma lista de opções para que o usuário.
+## Build e testes
 
-O aplicativo envia uma requisição POST para a url informada e com o body definido pelo objeto dentro de cada item da lista de seleção, quando o mesmo é acionado, semelhando ao funcionamento dos botões da tela FORMULARIO.
+```bash
+./mvnw clean package
+```
 
-# desafio-votacao
+## Qualidade de codigo
 
-## Como proceder
-Realizar o clone do projeto.
-Antes de realizar o deploy acessar o arquivo `application.properties` e alterar o endereco do banco de dados.
+```bash
+./mvnw checkstyle:check
+./mvnw pmd:check
+./mvnw spotbugs:check
+```
 
-O banco de dados utilizado foi o MongoDB.
-Alterar as configurações abaixo:
+Observacao: no workflow atual, o `spotless:check` esta comentado.
 
- `spring.data.mongodb.port=8085`
+## Cobertura de testes
 
- `spring.data.mongodb.host=localhost`
+```bash
+./mvnw jacoco:report
+```
 
-Com isso feito, basta executar o comando abaixo para subir a aplicação.
+Relatorio gerado em:
 
- `mvn spring-boot:run`
+- `target/site/jacoco/index.html`
 
-Com a aplicação rodando, basta acessar o endereço http://localhost:8080/swagger-ui.html para visualizar a documentação da API e testar os endpoints
+## Pipeline CI
 
-# desafio-votacao
+Workflow principal no repositorio raiz:
+
+- `.github/workflows/workflow-backend-pautas.yml`
+
+Etapas:
+
+- Analise de qualidade (Checkstyle, PMD, SpotBugs)
+- Testes + JaCoCo
+- Upload para Codecov
+- Build e upload de artefato
+
+## Licenca
+
+Uso interno para fins de estudo/desafio.
