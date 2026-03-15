@@ -89,17 +89,98 @@ jobs:
           path: ms-associados/target/*.jar
           retention-days: 1
 
-  #zap-scan:
-  #  needs: build-project
-  #  uses: ./.github/workflows/backend/zapscan.yml
-  #  secrets: inherit
+#  zap_scan:
+#    runs-on: ubuntu-latest
+#    name: ZAP Scan Baseline
+#    env:
+#      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+#    steps:
+#    - name: Checkout
+#      uses: actions/checkout@v4
+#    - name: Fazer Build da aplicação de teste
+#      run: docker compose build
+#    - name: Subir a aplicação de teste local
+#      run: docker compose up -d
+#    - name: ZAP Scan
+#      uses: zaproxy/action-full-scan@v0.12.0
+#      env: 
+#          INSTANCE_IP: localhost
+#      with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
+#          target: "http://${{ env.INSTANCE_IP }}:3000"
+#          cmd_options: |
+#            chmod a+rwx '/zap/wrk/zap.yaml'
+#          allow_issue_writing: false 
+#    # Docs: https://github.com/actions/upload-artifact
+#    - name: Upload Scan Report
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: zap_report.html
+#        path: .
+#        retention-days: 5
   
-  #docker:
-  #  needs: zap-scan
-  #  uses: ./.github/workflows/backend/docker.yml
-  #  secrets: inherit
+#  ms-associados-docker:
+#    name: ms-associados Module - Docker Build and Push
+#    runs-on: ubuntu-latest
+#    steps:
+#    - uses: actions/checkout@v6
+#    - name: Set Docker Build
+#      uses: docker/setup-buildx-action@v3.12.0
+#    - name: Docker login
+#      uses: docker/login-action@v4.0.0
+#      with:
+#        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+#        password: ${{ secrets.DOCKER_HUB_PASSWD }}
+#    - name: Docker push backend
+#      uses: docker/build-push-action@v6.19.2
+#      with:
+#        file: ./ms-associados/Dockerfile
+#        context: ./ms-associados
+#        push: true
+#        tags: leoalmeida/ms-associados:${{github.run_number}}
   
-  #deploy_google:
-  #  needs: docker
-  #  uses: ./.github/workflows/backend/release-gcloud.yml
-  #  secrets: inherit
+#  release-ms-associados:
+#    if: github.event.pull_request.merged == true && github.base_ref == 'main'
+#    name: ms-associados Module - Release
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        java-version: [17]
+#        java-distribution: [temurin]
+#    steps:
+#    - name: Checkout code
+#      uses: actions/checkout@v6
+#    - name: Set up JDK ${{ matrix.java-version }}
+#      uses: actions/setup-java@v5
+#      with:
+#        java-version: ${{ matrix.java-version }}
+#        distribution: ${{ matrix.java-distribution }}
+#    - name: Get current version
+#      id: get_version
+#      run: echo "::set-output name=current_version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+#
+#    - name: Build Spring Boot Docker image and push it
+#      run: |
+#        mvn --batch-mode spring-boot:build-image -DskipTests -Dspring-boot.build-image.imageName=$IMAGE_NAME_MS_ASSOCIADOS:${{ steps.get_version.outputs.current_version }}
+#        gcloud auth configure-docker leoalmeida --quiet
+#        docker push $IMAGE_NAME_MS_ASSOCIADOS:${{ steps.get_version.outputs.current_version }}
+#
+#    - name: Bump version
+#      run: |
+#        NEXT_VERSION=$((${{ steps.get_version.outputs.current_version }} + 1))
+#        mvn versions:set -DnewVersion=$NEXT_VERSION -DgenerateBackupPoms=false
+#
+#    - name: Commit version
+#      run: |
+#        git config user.name "github-actions[bot]"
+#        git config user.email "github-actions[bot]@users.noreply.github.com"
+#        git commit -am "Release: ${{ steps.get_version.outputs.current_version }}"
+#        git push origin main
+#
+#    # Don't forget to auth before applying
+#    - name: Deploy to k8s
+#      working-directory: deployment
+#      run: |
+#        sed -i "s|{{IMAGE_TAG}}|${{ steps.get_version.outputs.current_version }}|g" prod/deployment.yaml
+#        kubectl apply -f deployment.yaml
