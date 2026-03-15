@@ -7,57 +7,59 @@ on:
 
 jobs:
   code-quality-frontend:
+    name: Frontend Module - Linting and Code Quality Analysis
     runs-on: ubuntu-latest # Use the latest Ubuntu runner
-      strategy:
-         matrix:
-            node-version: [24]
-      steps:
-         - name: Checkout Repository
-           uses: actions/checkout@v6 # Action to checkout your repository code
+    strategy:
+        matrix:
+          node-version: [24]
+    steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v6 # Action to checkout your repository code
 
-         - name: Setup Node.js
-           uses: actions/setup-node@v6
-           with:
-              node-version: ${{ matrix.node-version }}
-              cache: "npm"
-              cache-dependency-path: ./package-lock.json
+        - name: Setup Node.js
+          uses: actions/setup-node@v6
+          with:
+            node-version: ${{ matrix.node-version }}
+            cache: "npm"
+            cache-dependency-path: ./package-lock.json
 
-         - name: Install Dependencies
-           working-directory: .
-           run: npm ci
+        - name: Install Dependencies
+          working-directory: .
+          run: npm ci
 
-         - name: Run Prettier check to ensure code formatting
-           working-directory: .
-           run: npm run prettier
+        - name: Run Prettier check to ensure code formatting
+          working-directory: .
+          run: npm run prettier
 
-         - name: Run ESLint check to ensure code quality
-           working-directory: .
-           run: npm run lint -- --fix
+        - name: Run ESLint check to ensure code quality
+          working-directory: .
+          run: npm run lint -- --fix
 
   test-frontend:
     needs: [code-quality-frontend]
+    name: Frontend Module - Automated Tests
     runs-on: ubuntu-latest # Use the latest Ubuntu runner
-      strategy:
-         matrix:
-            node-version: [24]
-      steps:
-         - name: Checkout Repository
-           uses: actions/checkout@v6 # Action to checkout your repository code
+    strategy:
+        matrix:
+          node-version: [24]
+    steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v6 # Action to checkout your repository code
 
-         - name: Setup Node.js
-           uses: actions/setup-node@v6
-           with:
-              node-version: ${{ matrix.node-version }}
-              cache: "npm"
-              cache-dependency-path: ./package-lock.json
+        - name: Setup Node.js
+          uses: actions/setup-node@v6
+          with:
+            node-version: ${{ matrix.node-version }}
+            cache: "npm"
+            cache-dependency-path: ./package-lock.json
 
-         - name: Install Dependencies
-           working-directory: .
-           run: npm ci
+        - name: Install Dependencies
+          working-directory: .
+          run: npm ci
 
-         - name: Run Frontend Tests
-           working-directory: .
-           run: npm test -- --no-watch --coverage
+        - name: Run Frontend Tests
+          working-directory: .
+          run: npm test -- --no-watch --coverage
 
   coverage-frontend:
     needs: [test-frontend]
@@ -102,6 +104,7 @@ jobs:
 
   build-frontend:
     needs: [coverage-frontend]
+    name: Frontend Module - Build and Artifact Upload
     runs-on: ubuntu-latest # Use the latest Ubuntu runner
     strategy:
        matrix:
@@ -165,7 +168,7 @@ jobs:
   
 #  docker:
 #    needs: zap-scan
-#    active:
+#    name: Frontend Module - Docker Build and Push
 #    runs-on: ubuntu-latest
 #    steps:
 #       - uses: actions/checkout@v6
@@ -180,12 +183,13 @@ jobs:
 #         uses: docker/build-push-action@v6.19.0
 #         with:
 #            file: ./Dockerfile
-#            context: backend
+#            context: frontend
 #            push: true
 #            tags: leoalmeida/app-votacao:${{github.run_number}}
 
 #  release-frontend:
 #      if: github.event.pull_request.merged == true && github.base_ref == 'main'
+#      name: Frontend Module - Release and Deploy
 #      runs-on: ubuntu-latest
 #      strategy:
 #         matrix:
