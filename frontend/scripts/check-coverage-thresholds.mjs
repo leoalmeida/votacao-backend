@@ -7,7 +7,7 @@ const coverageFile = path.resolve(
   "coverage-final.json",
 );
 
-const thresholds = {
+const baselineThresholds = {
   global: { statements: 60, branches: 70, functions: 35, lines: 60 },
   "src/app/core": { statements: 61, branches: 71, functions: 39, lines: 61 },
   "src/app/features": {
@@ -23,6 +23,35 @@ const thresholds = {
     lines: 57,
   }
 };
+
+function bumpThresholds(sourceThresholds, bump) {
+  return Object.fromEntries(
+    Object.entries(sourceThresholds).map(([scope, values]) => [
+      scope,
+      Object.fromEntries(
+        Object.entries(values).map(([metric, value]) => [
+          metric,
+          Math.min(100, value + bump),
+        ]),
+      ),
+    ]),
+  );
+}
+
+const thresholdProfiles = {
+  baseline: baselineThresholds,
+  nextSprint: bumpThresholds(baselineThresholds, 2),
+};
+
+const selectedProfileName = process.env.COVERAGE_THRESHOLD_PROFILE ?? "baseline";
+const thresholds = thresholdProfiles[selectedProfileName];
+
+if (!thresholds) {
+  console.error(
+    `Unknown COVERAGE_THRESHOLD_PROFILE: ${selectedProfileName}. Valid values: ${Object.keys(thresholdProfiles).join(", ")}`,
+  );
+  process.exit(1);
+}
 
 function isCountableFile(filePath) {
   return (
@@ -155,7 +184,7 @@ for (const [scope, scopeThresholds] of Object.entries(thresholds)) {
   allFailures.push(...scopeEvaluation.failures);
 }
 
-console.log("Coverage threshold check completed.");
+console.log(`Coverage threshold check completed (profile: ${selectedProfileName}).`);
 console.log(
   `Global coverage -> statements: ${globalEvaluation.result.statements}% | branches: ${globalEvaluation.result.branches}% | functions: ${globalEvaluation.result.functions}% | lines: ${globalEvaluation.result.lines}%`,
 );
