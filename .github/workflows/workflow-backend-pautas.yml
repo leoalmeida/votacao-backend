@@ -63,7 +63,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          use_oidc: true
+          token: ${{ secrets.CODECOV_TOKEN }}
           files: ms-pautas/target/site/jacoco/jacoco.xml
           flags: ms-pautas
           name: ms-pautas-coverage
