@@ -1,0 +1,37 @@
+codecov:
+  require_ci_to_pass: false
+
+coverage:
+  precision: 2
+  round: down
+  range: 50..90
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+      frontend:
+        flags:
+          - frontend
+      ms-associados:
+        flags:
+          - ms-associados
+      ms-pautas:
+        flags:
+          - ms-pautas
+      ms-sessoes:
+        flags:
+          - ms-sessoes
+flags:
+  frontend:
+    paths:
+      - frontend/src
+  ms-associados:
+    paths:
+      - ms-associados/src
+  ms-pautas:
+    paths:
+      - ms-pautas/src
+  ms-sessoes:
+    paths:
+      - ms-sessoes/src
