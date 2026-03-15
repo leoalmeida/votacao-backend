@@ -1,0 +1,36 @@
+name: CI Pipeline for ms-sessoes Module
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  code-quality-frontend:
+      uses: ./.github/workflows/frontend/code-quality.yml
+      secrets: inherit
+
+   test-frontend:
+      needs: [code-quality-frontend]
+      uses: ./.github/workflows/frontend/testes-frontend.yml
+      secrets: inherit
+
+   build-frontend:
+      needs: [test-frontend]
+      uses: ./.github/workflows/frontend/build-frontend.yml
+      secrets: inherit
+
+  #zap-scan:
+  #  needs: build-project
+  #  uses: ./.github/workflows/frontend/zapscan.yml
+  #  secrets: inherit
+  
+  #docker:
+  #  needs: zap-scan
+  #  uses: ./.github/workflows/frontend/docker.yml
+  #  secrets: inherit
+  
+  #deploy_google:
+  #  needs: docker
+  #  uses: ./.github/workflows/frontend/release-gcloud.yml
+  #  secrets: inherit

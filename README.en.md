@@ -2,6 +2,16 @@
 
 [Português](README.md) | [English](README.en.md)
 
+## Build, Tests and Coverage
+
+| Type | Status |
+| --- | --- |
+| Build | [![Build ms-associados](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Build ms-pautas](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Build ms-sessoes](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) [![Build api-gateway](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml) [![Build service-discovery](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml) |
+| Tests | [![Tests ms-associados](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-associados.yml?branch=main&label=tests-ms-associados)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Tests ms-pautas](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-pautas.yml?branch=main&label=tests-ms-pautas)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Tests ms-sessoes](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-sessoes.yml?branch=main&label=tests-ms-sessoes)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) [![Tests api-gateway](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-gateway.yml?branch=main&label=tests-api-gateway)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml) [![Tests service-discovery](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-discovery.yml?branch=main&label=tests-service-discovery)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml) |
+| Coverage (JaCoCo) | [![Coverage ms-associados](https://img.shields.io/badge/coverage-ms--associados%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Coverage ms-pautas](https://img.shields.io/badge/coverage-ms--pautas%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Coverage ms-sessoes](https://img.shields.io/badge/coverage-ms--sessoes%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) [![Coverage api-gateway](https://img.shields.io/badge/coverage-api--gateway%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml) [![Coverage service-discovery](https://img.shields.io/badge/coverage-service--discovery%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml) |
+
+Coverage reports are generated with JaCoCo and published as artifacts in each module's test job.
+
 ![Java](https://img.shields.io/badge/java-17-orange)
 ![Spring Boot](https://img.shields.io/badge/spring--boot-3.5.x-6DB33F)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
@@ -11,6 +21,7 @@ Voting backend based on a Spring Boot microservices architecture with Spring Clo
 ## Table of Contents
 
 - [Overview](#overview)
+- [Build, Tests and Coverage](#build-tests-and-coverage)
 - [Ports and Discovery](#ports-and-discovery)
 - [Requirements](#requirements)
 - [How to Run](#how-to-run)

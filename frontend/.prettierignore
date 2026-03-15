@@ -1,0 +1,14 @@
+# Ignore artifacts:
+build
+coverage
+dist
+node_modules
+.angular
+.vscode
+.idea
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Stores

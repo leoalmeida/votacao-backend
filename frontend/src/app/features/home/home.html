@@ -1,0 +1,12 @@
+<app-searchbar (messageEvent)="handleMessage($event)" />
+<!-- new sessao -->
+<section class="results">
+   @for (pauta of filteredPautaList(); track pauta.nome) {
+      <app-pauta-card
+         [loggedUser]="loggedUser()"
+         [pauta]="pauta"
+      ></app-pauta-card>
+   } @empty {
+      <div class="not-found">Nenhuma pauta disponível</div>
+   }
+</section>

@@ -1,0 +1,52 @@
+@startuml cicd_diagram
+
+title Votacao - Pipeline CI/CD (GitHub Actions)
+
+actor Desenvolvedor
+
+rectangle GitHub {
+
+    Desenvolvedor -> "Repositorio Git" : Envia codigo
+
+}
+
+rectangle "GitHub Actions" {
+
+    "workflow-frontend.yml" as wf_front
+    "workflow-backend-associados.yml" as wf_assoc
+    "workflow-backend-pautas.yml" as wf_pautas
+    "workflow-backend-sessoes.yml" as wf_sessoes
+    "workflow-backend-gateway.yml" as wf_gateway
+    "workflow-backend-discovery.yml" as wf_discovery
+
+    "checkstyle/pmd/spotbugs" as quality
+    "testes + jacoco" as tests
+    "build -DskipTests" as build
+
+}
+
+rectangle "Saidas" {
+    "artefatos jar por modulo" as artifact
+    "relatorios de cobertura" as coverage
+}
+
+"Repositorio Git" --> wf_front
+"Repositorio Git" --> wf_assoc
+"Repositorio Git" --> wf_pautas
+"Repositorio Git" --> wf_sessoes
+"Repositorio Git" --> wf_gateway
+"Repositorio Git" --> wf_discovery
+
+wf_front --> quality
+wf_assoc --> quality
+wf_pautas --> quality
+wf_sessoes --> quality
+wf_gateway --> quality
+wf_discovery --> quality
+
+quality --> tests
+tests --> build
+tests --> coverage
+build --> artifact
+
+@enduml

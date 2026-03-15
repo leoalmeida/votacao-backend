@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: app-votacao
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: app-votacao
+   template:
+      spec:
+         containers:
+            - name: app-votacao
+              image: leoalmeida/app-votacao:{{IMAGE_TAG}}
+              imagePullPolicy: Always
+              ports:
+                 - containerPort: 8080
+              resources:
+                 requests:
+                    memory: "1Gi"
+                    cpu: "2"

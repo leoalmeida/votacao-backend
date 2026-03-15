@@ -1,0 +1,48 @@
+@startuml component_diagram
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title Votacao - Componentes de Backend
+
+Container_Boundary(ms_associados, "ms-associados") {
+	Component(assoc_controller, "AssociadoController", "Spring Web", "Endpoints de associados")
+	Component(assoc_service, "AssociadoService", "Service", "Regras de negocio")
+	Component(assoc_repo, "AssociadoRepository", "Spring Data JPA", "Persistencia")
+}
+
+Container_Boundary(ms_pautas, "ms-pautas") {
+	Component(pauta_controller, "PautaController", "Spring Web", "Endpoints de pautas")
+	Component(pauta_service, "PautaService", "Service", "Regras de negocio")
+	Component(pauta_repo, "PautaRepository", "Spring Data JPA", "Persistencia")
+}
+
+Container_Boundary(ms_sessoes, "ms-sessoes") {
+	Component(sessao_controller, "SessaoController", "Spring Web", "Endpoints de sessoes")
+	Component(sessao_service, "SessaoService", "Service", "Regras de negocio e votacao")
+	Component(sessao_repo, "SessaoRepository", "Spring Data JPA", "Persistencia")
+	Component(assoc_client, "AssociadoClient", "HTTP/Feign", "Consulta ms-associados")
+	Component(pauta_client, "PautaClient", "HTTP/Feign", "Consulta ms-pautas")
+}
+
+ComponentDb(db_associados, "DB associados", "Banco SQL", "Persistencia")
+ComponentDb(db_pautas, "DB pautas", "Banco SQL", "Persistencia")
+ComponentDb(db_sessoes, "DB sessoes", "Banco SQL", "Persistencia")
+
+Rel(assoc_controller, assoc_service, "Chama")
+Rel(assoc_service, assoc_repo, "Le e grava")
+Rel(assoc_repo, db_associados, "Persiste")
+
+Rel(pauta_controller, pauta_service, "Chama")
+Rel(pauta_service, pauta_repo, "Le e grava")
+Rel(pauta_repo, db_pautas, "Persiste")
+
+Rel(sessao_controller, sessao_service, "Chama")
+Rel(sessao_service, sessao_repo, "Le e grava")
+Rel(sessao_repo, db_sessoes, "Persiste")
+
+Rel(sessao_service, assoc_client, "Consulta associado")
+Rel(sessao_service, pauta_client, "Consulta pauta")
+Rel(assoc_client, assoc_service, "HTTP")
+Rel(pauta_client, pauta_service, "HTTP")
+
+@enduml

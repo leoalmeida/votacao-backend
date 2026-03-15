@@ -1,0 +1,76 @@
+@if (pauta().sessaoDto) {
+   <mat-card
+      [ngClass]="{
+         open: pauta().sessaoDto?.status === 'OPEN_TO_VOTE',
+         closed: pauta().sessaoDto?.status === 'CLOSED',
+         created: pauta().sessaoDto?.status === 'CREATED',
+         cancelled: pauta().sessaoDto?.status === 'CANCELLED',
+      }"
+      class="cardButton"
+      appearance="outlined"
+   >
+      <mat-card-title class="title">{{ pauta().nome }}</mat-card-title>
+      <span
+         class="statusbar"
+         [ngClass]="{
+            statusopen: pauta().sessaoDto?.status === 'OPEN_TO_VOTE',
+            statusnew: pauta().sessaoDto?.status === 'CREATED',
+            statusclosed: pauta().sessaoDto?.status === 'CLOSED',
+         }"
+         >{{ pauta().sessaoDto?.status }}</span
+      >
+      <mat-card-content class="description">
+         <p>
+            {{ pauta().descricao }}
+         </p>
+      </mat-card-content>
+      <mat-card-subtitle class="category"
+         >Categoria: {{ pauta().categoria }}</mat-card-subtitle
+      >
+      <mat-divider></mat-divider>
+      <mat-card-actions class="actionbar">
+         @if (pauta().sessaoDto?.status === "CREATED") {
+            <button matButton>Iniciar votação</button>
+         }
+         @if (pauta().sessaoDto?.status === "OPEN_TO_VOTE") {
+            @if (pauta().sessaoDto?.votoAssociado?.dataVoto) {
+               <span class="registered"
+                  >VOTO REGISTRADO EM
+                  {{
+                     pauta().sessaoDto?.votoAssociado?.dataVoto ?? ""
+                        | dateFormatPipe
+                  }}</span
+               >
+            } @else {
+               <mat-button-toggle-group
+                  class="toggleGroup"
+                  aria-label="Opções de voto"
+                  [(ngModel)]="toggle"
+                  #opcaoEscolhida="ngModel"
+                  (change)="confirm(confirmDialog, opcaoEscolhida.value)"
+               >
+                  <mat-button-toggle class="toggleButton" value="SIM"
+                     >SIM</mat-button-toggle
+                  >
+                  <mat-button-toggle class="toggleButton" value="NAO"
+                     >NÃO</mat-button-toggle
+                  >
+               </mat-button-toggle-group>
+            }
+         }
+      </mat-card-actions>
+   </mat-card>
+}
+
+<ng-template #confirmDialog>
+   <h1 mat-dialog-title>Confirma seu voto?</h1>
+   <div mat-dialog-content>
+      <p class="selected-option">{{ toggle }}</p>
+   </div>
+   <div mat-dialog-actions>
+      <button mat-flat-button [mat-dialog-close]="false">Cancelar</button>
+      <button mat-flat-button color="primary" [mat-dialog-close]="true">
+         Confirmar
+      </button>
+   </div>
+</ng-template>

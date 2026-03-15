@@ -1,0 +1,60 @@
+@startuml deployment_diagram
+
+title Votacao - Diagrama de Deploy
+
+node "Cliente" {
+    component "Navegador"
+}
+
+node "Ambiente de execucao" {
+    node "frontend" {
+        component Frontend
+    }
+
+    node "api-gateway" {
+        component "API Gateway"
+    }
+
+    node "service-discovery" {
+        component "Eureka Server"
+    }
+
+    node "ms-associados" {
+        component "Servico de Associados"
+    }
+
+    node "ms-pautas" {
+        component "Servico de Pautas"
+    }
+
+    node "ms-sessoes" {
+        component "Servico de Sessoes"
+    }
+
+    node "Camada de dados" {
+        database "DB associados"
+        database "DB pautas"
+        database "DB sessoes"
+    }
+}
+
+"Navegador" --> Frontend : HTTP
+Frontend --> "API Gateway" : HTTPS/JSON
+
+"API Gateway" --> "Eureka Server" : Resolve servicos
+"API Gateway" --> "Servico de Associados" : /api/v1/associados/**
+"API Gateway" --> "Servico de Pautas" : /api/v1/pautas/**
+"API Gateway" --> "Servico de Sessoes" : /api/v1/sessoes/**
+
+"Servico de Associados" --> "Eureka Server" : Registra
+"Servico de Pautas" --> "Eureka Server" : Registra
+"Servico de Sessoes" --> "Eureka Server" : Registra
+
+"Servico de Associados" --> "DB associados" : JDBC
+"Servico de Pautas" --> "DB pautas" : JDBC
+"Servico de Sessoes" --> "DB sessoes" : JDBC
+
+"Servico de Sessoes" --> "Servico de Associados" : HTTP
+"Servico de Sessoes" --> "Servico de Pautas" : HTTP
+
+@enduml

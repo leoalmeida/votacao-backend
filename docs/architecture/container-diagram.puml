@@ -1,0 +1,44 @@
+@startuml container_diagram
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Votacao - Diagrama de Containers
+
+Person(user, "Usuario")
+
+System_Boundary(system, "Plataforma de Votacao") {
+
+    Container(frontend, "frontend", "Angular", "Interface web")
+    Container(api_gateway, "api-gateway", "Spring Cloud Gateway", "Ponto de entrada da API")
+    Container(discovery, "service-discovery", "Spring Cloud Netflix Eureka", "Registro de servicos")
+
+    Container(ms_associados, "ms-associados", "Spring Boot", "Gestao de associados")
+    Container(ms_pautas, "ms-pautas", "Spring Boot", "Gestao de pautas")
+    Container(ms_sessoes, "ms-sessoes", "Spring Boot", "Gestao de sessoes de votacao")
+
+    ContainerDb(db_associados, "DB associados", "Banco SQL", "Persistencia do ms-associados")
+    ContainerDb(db_pautas, "DB pautas", "Banco SQL", "Persistencia do ms-pautas")
+    ContainerDb(db_sessoes, "DB sessoes", "Banco SQL", "Persistencia do ms-sessoes")
+
+}
+
+Rel(user, frontend, "Usa")
+Rel(frontend, api_gateway, "HTTP", "JSON/REST")
+
+Rel(api_gateway, discovery, "Resolve servicos")
+Rel(api_gateway, ms_associados, "Roteia")
+Rel(api_gateway, ms_pautas, "Roteia")
+Rel(api_gateway, ms_sessoes, "Roteia")
+
+Rel(ms_associados, discovery, "Registra")
+Rel(ms_pautas, discovery, "Registra")
+Rel(ms_sessoes, discovery, "Registra")
+
+Rel(ms_associados, db_associados, "Le e grava", "Spring Data JPA")
+Rel(ms_pautas, db_pautas, "Le e grava", "Spring Data JPA")
+Rel(ms_sessoes, db_sessoes, "Le e grava", "Spring Data JPA")
+
+Rel(ms_sessoes, ms_associados, "Consulta associado", "HTTP")
+Rel(ms_sessoes, ms_pautas, "Consulta pauta", "HTTP")
+
+@enduml

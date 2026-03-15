@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Votação</h2>
+<mat-dialog-content>
+   <p>{{ data.pauta.nome }}</p>
+   <section>
+      <h4>Selecione a resposta</h4>
+      <mat-button-toggle-group
+         name="opcaoEscolhida"
+         aria-label="Font Style"
+         [(ngModel)]="opcaoEscolhida"
+      >
+         <mat-button-toggle value="SIM">SIM</mat-button-toggle>
+         <mat-button-toggle value="NAO">NÃO</mat-button-toggle>
+      </mat-button-toggle-group>
+   </section>
+</mat-dialog-content>
+<mat-dialog-actions>
+   <button matButton (click)="onNoClick()">No Thanks</button>
+   <button
+      matButton
+      mat-dialog-close
+      (click)="opcaoEscolhida()"
+      cdkFocusInitial
+   >
+      Ok
+   </button>
+</mat-dialog-actions>

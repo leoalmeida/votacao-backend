@@ -1,0 +1,49 @@
+<mat-card>
+   <mat-card-title>Login</mat-card-title>
+   <mat-card-content>
+      @if (!isLoggedIn) {
+         <form name="form" #f="ngForm">
+            <p>
+               <mat-form-field>
+                  <input
+                     type="text"
+                     matInput
+                     placeholder="Username"
+                     [formControl]="username"
+                     (blur)="updateErrorMessage()"
+                     required
+                  />
+               </mat-form-field>
+            </p>
+
+            <p>
+               <mat-form-field>
+                  <input
+                     type="password"
+                     matInput
+                     placeholder="Password"
+                     [formControl]="password"
+                     (blur)="updateErrorMessage()"
+                     required
+                  />
+               </mat-form-field>
+            </p>
+
+            @if (errorMessage()) {
+               <p class="errorMessage">
+                  {{ errorMessage() }}
+               </p>
+            }
+
+            <div class="button">
+               <button matButton (click)="username.valid && password.valid && login()">
+                  Login
+               </button>
+            </div>
+         </form>
+      } @else {
+         <p class="successMessage">Login realizado com sucesso!</p>
+         <button matButton (click)="reloadPage()">Entrar</button>
+      }
+   </mat-card-content>
+</mat-card>

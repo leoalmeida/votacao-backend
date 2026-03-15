@@ -88,17 +88,17 @@ jobs:
           path: ms-associados/target/*.jar
           retention-days: 1
 
-#zap-scan:
+  #zap-scan:
   #  needs: build-project
-  #  uses: ./.github/workflows/zapscan.yml
+  #  uses: ./.github/workflows/backend/zapscan.yml
   #  secrets: inherit
   
   #docker:
   #  needs: zap-scan
-  #  uses: ./.github/workflows/docker.yml
+  #  uses: ./.github/workflows/backend/docker.yml
   #  secrets: inherit
   
   #deploy_google:
   #  needs: docker
-  #  uses: ./.github/workflows/release-gcloud.yml
+  #  uses: ./.github/workflows/backend/release-gcloud.yml
   #  secrets: inherit
