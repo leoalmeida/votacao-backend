@@ -58,16 +58,16 @@ describe('SessionCard', () => {
 
       fixture = TestBed.createComponent(PautaCard);
       component = fixture.componentInstance;
-      (component as any).dialog = {
+      Reflect.set(component, 'dialog', {
          open: openMock,
-      };
-      (component as any).sessaoService = {
+      });
+      Reflect.set(component, 'sessaoStore', {
          startSession: startSessionMock,
          cancelSession: cancelSessionMock,
-      };
-      (component as any).votacaoStore = {
+      });
+      Reflect.set(component, 'votacaoStore', {
          publicarVoto: publicarVotoMock,
-      };
+      });
       fixture.componentRef.setInput('loggedUser', {
          id: 1,
          username: 'tester',

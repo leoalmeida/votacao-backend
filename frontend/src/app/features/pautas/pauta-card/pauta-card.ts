@@ -46,7 +46,7 @@ export class PautaCard {
    idAssociado = 0;
    readonly dialog = inject(MatDialog);
 
-   private sessaoService: SessaoStore = inject(SessaoStore);
+   private sessaoStore: SessaoStore = inject(SessaoStore);
    private votacaoStore: VotacaoStore = inject(VotacaoStore);
 
    confirm(dialogRef: TemplateRef<unknown>, opcaoEscolhida: 'NAO' | 'SIM') {
@@ -91,7 +91,7 @@ export class PautaCard {
          dialogRef.afterClosed().subscribe((result) => {
             console.log('The dialog was closed' + result);
             if (result !== undefined) {
-               this.sessaoService.startSession(sessaoId);
+               this.sessaoStore.startSession(sessaoId);
             }
          });
       }
@@ -113,7 +113,7 @@ export class PautaCard {
          dialogRef.afterClosed().subscribe((result) => {
             console.log('The dialog was closed' + result);
             if (result !== undefined) {
-               this.sessaoService.cancelSession(sessaoId);
+               this.sessaoStore.cancelSession(sessaoId);
             }
          });
       }
