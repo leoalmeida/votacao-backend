@@ -18,8 +18,6 @@
     </properties>
 
     <modules>
-        <module>service-discovery</module>
-        <module>api-gateway</module>
         <module>ms-associados</module>
         <module>ms-pautas</module>
         <module>ms-sessoes</module>

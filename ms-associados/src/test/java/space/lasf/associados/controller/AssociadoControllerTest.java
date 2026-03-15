@@ -12,18 +12,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
+import space.lasf.associados.core.exception.BusinessException;
 import space.lasf.associados.dto.AssociadoDto;
 import space.lasf.associados.service.AssociadoService;
 
 @WebMvcTest(AssociadoController.class)
 class AssociadoControllerTest {
+
+    @MockitoBean(name = "messageSource")
+    private MessageSource messageSource;
 
     @Autowired
     private MockMvc mockMvc;
@@ -78,6 +85,7 @@ class AssociadoControllerTest {
         when(associadoService.validarEmailAssociado("email-invalido")).thenReturn(false);
 
         mockMvc.perform(post("/v1/associados/validar-email").param("email", "email-invalido"))
+
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$", is(false)));
     }
@@ -87,5 +95,44 @@ class AssociadoControllerTest {
         doNothing().when(associadoService).removerAssociado(3L);
 
         mockMvc.perform(delete("/v1/associados/3")).andExpect(status().isNoContent());
+    }
+
+    // --- GlobalExceptionHandler coverage ---
+
+    @Test
+    void deveRetornar422QuandoBusinessExceptionLancada() throws Exception {
+        when(associadoService.buscarTodosAssociados()).thenThrow(new BusinessException("regra violada"));
+
+        mockMvc.perform(get("/v1/associados")).andExpect(status().isUnprocessableEntity());
+    }
+
+    @Test
+    void deveRetornar404QuandoEntityNotFoundExceptionLancada() throws Exception {
+        when(associadoService.buscarTodosAssociados()).thenThrow(new EntityNotFoundException("nao encontrado"));
+
+        mockMvc.perform(get("/v1/associados")).andExpect(status().isNotFound());
+    }
+
+    @Test
+    void deveRetornar404QuandoNoSuchElementExceptionLancada() throws Exception {
+        when(associadoService.buscarTodosAssociados()).thenThrow(new NoSuchElementException("sem elemento"));
+
+        mockMvc.perform(get("/v1/associados")).andExpect(status().isNotFound());
+    }
+
+    @Test
+    void deveRetornar400QuandoIllegalArgumentExceptionLancada() throws Exception {
+        when(associadoService.buscarTodosAssociados()).thenThrow(new IllegalArgumentException("arg invalido"));
+
+        mockMvc.perform(get("/v1/associados")).andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void deveRetornar500QuandoExceptionGenericaLancada() throws Exception {
+        when(associadoService.buscarTodosAssociados()).thenThrow(new RuntimeException("erro inesperado"));
+        when(messageSource.getMessage(any(String.class), any(Object[].class), any(java.util.Locale.class)))
+                .thenReturn("Erro interno: erro inesperado");
+
+        mockMvc.perform(get("/v1/associados")).andExpect(status().isInternalServerError());
     }
 }
