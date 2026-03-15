@@ -1,60 +1,74 @@
 @startuml deployment_diagram
 
-title Votacao - Diagrama de Deploy
+title Votacao Backend - Diagrama de Deploy
 
-node "Cliente" {
+node "Usuário" {
     component "Navegador"
 }
 
-node "Ambiente de execucao" {
-    node "frontend" {
+node "Host Docker/Servidor" {
+
+    node "frontend\n(porta configurada via env)" {
         component Frontend
     }
 
-    node "api-gateway" {
-        component "API Gateway"
-    }
-
-    node "service-discovery" {
-        component "Eureka Server"
-    }
-
-    node "ms-associados" {
+    node "ms-associados\n(porta dinâmica — Eureka)" {
         component "Servico de Associados"
     }
 
-    node "ms-pautas" {
+    node "ms-pautas\n(porta dinâmica — Eureka)" {
         component "Servico de Pautas"
     }
 
-    node "ms-sessoes" {
+    node "ms-sessoes\n(porta dinâmica — Eureka)" {
         component "Servico de Sessoes"
+        component "Servico de Votos"
     }
 
-    node "Camada de dados" {
-        database "DB associados"
-        database "DB pautas"
-        database "DB sessoes"
+    node "Banco de Dados SQL" {
+        database "DB associados\n(dburl-associados)"
+        database "DB pautas\n(dburl-pautas)"
+        database "DB sessoes\n(dburl-sessoes)"
     }
 }
 
+node "api-gateway\n(repositório separado, porta 8082)" {
+    component "API Gateway\n(Spring Cloud Gateway)"
+}
+
+node "service-discovery\n(repositório separado, porta 8761)" {
+    component "Eureka Server"
+}
+
 "Navegador" --> Frontend : HTTP
-Frontend --> "API Gateway" : HTTPS/JSON
+Frontend --> "API Gateway\n(Spring Cloud Gateway)" : HTTP (proxy)
 
-"API Gateway" --> "Eureka Server" : Resolve servicos
-"API Gateway" --> "Servico de Associados" : /api/v1/associados/**
-"API Gateway" --> "Servico de Pautas" : /api/v1/pautas/**
-"API Gateway" --> "Servico de Sessoes" : /api/v1/sessoes/**
+"API Gateway\n(Spring Cloud Gateway)" --> "Eureka Server" : Resolve instâncias
+"API Gateway\n(Spring Cloud Gateway)" --> "Servico de Associados" : /v1/associados/**
+"API Gateway\n(Spring Cloud Gateway)" --> "Servico de Pautas" : /v1/pautas/**
+"API Gateway\n(Spring Cloud Gateway)" --> "Servico de Sessoes" : /v1/sessoes/**
+"API Gateway\n(Spring Cloud Gateway)" --> "Servico de Votos" : /v1/votos/**
 
-"Servico de Associados" --> "Eureka Server" : Registra
-"Servico de Pautas" --> "Eureka Server" : Registra
-"Servico de Sessoes" --> "Eureka Server" : Registra
+"Servico de Associados" --> "Eureka Server" : Registra / renova
+"Servico de Pautas" --> "Eureka Server" : Registra / renova
+"Servico de Sessoes" --> "Eureka Server" : Registra / renova
 
-"Servico de Associados" --> "DB associados" : JDBC
-"Servico de Pautas" --> "DB pautas" : JDBC
-"Servico de Sessoes" --> "DB sessoes" : JDBC
+"Servico de Associados" --> "DB associados\n(dburl-associados)" : JDBC / JPA
+"Servico de Pautas" --> "DB pautas\n(dburl-pautas)" : JDBC / JPA
+"Servico de Sessoes" --> "DB sessoes\n(dburl-sessoes)" : JDBC / JPA
 
-"Servico de Sessoes" --> "Servico de Associados" : HTTP
-"Servico de Sessoes" --> "Servico de Pautas" : HTTP
+"Servico de Associados" --> "Servico de Sessoes" : [OpenFeign]\nGET /v1/votos/associado/{id}
+"Servico de Pautas" --> "Servico de Sessoes" : [OpenFeign]\nGET/POST /v1/sessoes\nGET /v1/votos/associado/{id}
+"Servico de Sessoes" --> "Servico de Pautas" : [OpenFeign]\nGET/POST /v1/pautas
+
+note bottom of "api-gateway\n(repositório separado, porta 8082)"
+    Executado separadamente —
+    repositório spring-cloud-gateway.
+end note
+
+note bottom of "service-discovery\n(repositório separado, porta 8761)"
+    Executado separadamente —
+    repositório eureka-server.
+end note
 
 @enduml

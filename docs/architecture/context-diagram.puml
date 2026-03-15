@@ -2,20 +2,22 @@
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
-title Votacao - Diagrama de Contexto
+title Votacao Backend - Diagrama de Contexto (C4 Level 1)
 
-Person(user, "Usuario", "Usuario final que participa e consulta votacoes")
+Person(user, "Usuário / Associado", "Acessa a plataforma via browser\npara votar e consultar pautas e sessões")
 
-System_Ext(frontend, "Frontend", "Aplicacao web consumindo a API")
+System_Boundary(votacao, "Plataforma de Votação") {
+    System(system, "Votacao Backend", "Plataforma full-stack com Frontend Angular,\nAPI Gateway, ms-associados, ms-pautas e ms-sessoes")
+}
 
-System(system, "Plataforma de Votacao", "Microsservicos para associados, pautas e sessoes")
+System_Ext(sql, "Banco de Dados SQL", "Persistência independente por microserviço.\nTabelas: associados | pautas | sessoes, votos")
+System_Ext(eureka, "Service Discovery", "Eureka Server (repositório separado).\nRegistro e descoberta dinâmica de instâncias.")
+System_Ext(gateway, "API Gateway", "Spring Cloud Gateway (repositório separado).\nPonto único de entrada, roteamento e load balancing.")
 
-System_Ext(sql, "Bancos SQL", "Persistencia dos microsservicos de dominio")
-System_Ext(eureka, "Service Discovery", "Registro e descoberta de servicos")
-
-Rel(user, frontend, "Usa")
-Rel(frontend, system, "Consome", "HTTPS/JSON")
-Rel(system, sql, "Le e grava")
-Rel(system, eureka, "Registra e descobre servicos")
+Rel(user, system, "Usa", "HTTP / HTTPS")
+Rel(system, sql, "Persiste e consulta dados", "JDBC / Spring Data JPA")
+Rel(system, eureka, "Registra e descobre instâncias", "HTTP")
+Rel(gateway, system, "Roteia requisições", "HTTP")
+Rel(user, gateway, "Acessa via", "HTTP")
 
 @enduml

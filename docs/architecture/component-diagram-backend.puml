@@ -2,47 +2,67 @@
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
 
-title Votacao - Componentes de Backend
+title Votacao Backend - Componentes de Backend (C4 Level 3)
 
 Container_Boundary(ms_associados, "ms-associados") {
-	Component(assoc_controller, "AssociadoController", "Spring Web", "Endpoints de associados")
-	Component(assoc_service, "AssociadoService", "Service", "Regras de negocio")
-	Component(assoc_repo, "AssociadoRepository", "Spring Data JPA", "Persistencia")
+    Component(assoc_home, "HomeController", "Spring Web", "Health-check: GET /")
+    Component(assoc_controller, "AssociadoController", "Spring Web", "CRUD de associados\nGET/POST/PUT/DELETE /v1/associados")
+    Component(assoc_exc, "GlobalExceptionHandler", "@ControllerAdvice", "Tratamento centralizado de erros")
+    Component(assoc_service, "AssociadoServiceImpl", "Spring @Service", "Regras de negócio de associados")
+    Component(assoc_repo, "AssociadoRepository", "Spring Data JPA", "Persistência de Associado")
+    Component(sessao_client_a, "SessaoClient", "@FeignClient(ms-sessoes)", "GET /v1/votos/associado/{id}")
 }
 
 Container_Boundary(ms_pautas, "ms-pautas") {
-	Component(pauta_controller, "PautaController", "Spring Web", "Endpoints de pautas")
-	Component(pauta_service, "PautaService", "Service", "Regras de negocio")
-	Component(pauta_repo, "PautaRepository", "Spring Data JPA", "Persistencia")
+    Component(pauta_home, "HomeController", "Spring Web", "Health-check: GET /")
+    Component(pauta_controller, "PautaController", "Spring Web", "CRUD de pautas\nGET/POST/PUT/DELETE /v1/pautas")
+    Component(pauta_exc, "GlobalExceptionHandler", "@ControllerAdvice", "Tratamento centralizado de erros")
+    Component(pauta_service, "PautaServiceImpl", "Spring @Service", "Regras de negócio de pautas\n(cria pauta + pode iniciar sessão)")
+    Component(pauta_repo, "PautaRepository", "Spring Data JPA", "Persistência de Pauta")
+    Component(sessao_client_p, "SessaoClient", "@FeignClient(ms-sessoes)", "GET /v1/sessoes/{id}\nGET /v1/sessoes/{id}/associado/{id}\nPOST /v1/sessoes\nGET /v1/votos/associado/{id}")
 }
 
 Container_Boundary(ms_sessoes, "ms-sessoes") {
-	Component(sessao_controller, "SessaoController", "Spring Web", "Endpoints de sessoes")
-	Component(sessao_service, "SessaoService", "Service", "Regras de negocio e votacao")
-	Component(sessao_repo, "SessaoRepository", "Spring Data JPA", "Persistencia")
-	Component(assoc_client, "AssociadoClient", "HTTP/Feign", "Consulta ms-associados")
-	Component(pauta_client, "PautaClient", "HTTP/Feign", "Consulta ms-pautas")
+    Component(sessao_home, "HomeController", "Spring Web", "Health-check: GET /")
+    Component(sessao_controller, "SessaoController", "Spring Web", "Gestão de sessões\nGET/POST /v1/sessoes\niniciar, finalizar, cancelar, validar")
+    Component(votos_controller, "VotosController", "Spring Web", "Gestão de votos\nGET/POST/DELETE /v1/votos")
+    Component(sessao_exc, "GlobalExceptionHandler", "@ControllerAdvice", "Tratamento centralizado de erros")
+    Component(sessao_service, "SessaoServiceImpl", "Spring @Service", "Ciclo de vida de sessões:\nCREATED → STARTED → FINISHED/CANCELLED")
+    Component(voto_service, "VotoServiceImpl", "Spring @Service", "Registro, consulta e remoção de votos")
+    Component(sessao_repo, "SessaoRepository", "Spring Data JPA", "Persistência de Sessao")
+    Component(voto_repo, "VotoRepository", "Spring Data JPA", "Persistência de Voto")
+    Component(pauta_client, "PautaClient", "@FeignClient(ms-pautas)", "GET /v1/pautas/{id}\nPOST /v1/pautas")
 }
 
-ComponentDb(db_associados, "DB associados", "Banco SQL", "Persistencia")
-ComponentDb(db_pautas, "DB pautas", "Banco SQL", "Persistencia")
-ComponentDb(db_sessoes, "DB sessoes", "Banco SQL", "Persistencia")
+ComponentDb(db_associados, "DB associados", "SQL", "tabela: associados")
+ComponentDb(db_pautas, "DB pautas", "SQL", "tabela: pautas")
+ComponentDb(db_sessoes, "DB sessoes", "SQL", "tabelas: sessoes, votos")
 
-Rel(assoc_controller, assoc_service, "Chama")
-Rel(assoc_service, assoc_repo, "Le e grava")
-Rel(assoc_repo, db_associados, "Persiste")
+' ms-associados
+Rel(assoc_controller, assoc_service, "Delega")
+Rel(assoc_service, assoc_repo, "Lê e grava")
+Rel(assoc_repo, db_associados, "JDBC / JPA")
+Rel(assoc_service, sessao_client_a, "Consulta votos do associado")
 
-Rel(pauta_controller, pauta_service, "Chama")
-Rel(pauta_service, pauta_repo, "Le e grava")
-Rel(pauta_repo, db_pautas, "Persiste")
+' ms-pautas
+Rel(pauta_controller, pauta_service, "Delega")
+Rel(pauta_service, pauta_repo, "Lê e grava")
+Rel(pauta_repo, db_pautas, "JDBC / JPA")
+Rel(pauta_service, sessao_client_p, "Consulta/cria sessão e votos")
 
-Rel(sessao_controller, sessao_service, "Chama")
-Rel(sessao_service, sessao_repo, "Le e grava")
-Rel(sessao_repo, db_sessoes, "Persiste")
+' ms-sessoes
+Rel(sessao_controller, sessao_service, "Delega")
+Rel(votos_controller, voto_service, "Delega")
+Rel(sessao_service, sessao_repo, "Lê e grava")
+Rel(voto_service, voto_repo, "Lê e grava")
+Rel(sessao_service, pauta_client, "Consulta/cria pauta")
+Rel(sessao_repo, db_sessoes, "JDBC / JPA")
+Rel(voto_repo, db_sessoes, "JDBC / JPA")
 
-Rel(sessao_service, assoc_client, "Consulta associado")
-Rel(sessao_service, pauta_client, "Consulta pauta")
-Rel(assoc_client, assoc_service, "HTTP")
-Rel(pauta_client, pauta_service, "HTTP")
+' Feign cross-service
+Rel(sessao_client_a, votos_controller, "HTTP")
+Rel(sessao_client_p, sessao_controller, "HTTP")
+Rel(sessao_client_p, votos_controller, "HTTP")
+Rel(pauta_client, pauta_controller, "HTTP")
 
 @enduml

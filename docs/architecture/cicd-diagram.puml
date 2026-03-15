@@ -1,52 +1,61 @@
 @startuml cicd_diagram
 
-title Votacao - Pipeline CI/CD (GitHub Actions)
+title Votacao Backend - CI/CD Pipelines (GitHub Actions — push to main)
 
 actor Desenvolvedor
 
-rectangle GitHub {
-
-    Desenvolvedor -> "Repositorio Git" : Envia codigo
-
+rectangle "workflow-frontend.yml" as wf_front {
+    rectangle "code-quality-frontend\n(ESLint + Prettier check)" as lint_f
+    rectangle "test-frontend\n(Vitest + coverage)" as test_f
+    rectangle "coverage-frontend\n(threshold gate + Codecov upload)" as cov_f
 }
 
-rectangle "GitHub Actions" {
-
-    "workflow-frontend.yml" as wf_front
-    "workflow-backend-associados.yml" as wf_assoc
-    "workflow-backend-pautas.yml" as wf_pautas
-    "workflow-backend-sessoes.yml" as wf_sessoes
-    "workflow-backend-gateway.yml" as wf_gateway
-    "workflow-backend-discovery.yml" as wf_discovery
-
-    "checkstyle/pmd/spotbugs" as quality
-    "testes + jacoco" as tests
-    "build -DskipTests" as build
-
+rectangle "workflow-backend-associados.yml" as wf_assoc {
+    rectangle "code-quality-associados\n(Checkstyle / PMD / SpotBugs)" as quality_a
+    rectangle "test-associados\n(Maven clean package + JaCoCo + Codecov)" as test_a
+    rectangle "build-associados\n(Maven -DskipTests + artefato JAR)" as build_a
 }
 
-rectangle "Saidas" {
-    "artefatos jar por modulo" as artifact
-    "relatorios de cobertura" as coverage
+rectangle "workflow-backend-pautas.yml" as wf_pautas {
+    rectangle "code-quality-pautas\n(Checkstyle / PMD / SpotBugs)" as quality_p
+    rectangle "test-pautas\n(Maven clean package + JaCoCo + Codecov)" as test_p
+    rectangle "build-pautas\n(Maven -DskipTests + artefato JAR)" as build_p
 }
 
-"Repositorio Git" --> wf_front
-"Repositorio Git" --> wf_assoc
-"Repositorio Git" --> wf_pautas
-"Repositorio Git" --> wf_sessoes
-"Repositorio Git" --> wf_gateway
-"Repositorio Git" --> wf_discovery
+rectangle "workflow-backend-sessoes.yml" as wf_sessoes {
+    rectangle "code-quality-sessoes\n(Checkstyle / PMD / SpotBugs)" as quality_s
+    rectangle "test-sessoes\n(Maven clean package + JaCoCo + Codecov)" as test_s
+    rectangle "build-sessoes\n(Maven -DskipTests + artefato JAR)" as build_s
+}
 
-wf_front --> quality
-wf_assoc --> quality
-wf_pautas --> quality
-wf_sessoes --> quality
-wf_gateway --> quality
-wf_discovery --> quality
+Desenvolvedor --> wf_front : git push main
+Desenvolvedor --> wf_assoc : git push main
+Desenvolvedor --> wf_pautas : git push main
+Desenvolvedor --> wf_sessoes : git push main
 
-quality --> tests
-tests --> build
-tests --> coverage
-build --> artifact
+lint_f --> test_f
+test_f --> cov_f
+
+quality_a --> test_a
+test_a --> build_a
+
+quality_p --> test_p
+test_p --> build_p
+
+quality_s --> test_s
+test_s --> build_s
+
+note right of wf_front
+    Perfis de threshold de cobertura:
+    - baseline: limiar atual
+    - nextSprint: limiar + 2 p.p. (continue-on-error)
+    Upload para Codecov via OIDC
+end note
+
+note right of wf_assoc
+    api-gateway e service-discovery
+    possuem workflows próprios nos
+    seus repositórios separados.
+end note
 
 @enduml

@@ -2,43 +2,47 @@
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-title Votacao - Diagrama de Containers
+title Votacao Backend - Diagrama de Containers (C4 Level 2)
 
-Person(user, "Usuario")
+Person(user, "Usuário / Associado")
 
-System_Boundary(system, "Plataforma de Votacao") {
+System_Ext(api_gateway, "API Gateway", "Spring Cloud Gateway\n(repositório separado, porta 8082)")
+System_Ext(discovery, "Service Discovery", "Spring Cloud Netflix Eureka\n(repositório separado, porta 8761)")
 
-    Container(frontend, "frontend", "Angular", "Interface web")
-    Container(api_gateway, "api-gateway", "Spring Cloud Gateway", "Ponto de entrada da API")
-    Container(discovery, "service-discovery", "Spring Cloud Netflix Eureka", "Registro de servicos")
+System_Boundary(votacao, "Plataforma de Votação") {
 
-    Container(ms_associados, "ms-associados", "Spring Boot", "Gestao de associados")
-    Container(ms_pautas, "ms-pautas", "Spring Boot", "Gestao de pautas")
-    Container(ms_sessoes, "ms-sessoes", "Spring Boot", "Gestao de sessoes de votacao")
+    Container(frontend, "frontend", "Angular 20 / SPA\n(Node 22)", "Interface web do associado.\nConsome API via proxy para o API Gateway.")
 
-    ContainerDb(db_associados, "DB associados", "Banco SQL", "Persistencia do ms-associados")
-    ContainerDb(db_pautas, "DB pautas", "Banco SQL", "Persistencia do ms-pautas")
-    ContainerDb(db_sessoes, "DB sessoes", "Banco SQL", "Persistencia do ms-sessoes")
+    Container(ms_associados, "ms-associados", "Spring Boot 3.x / Java 17", "Gestão de associados.\nPorta dinâmica (Eureka).")
+
+    Container(ms_pautas, "ms-pautas", "Spring Boot 3.x / Java 17", "Gestão de pautas.\nPorta dinâmica (Eureka).")
+
+    Container(ms_sessoes, "ms-sessoes", "Spring Boot 3.x / Java 17", "Gestão de sessões de votação e votos.\nPorta dinâmica (Eureka).")
+
+    ContainerDb(db_associados, "DB associados", "SQL / Spring Data JPA", "Tabela: associados")
+    ContainerDb(db_pautas, "DB pautas", "SQL / Spring Data JPA", "Tabela: pautas")
+    ContainerDb(db_sessoes, "DB sessoes", "SQL / Spring Data JPA", "Tabelas: sessoes, votos, totalizadores_opcao")
 
 }
 
-Rel(user, frontend, "Usa")
-Rel(frontend, api_gateway, "HTTP", "JSON/REST")
+Rel(user, frontend, "Usa", "HTTP")
+Rel(frontend, api_gateway, "Chamadas REST", "HTTP / proxy")
 
-Rel(api_gateway, discovery, "Resolve servicos")
-Rel(api_gateway, ms_associados, "Roteia")
-Rel(api_gateway, ms_pautas, "Roteia")
-Rel(api_gateway, ms_sessoes, "Roteia")
+Rel(api_gateway, discovery, "Resolve instâncias", "HTTP")
+Rel(api_gateway, ms_associados, "Roteia /v1/associados/**", "HTTP")
+Rel(api_gateway, ms_pautas, "Roteia /v1/pautas/**", "HTTP")
+Rel(api_gateway, ms_sessoes, "Roteia /v1/sessoes/** e /v1/votos/**", "HTTP")
 
-Rel(ms_associados, discovery, "Registra")
-Rel(ms_pautas, discovery, "Registra")
-Rel(ms_sessoes, discovery, "Registra")
+Rel(ms_associados, discovery, "Registra / renova")
+Rel(ms_pautas, discovery, "Registra / renova")
+Rel(ms_sessoes, discovery, "Registra / renova")
 
-Rel(ms_associados, db_associados, "Le e grava", "Spring Data JPA")
-Rel(ms_pautas, db_pautas, "Le e grava", "Spring Data JPA")
-Rel(ms_sessoes, db_sessoes, "Le e grava", "Spring Data JPA")
+Rel(ms_associados, db_associados, "Lê e grava", "JDBC / JPA")
+Rel(ms_pautas, db_pautas, "Lê e grava", "JDBC / JPA")
+Rel(ms_sessoes, db_sessoes, "Lê e grava", "JDBC / JPA")
 
-Rel(ms_sessoes, ms_associados, "Consulta associado", "HTTP")
-Rel(ms_sessoes, ms_pautas, "Consulta pauta", "HTTP")
+Rel(ms_associados, ms_sessoes, "[SessaoClient/Feign]\nGET /v1/votos/associado/{id}", "HTTP")
+Rel(ms_pautas, ms_sessoes, "[SessaoClient/Feign]\nGET/POST /v1/sessoes\nGET /v1/votos/associado/{id}", "HTTP")
+Rel(ms_sessoes, ms_pautas, "[PautaClient/Feign]\nGET /v1/pautas/{id}\nPOST /v1/pautas", "HTTP")
 
 @enduml
