@@ -1,4 +1,4 @@
-name: Build dos artefatos de Frontend do projeto
+name: Frontend Module - Build Artifacts
 
 on:
    workflow_call:

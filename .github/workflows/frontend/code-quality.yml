@@ -1,4 +1,4 @@
-name: Code Quality Analysis for Backend Module
+name: Frontend Module - Code Quality Analysis
 
 on:
    workflow_call:
@@ -28,6 +28,6 @@ jobs:
            working-directory: .
            run: npm run prettier
 
-         - name: Run Prettier check to ensure code formatting
+         - name: Run ESLint check to ensure code quality
            working-directory: .
            run: npm run lint -- --fix

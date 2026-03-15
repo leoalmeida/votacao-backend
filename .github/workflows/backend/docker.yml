@@ -1,10 +1,11 @@
-name: Docker Hub Image
+name: Backend Docker Hub Image
 
 on:
   workflow_call:
 
 jobs:
-  backend:
+  ms-associados-docker:
+    name: ms-associados Module - Docker Build and Push
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
@@ -22,6 +23,19 @@ jobs:
         context: ./ms-associados
         push: true
         tags: leoalmeida/ms-associados:${{github.run_number}}
+
+  ms-pautas-docker:
+    name: ms-pautas Module - Docker Build and Push
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Set Docker Build
+      uses: docker/setup-buildx-action@v3.12.0
+    - name: Docker login
+      uses: docker/login-action@v4.0.0
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWD }}
     - name: Docker push ms-pautas
       uses: docker/build-push-action@v6.19.2
       with:
@@ -29,6 +43,19 @@ jobs:
         context: ./ms-pautas
         push: true
         tags: leoalmeida/ms-pautas:${{github.run_number}}
+
+  ms-sessoes-docker:
+    name: ms-sessoes Module - Docker Build and Push
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - name: Set Docker Build
+      uses: docker/setup-buildx-action@v3.12.0
+    - name: Docker login
+      uses: docker/login-action@v4.0.0
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWD }}
     - name: Docker push ms-sessoes
       uses: docker/build-push-action@v6.19.2
       with:
@@ -36,17 +63,3 @@ jobs:
         context: ./ms-sessoes
         push: true
         tags: leoalmeida/ms-sessoes:${{github.run_number}}
-    - name: Docker push api-gateway
-      uses: docker/build-push-action@v6.19.2
-      with:
-        file: ./api-gateway/Dockerfile
-        context: ./api-gateway
-        push: true
-        tags: leoalmeida/api-gateway:${{github.run_number}} 
-    - name: Docker push service-discovery
-      uses: docker/build-push-action@v6.19.2
-      with:
-        file: ./service-discovery/Dockerfile
-        context: ./service-discovery
-        push: true
-        tags: leoalmeida/service-discovery:${{github.run_number}}

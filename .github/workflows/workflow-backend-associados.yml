@@ -1,4 +1,4 @@
-name: CI Pipeline for ms-associados Module
+name: ms-associados Module - CI Pipelines
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   code-quality-associados:
-    name: Lint do módulo ms-associados
+    name: ms-associados Module - Code Quality Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -43,7 +43,7 @@ jobs:
   
   test-associados:
     needs: [code-quality-associados]
-    name: Execute Unit tests for Backend Module
+    name: ms-associados Module - Execute Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -69,6 +69,7 @@ jobs:
 
   build-associados:
     needs: [test-associados]
+    name: ms-associados Module - Build and Artifact Uploads
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

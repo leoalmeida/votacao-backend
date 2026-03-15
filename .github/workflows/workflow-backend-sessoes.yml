@@ -1,4 +1,4 @@
-name: CI Pipeline for ms-sessoes Module
+name: ms-sessoes Module - CI Pipeline
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   code-quality-sessoes:
-    name: Lint do módulo ms-sessoes
+    name: ms-sessoes Module - Code Quality Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -43,7 +43,7 @@ jobs:
   
   test-sessoes:
     needs: [code-quality-sessoes]
-    name: Execute Unit tests for Sessoes Module
+    name: ms-sessoes Module - Execute Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -69,6 +69,7 @@ jobs:
 
   build-sessoes:
     needs: [test-sessoes]
+    name: ms-sessoes Module - Build and Artifact Uploads
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

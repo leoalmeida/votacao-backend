@@ -1,4 +1,4 @@
-name: CI Pipeline for ms-pautas Module
+name: ms-pautas Module - CI Pipeline
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   code-quality-pautas:
-    name: Lint do módulo ms-pautas
+    name: ms-pautas Module - Code Quality Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -43,7 +43,7 @@ jobs:
   
   test-pautas:
     needs: [code-quality-pautas]
-    name: Execute Unit tests for Pautas Module
+    name: ms-pautas Module - Execute Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -69,6 +69,7 @@ jobs:
 
   build-pautas:
     needs: [test-pautas]
+    name: ms-pautas Module - Build and Artifact Uploads
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

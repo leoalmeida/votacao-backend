@@ -1,4 +1,4 @@
-name: OWASP zap_scan
+name: Frontend Module - OWASP zap_scan
 
 on:
    workflow_call:
@@ -12,9 +12,9 @@ jobs:
       steps:
          - name: Checkout
            uses: actions/checkout@v4
-         - name: Fazer Build da aplicação de teste
+         - name: Build the test application
            run: docker compose build
-         - name: Subir a aplicação de teste local
+         - name: Start the local test application
            run: docker compose up -d
          - name: ZAP Scan
            uses: zaproxy/action-full-scan@v0.12.0

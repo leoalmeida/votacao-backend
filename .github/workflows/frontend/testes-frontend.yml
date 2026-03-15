@@ -1,4 +1,4 @@
-name: Execução de testes de Frontend do projeto
+name: Frontend Module - Tests and Code Quality Analysis
 
 on:
    workflow_call:

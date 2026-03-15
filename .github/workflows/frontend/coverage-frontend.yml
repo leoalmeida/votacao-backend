@@ -1,11 +1,11 @@
-name: Frontend Coverage CI Pipeline
+name: Frontend Module - Coverage CI Pipeline
 
 on:
    workflow_call:
 
 jobs:
   coverage-frontend:
-    name: Validate coverage thresholds and upload report
+    name: Frontend Module - Validate coverage thresholds and upload report
     runs-on: ubuntu-latest
     defaults:
       run:

@@ -1,4 +1,4 @@
-name: Release do projeto utilizando Kubernetes na Google Cloud
+name: Frontend Module - Release do projeto na Google Cloud
 
 on:
    workflow_call:
