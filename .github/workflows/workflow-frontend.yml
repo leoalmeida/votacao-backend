@@ -1,4 +1,4 @@
-name: CI Pipeline for ms-sessoes Module
+name: Frontend Module CI Pipeline
 
 on:
   push:
@@ -7,18 +7,23 @@ on:
 
 jobs:
   code-quality-frontend:
-      uses: ./.github/workflows/frontend/code-quality.yml
-      secrets: inherit
+    uses: ./.github/workflows/frontend/code-quality.yml
+    secrets: inherit
 
-   test-frontend:
-      needs: [code-quality-frontend]
-      uses: ./.github/workflows/frontend/testes-frontend.yml
-      secrets: inherit
+  test-frontend:
+    needs: [code-quality-frontend]
+    uses: ./.github/workflows/frontend/testes-frontend.yml
+    secrets: inherit
 
-   build-frontend:
-      needs: [test-frontend]
-      uses: ./.github/workflows/frontend/build-frontend.yml
-      secrets: inherit
+  coverage-frontend:
+    needs: [test-frontend]
+    uses: ./.github/workflows/frontend/coverage-frontend.yml
+    secrets: inherit
+
+  build-frontend:
+    needs: [coverage-frontend]
+    uses: ./.github/workflows/frontend/build-frontend.yml
+    secrets: inherit
 
   #zap-scan:
   #  needs: build-project
