@@ -9,9 +9,9 @@ jobs:
   code-quality-frontend:
     name: Frontend Module - Linting and Code Quality Analysis
     runs-on: ubuntu-latest # Use the latest Ubuntu runner
-    strategy:
-        matrix:
-          node-version: [24]
+    defaults:
+      run:
+        working-directory: frontend
     steps:
         - name: Checkout Repository
           uses: actions/checkout@v6 # Action to checkout your repository code
@@ -19,29 +19,26 @@ jobs:
         - name: Setup Node.js
           uses: actions/setup-node@v6
           with:
-            node-version: ${{ matrix.node-version }}
+            node-version: '22'
             cache: "npm"
-            cache-dependency-path: ./package-lock.json
+            cache-dependency-path: ./frontend/package-lock.json
 
         - name: Install Dependencies
-          working-directory: ./frontend
           run: npm ci
 
         - name: Run Prettier check to ensure code formatting
-          working-directory: ./frontend
           run: npm run prettier
 
         - name: Run ESLint check to ensure code quality
-          working-directory: ./frontend
           run: npm run lint -- --fix
 
   test-frontend:
     needs: [code-quality-frontend]
     name: Frontend Module - Automated Tests
     runs-on: ubuntu-latest # Use the latest Ubuntu runner
-    strategy:
-        matrix:
-          node-version: [24]
+    defaults:
+      run:
+        working-directory: frontend
     steps:
         - name: Checkout Repository
           uses: actions/checkout@v6 # Action to checkout your repository code
@@ -49,16 +46,14 @@ jobs:
         - name: Setup Node.js
           uses: actions/setup-node@v6
           with:
-            node-version: ${{ matrix.node-version }}
+            node-version: '22'
             cache: "npm"
-            cache-dependency-path: ./package-lock.json
+            cache-dependency-path: ./frontend/package-lock.json
 
         - name: Install Dependencies
-          working-directory: ./frontend
           run: npm ci
 
         - name: Run Frontend Tests
-          working-directory: ./frontend
           run: npm test -- --no-watch --coverage
 
   coverage-frontend:
@@ -106,9 +101,9 @@ jobs:
     needs: [coverage-frontend]
     name: Frontend Module - Build and Artifact Upload
     runs-on: ubuntu-latest # Use the latest Ubuntu runner
-    strategy:
-       matrix:
-          node-version: [24]
+    defaults:
+      run:
+        working-directory: frontend
     steps:
        - name: Checkout Repository
          uses: actions/checkout@v6 # Action to checkout your repository code
@@ -116,16 +111,14 @@ jobs:
        - name: Setup Node.js
          uses: actions/setup-node@v6
          with:
-            node-version: ${{ matrix.node-version }}
+            node-version: '22'
             cache: "npm"
-            cache-dependency-path: ./package-lock.json
+            cache-dependency-path: ./frontend/package-lock.json
 
        - name: Install Dependencies
-         working-directory: ./frontend
          run: npm ci
 
        - name: Build Angular Application
-         working-directory: ./frontend
          run: npm run build
 
        - name: Upload Frontend Artifact
@@ -197,10 +190,10 @@ jobs:
 #      steps:
 #         - name: Checkout code
 #           uses: actions/checkout@v6
-#         - name: Set up Node.js ${{ matrix.node-version }}
+#         - name: Set up Node.js '22'
 #           uses: actions/setup-node@v6
 #           with:
-#              node-version: ${{ matrix.node-version }}
+#              node-version: '22'
 #              cache: "npm"
 #              cache-dependency-path: ./package-lock.json
 #         - name: Get current version
