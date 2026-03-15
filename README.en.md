@@ -12,9 +12,10 @@
 
 Coverage reports are generated with JaCoCo and published as artifacts in each module's test job.
 
-![Java](https://img.shields.io/badge/java-17-orange)
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.5.x-6DB33F)
-![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-6DB33F?logo=springboot&logoColor=white)
+![Spring Cloud](https://img.shields.io/badge/Spring%20Cloud-2025.0.0-6DB33F?logo=spring&logoColor=white)
+![Eureka](https://img.shields.io/badge/Eureka-Service%20Discovery-2C3E50)
 
 Voting backend based on a Spring Boot microservices architecture with Spring Cloud and Eureka.
 
