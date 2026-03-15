@@ -24,15 +24,15 @@ jobs:
             cache-dependency-path: ./package-lock.json
 
         - name: Install Dependencies
-          working-directory: .
+          working-directory: ./frontend
           run: npm ci
 
         - name: Run Prettier check to ensure code formatting
-          working-directory: .
+          working-directory: ./frontend
           run: npm run prettier
 
         - name: Run ESLint check to ensure code quality
-          working-directory: .
+          working-directory: ./frontend
           run: npm run lint -- --fix
 
   test-frontend:
@@ -54,11 +54,11 @@ jobs:
             cache-dependency-path: ./package-lock.json
 
         - name: Install Dependencies
-          working-directory: .
+          working-directory: ./frontend
           run: npm ci
 
         - name: Run Frontend Tests
-          working-directory: .
+          working-directory: ./frontend
           run: npm test -- --no-watch --coverage
 
   coverage-frontend:
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend
+        working-directory: ./frontend
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -121,18 +121,18 @@ jobs:
             cache-dependency-path: ./package-lock.json
 
        - name: Install Dependencies
-         working-directory: .
+         working-directory: ./frontend
          run: npm ci
 
        - name: Build Angular Application
-         working-directory: .
+         working-directory: ./frontend
          run: npm run build
 
        - name: Upload Frontend Artifact
          uses: actions/upload-artifact@v6
          with:
             name: frontend-dist
-            path: ./dist/
+            path: ./frontend/dist/
             retention-days: 1
 
 #  zap_scan:
@@ -182,8 +182,8 @@ jobs:
 #       - name: Docker push frontend votacao APP
 #         uses: docker/build-push-action@v6.19.0
 #         with:
-#            file: ./Dockerfile
-#            context: frontend
+#            file: ./frontend/Dockerfile
+#            context: ./frontend
 #            push: true
 #            tags: leoalmeida/app-votacao:${{github.run_number}}
 
