@@ -58,6 +58,8 @@ jobs:
   
       - name: Roda os testes do módulo ms-pautas
         run: mvn -B -f ms-pautas/pom.xml clean package
+      - name: Valida contrato OpenAPI do módulo ms-pautas
+        run: mvn -B -f ms-pautas/pom.xml -Dtest=PautaOpenApiContractTest test
       - name: Run Code Quality Analysis do módulo ms-pautas
         run: mvn -B -f ms-pautas/pom.xml jacoco:report
       - name: Upload coverage to Codecov

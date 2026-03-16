@@ -1,0 +1,411 @@
+openapi: 3.0.3
+info:
+  title: ms-pautas API
+  version: 1.0.0
+servers:
+  - url: http://localhost
+paths:
+  /v1/pautas:
+    get:
+      operationId: buscarTodasPautas
+      responses:
+        '200':
+          description: Lista de pautas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PautaResponse'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    post:
+      operationId: criarPauta
+      parameters:
+        - in: query
+          name: iniciarSessao
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PautaUpsertRequest'
+      responses:
+        '201':
+          description: Pauta criada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PautaResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+  /v1/pautas/associado/{idAssociado}:
+    get:
+      operationId: buscarPautasPorAssociado
+      parameters:
+        - in: path
+          name: idAssociado
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Lista de pautas do associado
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PautaResponse'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+  /v1/pautas/{id}:
+    get:
+      operationId: buscarPautaPorId
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Pauta encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PautaResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    put:
+      operationId: alterarPauta
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PautaUpsertRequest'
+      responses:
+        '200':
+          description: Pauta atualizada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PautaResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    delete:
+      operationId: removerPauta
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Pauta removida
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /v1/pautas/{idPauta}/associado/{idAssociado}:
+    get:
+      operationId: buscarPautaPorIdEAssociado
+      parameters:
+        - in: path
+          name: idPauta
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: path
+          name: idAssociado
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Pauta encontrada com voto do associado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PautaResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+components:
+  responses:
+    BadRequest:
+      description: Requisicao invalida
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+    NotFound:
+      description: Recurso nao encontrado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+    BusinessError:
+      description: Erro de regra de negocio
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+  schemas:
+    PautaUpsertRequest:
+      type: object
+      required:
+        - idAssociado
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        nome:
+          type: string
+          nullable: true
+        descricao:
+          type: string
+          nullable: true
+        categoria:
+          type: string
+          nullable: true
+        idAssociado:
+          type: integer
+          format: int64
+        sessaoDto:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+              format: int64
+              nullable: true
+            status:
+              $ref: '#/components/schemas/SessaoStatus'
+            resultado:
+              type: string
+              nullable: true
+            totalizadores:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/TotalizadorOpcao'
+            dataFimSessao:
+              type: string
+              nullable: true
+            dataInicioSessao:
+              type: string
+              nullable: true
+            votoAssociado:
+              type: object
+              nullable: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                  nullable: true
+                idAssociado:
+                  type: integer
+                  format: int64
+                  nullable: true
+                idSessao:
+                  type: integer
+                  format: int64
+                  nullable: true
+                opcao:
+                  $ref: '#/components/schemas/VotoOpcao'
+                dataVoto:
+                  type: string
+                  nullable: true
+    PautaResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        nome:
+          type: string
+          nullable: true
+        descricao:
+          type: string
+          nullable: true
+        categoria:
+          type: string
+          nullable: true
+        idAssociado:
+          type: integer
+          format: int64
+          nullable: true
+        sessaoDto:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+              format: int64
+              nullable: true
+            status:
+              $ref: '#/components/schemas/SessaoStatus'
+            resultado:
+              type: string
+              nullable: true
+            totalizadores:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/TotalizadorOpcao'
+            dataFimSessao:
+              type: string
+              nullable: true
+            dataInicioSessao:
+              type: string
+              nullable: true
+            votoAssociado:
+              type: object
+              nullable: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                  nullable: true
+                idAssociado:
+                  type: integer
+                  format: int64
+                  nullable: true
+                idSessao:
+                  type: integer
+                  format: int64
+                  nullable: true
+                opcao:
+                  $ref: '#/components/schemas/VotoOpcao'
+                dataVoto:
+                  type: string
+                  nullable: true
+    SessaoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        status:
+          $ref: '#/components/schemas/SessaoStatus'
+        resultado:
+          type: string
+          nullable: true
+        totalizadores:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/TotalizadorOpcao'
+        dataFimSessao:
+          type: string
+          nullable: true
+        dataInicioSessao:
+          type: string
+          nullable: true
+        votoAssociado:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: integer
+              format: int64
+              nullable: true
+            idAssociado:
+              type: integer
+              format: int64
+              nullable: true
+            idSessao:
+              type: integer
+              format: int64
+              nullable: true
+            opcao:
+              $ref: '#/components/schemas/VotoOpcao'
+            dataVoto:
+              type: string
+              nullable: true
+    TotalizadorOpcao:
+      type: object
+      properties:
+        opcaoVoto:
+          $ref: '#/components/schemas/VotoOpcao'
+        quantidade:
+          type: integer
+          format: int64
+          nullable: true
+    VotoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        idAssociado:
+          type: integer
+          format: int64
+          nullable: true
+        idSessao:
+          type: integer
+          format: int64
+          nullable: true
+        opcao:
+          $ref: '#/components/schemas/VotoOpcao'
+        dataVoto:
+          type: string
+          nullable: true
+    SessaoStatus:
+      type: string
+      enum:
+        - CREATED
+        - OPEN_TO_VOTE
+        - CLOSED
+        - CANCELLED
+    VotoOpcao:
+      type: string
+      enum:
+        - SIM
+        - NAO
+    ResponseError:
+      type: object
+      required:
+        - status
+        - statusCode
+        - error
+      properties:
+        timestamp:
+          nullable: true
+          oneOf:
+            - type: string
+              format: date-time
+            - type: integer
+        status:
+          type: string
+        statusCode:
+          type: integer
+        error:
+          type: string

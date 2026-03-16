@@ -1,0 +1,259 @@
+openapi: 3.0.3
+info:
+  title: ms-associados API
+  version: 1.0.0
+servers:
+  - url: http://localhost
+paths:
+  /v1/associados:
+    get:
+      operationId: buscarAssociados
+      responses:
+        '200':
+          description: Lista de associados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssociadoDto'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    post:
+      operationId: criarAssociado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssociadoDto'
+      responses:
+        '201':
+          description: Associado criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociadoDto'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+  /v1/associados/{id}:
+    get:
+      operationId: buscarAssociadoPorId
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Associado encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociadoDto'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    put:
+      operationId: alterarAssociado
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssociadoDto'
+      responses:
+        '200':
+          description: Associado atualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociadoDto'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    delete:
+      operationId: removerAssociado
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Associado removido
+  /v1/associados/{id}/existe:
+    get:
+      operationId: verificarAssociadoValido
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Indicador de existencia do associado
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /v1/associados/email/{email}:
+    get:
+      operationId: buscarAssociadoPorEmail
+      parameters:
+        - in: path
+          name: email
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Associado encontrado por email
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssociadoDto'
+        '404':
+          description: Associado nao encontrado
+  /v1/associados/pesquisar:
+    get:
+      operationId: buscarAssociadosPorNome
+      parameters:
+        - in: query
+          name: nome
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de associados por nome
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssociadoDto'
+  /v1/associados/validar-email:
+    post:
+      operationId: validateEmail
+      parameters:
+        - in: query
+          name: email
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Email valido
+          content:
+            application/json:
+              schema:
+                type: boolean
+        '400':
+          description: Email invalido
+          content:
+            application/json:
+              schema:
+                type: boolean
+components:
+  responses:
+    BadRequest:
+      description: Requisicao invalida
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+    NotFound:
+      description: Recurso nao encontrado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+    BusinessError:
+      description: Erro de regra de negocio
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+  schemas:
+    AssociadoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        nome:
+          type: string
+          nullable: true
+        telefone:
+          type: string
+          nullable: true
+        votacaoAssociado:
+          type: object
+          nullable: true
+          additionalProperties:
+            $ref: '#/components/schemas/VotoDto'
+    VotoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        idAssociado:
+          type: integer
+          format: int64
+          nullable: true
+        idSessao:
+          type: integer
+          format: int64
+          nullable: true
+        opcao:
+          $ref: '#/components/schemas/VotoOpcao'
+        dataVoto:
+          type: string
+          nullable: true
+    VotoOpcao:
+      type: string
+      enum:
+        - SIM
+        - NAO
+    ResponseError:
+      type: object
+      required:
+        - status
+        - statusCode
+        - error
+      properties:
+        timestamp:
+          nullable: true
+          oneOf:
+            - type: string
+            - type: integer
+        status:
+          type: string
+        statusCode:
+          type: integer
+        error:
+          type: string

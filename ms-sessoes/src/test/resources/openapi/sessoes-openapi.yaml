@@ -1,0 +1,368 @@
+openapi: 3.0.3
+info:
+  title: ms-sessoes API
+  version: 1.0.0
+servers:
+  - url: http://localhost
+paths:
+  /v1/sessoes:
+    get:
+      operationId: buscarTodasSessoes
+      responses:
+        '200':
+          description: Lista de sessoes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SessaoDto'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    post:
+      operationId: criarSessao
+      parameters:
+        - in: query
+          name: iniciarSessao
+          required: true
+          schema:
+            type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PautaDto'
+      responses:
+        '201':
+          description: Sessao criada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessaoDto'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+  /v1/sessoes/{idSessao}:
+    get:
+      operationId: buscarSessaoPorId
+      parameters:
+        - in: path
+          name: idSessao
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sessao encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessaoDto'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+  /v1/sessoes/{idSessao}/associado/{idAssociado}:
+    get:
+      operationId: buscarSessaoPorIdComAssociado
+      parameters:
+        - in: path
+          name: idSessao
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - in: path
+          name: idAssociado
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sessao encontrada com voto do associado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessaoDto'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+  /v1/sessoes/{idSessao}/iniciar:
+    post:
+      operationId: iniciarSessao
+      parameters:
+        - in: path
+          name: idSessao
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sessao iniciada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessaoDto'
+  /v1/sessoes/{idSessao}/finalizar:
+    post:
+      operationId: finalizarSessao
+      parameters:
+        - in: path
+          name: idSessao
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sessao finalizada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessaoDto'
+  /v1/sessoes/{idSessao}/cancelar:
+    post:
+      operationId: cancelarSessao
+      parameters:
+        - in: path
+          name: idSessao
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Sessao cancelada
+  /v1/sessoes/{idSessao}/validar:
+    post:
+      operationId: validarSessao
+      parameters:
+        - in: path
+          name: idSessao
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Resultado da validacao da sessao
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: boolean
+  /v1/votos:
+    post:
+      operationId: criarVoto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VotoDto'
+      responses:
+        '201':
+          description: Voto criado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VotoDto'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+  /v1/votos/{id}:
+    get:
+      operationId: buscarVotoPorId
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Voto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VotoDto'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/BusinessError'
+    delete:
+      operationId: removerVoto
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: Voto removido
+  /v1/votos/sessao/{idSessao}:
+    get:
+      operationId: pesquisarVotosSessao
+      parameters:
+        - in: path
+          name: idSessao
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Lista de votos por sessao
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VotoDto'
+  /v1/votos/associado/{idAssociado}:
+    get:
+      operationId: pesquisarVotosAssociado
+      parameters:
+        - in: path
+          name: idAssociado
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Mapa de votos por associado
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/VotoDto'
+components:
+  responses:
+    NotFound:
+      description: Recurso nao encontrado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+    BusinessError:
+      description: Erro de regra de negocio
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ResponseError'
+  schemas:
+    SessaoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        status:
+          $ref: '#/components/schemas/SessaoStatus'
+        resultado:
+          type: string
+          nullable: true
+        totalizadores:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/TotalizadorOpcao'
+        dataFimSessao:
+          type: string
+          nullable: true
+        dataInicioSessao:
+          type: string
+          nullable: true
+        pautaDto:
+          $ref: '#/components/schemas/PautaDto'
+        votoAssociado:
+          $ref: '#/components/schemas/VotoDto'
+    PautaDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        nome:
+          type: string
+          nullable: true
+        descricao:
+          type: string
+          nullable: true
+        categoria:
+          type: string
+          nullable: true
+    VotoDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        idAssociado:
+          type: integer
+          format: int64
+          nullable: true
+        idSessao:
+          type: integer
+          format: int64
+          nullable: true
+        opcao:
+          $ref: '#/components/schemas/VotoOpcao'
+        dataVoto:
+          type: string
+          nullable: true
+    TotalizadorOpcao:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          nullable: true
+        opcaoVoto:
+          $ref: '#/components/schemas/VotoOpcao'
+        quantidade:
+          type: integer
+          format: int64
+          nullable: true
+    SessaoStatus:
+      type: string
+      enum:
+        - CREATED
+        - OPEN_TO_VOTE
+        - CLOSED
+        - CANCELLED
+    VotoOpcao:
+      type: string
+      enum:
+        - SIM
+        - NAO
+    ResponseError:
+      type: object
+      required:
+        - status
+        - statusCode
+        - error
+      properties:
+        timestamp:
+          nullable: true
+          oneOf:
+            - type: string
+            - type: integer
+        status:
+          type: string
+        statusCode:
+          type: integer
+        error:
+          type: string

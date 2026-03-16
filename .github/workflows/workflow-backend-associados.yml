@@ -58,6 +58,8 @@ jobs:
   
       - name: Roda os testes do módulo ms-associados
         run: mvn -B -f ms-associados/pom.xml clean package
+      - name: Valida contrato OpenAPI do módulo ms-associados
+        run: mvn -B -f ms-associados/pom.xml -Dtest=AssociadoOpenApiContractTest test
       - name: Run Code Quality Analysis do módulo ms-associados
         run: mvn -B -f ms-associados/pom.xml jacoco:report
       - name: Upload coverage to Codecov

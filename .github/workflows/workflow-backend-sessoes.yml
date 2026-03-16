@@ -58,6 +58,8 @@ jobs:
   
       - name: Roda os testes do módulo ms-sessoes
         run: mvn -B -f ms-sessoes/pom.xml clean package
+      - name: Valida contrato OpenAPI do módulo ms-sessoes
+        run: mvn -B -f ms-sessoes/pom.xml -Dtest=SessaoOpenApiContractTest,VotosOpenApiContractTest test
       - name: Run Code Quality Analysis do módulo ms-sessoes
         run: mvn -B -f ms-sessoes/pom.xml jacoco:report
       - name: Upload coverage to Codecov
