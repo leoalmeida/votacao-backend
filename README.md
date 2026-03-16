@@ -1,4 +1,4 @@
-# votacao-backend
+# votacao-fullstack
 
 [Português](README.md) | [English](README.en.md)
 
@@ -55,9 +55,9 @@ RabbitMQ + MongoDB
 
 | Tipo | Status |
 | --- | --- |
-| Build | [![Build ms-associados](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Build ms-pautas](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Build ms-sessoes](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) |
-| Testes | [![Testes ms-associados](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-associados.yml?branch=main&label=testes-ms-associados)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Testes ms-pautas](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-pautas.yml?branch=main&label=testes-ms-pautas)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Testes ms-sessoes](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-sessoes.yml?branch=main&label=testes-ms-sessoes)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) |
-| Cobertura | [![Codecov ms-associados](https://codecov.io/gh/leoalmeida/votacao-backend/branch/main/graph/badge.svg?flag=ms-associados)](https://codecov.io/gh/leoalmeida/votacao-backend) [![Codecov ms-pautas](https://codecov.io/gh/leoalmeida/votacao-backend/branch/main/graph/badge.svg?flag=ms-pautas)](https://codecov.io/gh/leoalmeida/votacao-backend) [![Codecov ms-sessoes](https://codecov.io/gh/leoalmeida/votacao-backend/branch/main/graph/badge.svg?flag=ms-sessoes)](https://codecov.io/gh/leoalmeida/votacao-backend) [![Codecov frontend](https://codecov.io/gh/leoalmeida/votacao-backend/branch/main/graph/badge.svg?flag=frontend)](https://codecov.io/gh/leoalmeida/votacao-backend) [![JaCoCo](https://img.shields.io/badge/cobertura-JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow.yml)|
+| Build | [![Build ms-associados](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-associados.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-associados.yml) [![Build ms-pautas](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-pautas.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-pautas.yml) [![Build ms-sessoes](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-sessoes.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-sessoes.yml) |
+| Testes | [![Testes ms-associados](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-associados.yml?branch=main&label=testes-ms-associados)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-associados.yml) [![Testes ms-pautas](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-pautas.yml?branch=main&label=testes-ms-pautas)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-pautas.yml) [![Testes ms-sessoes](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-sessoes.yml?branch=main&label=testes-ms-sessoes)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-sessoes.yml) |
+| Cobertura | [![Codecov ms-associados](https://codecov.io/gh/leoalmeida/votacao-fullstack/branch/main/graph/badge.svg?flag=ms-associados)](https://codecov.io/gh/leoalmeida/votacao-fullstack) [![Codecov ms-pautas](https://codecov.io/gh/leoalmeida/votacao-fullstack/branch/main/graph/badge.svg?flag=ms-pautas)](https://codecov.io/gh/leoalmeida/votacao-fullstack) [![Codecov ms-sessoes](https://codecov.io/gh/leoalmeida/votacao-fullstack/branch/main/graph/badge.svg?flag=ms-sessoes)](https://codecov.io/gh/leoalmeida/votacao-fullstack) [![Codecov frontend](https://codecov.io/gh/leoalmeida/votacao-fullstack/branch/main/graph/badge.svg?flag=frontend)](https://codecov.io/gh/leoalmeida/votacao-fullstack) [![JaCoCo](https://img.shields.io/badge/cobertura-JaCoCo-blue)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow.yml)|
 
 Os relatorios de cobertura sao gerados com JaCoCo e publicados como artefatos no job de testes de cada modulo.
 
@@ -126,7 +126,7 @@ Modulos em repositorios dedicados:
 ### 1. Build completo
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack"
 .\mvnw.cmd clean install
 ```
 
@@ -141,7 +141,7 @@ Set-Location "c:\Users\leo_a\projetos\votacao-backend"
 Exemplo (um modulo por terminal):
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend\service-discovery"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack\service-discovery"
 ..\mvnw.cmd spring-boot:run
 ```
 
@@ -166,14 +166,14 @@ Os microsservicos de dominio usam import opcional de `.env` (`spring.config.impo
 Rodar testes de todos os modulos:
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack"
 .\mvnw.cmd test
 ```
 
 Rodar testes de um modulo especifico:
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend\ms-sessoes"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack\ms-sessoes"
 ..\mvnw.cmd test
 ```
 
