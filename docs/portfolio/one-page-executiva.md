@@ -2,10 +2,11 @@
 
 ## Resumo
 
-Este portfólio reúne três projetos com escopos complementares:
+Este portfolio reune quatro projetos com escopos complementares:
 
 - `desafioMagalu`: API de agendamento de comunicação, com foco em completude, clareza contratual e execução local previsível.
 - `desafioBTG`: processamento assíncrono de pedidos e consultas de relatório, com foco em consistência de mensageria e integração frontend/backend.
+- `desafio-fullstack`: fluxo completo de beneficios com frontend Angular, backend Spring Boot e regras de transferencia em EJB.
 - `votacao-backend`: plataforma de votação distribuída, com foco em arquitetura de microsserviços, contratos e integração entre múltiplos módulos.
 
 ## Visão Comparativa
@@ -13,6 +14,7 @@ Este portfólio reúne três projetos com escopos complementares:
 | Projeto | Escopo | Complexidade | Esforço estimado | Principal evidência |
 | --- | --- | --- | --- | --- |
 | `desafioMagalu` | serviço único + MySQL + OpenAPI | baixa a média | 50 a 78 pontos | API REST coesa e documentação forte |
+| `desafio-fullstack` | frontend + backend + EJB + banco + Docker | media | 54 a 82 pontos | fluxo ponta a ponta de produto com transferencia |
 | `desafioBTG` | frontend + 2 serviços + RabbitMQ + MySQL | média | 66 a 102 pontos | processamento orientado a eventos com relatórios |
 | `votacao-backend` | frontend + gateway + discovery + 3 serviços + MongoDB + RabbitMQ | alta | 84 a 136 pontos | arquitetura distribuída e integração ponta a ponta |
 
@@ -30,6 +32,12 @@ Este portfólio reúne três projetos com escopos complementares:
 - combina backend e frontend no mesmo fluxo de valor
 - risco principal concentrado em idempotência e correção dos relatórios
 
+### `desafio-fullstack`
+
+- boa demonstracao de arquitetura modular sem sobrecarga de distribuicao extrema
+- evidencia de integracao backend + EJB + frontend em fluxo de negocio real
+- equilibrio entre profundidade tecnica e previsibilidade de execucao
+
 ### `votacao-backend`
 
 - peça mais estratégica e arquitetural do portfólio
@@ -46,19 +54,22 @@ Este portfólio reúne três projetos com escopos complementares:
 
 - `desafioMagalu`: schema de agendamento não acomodar bem evolução de status
 - `desafioBTG`: duplicidade de consumo impactar agregados e relatórios
+- `desafio-fullstack`: divergencia entre regras no backend e no EJB
 - `votacao-backend`: drift entre contratos e comportamento real entre múltiplos serviços
 
 ## Ordem Recomendada de Apresentação
 
 1. `desafioMagalu`
-2. `desafioBTG`
-3. `votacao-backend`
+2. `desafio-fullstack`
+3. `desafioBTG`
+4. `votacao-backend`
 
 ## Mensagem de Portfólio
 
-Em conjunto, os três projetos demonstram capacidade em:
+Em conjunto, os quatro projetos demonstram capacidade em:
 
 - modelagem de APIs e contratos
+- modularizacao de regras de negocio (incluindo EJB)
 - persistência relacional e não relacional
 - mensageria e integração assíncrona
 - frontend integrado a backend

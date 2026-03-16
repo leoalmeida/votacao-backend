@@ -2,11 +2,12 @@
 
 ## Objective
 
-Provide a single executive backlog format to compare the three projects in the workspace:
+Provide a single executive backlog format to compare the projects in the workspace:
 
 - `votacao-backend`
 - `desafioMagalu`
 - `desafioBTG`
+- `desafio-fullstack`
 
 Planning assumption used across all projects:
 
@@ -35,6 +36,7 @@ Project focus:
 | `votacao-backend` | gateway, discovery, domain services, MongoDB, RabbitMQ, frontend integration baseline | 16 to 24 points |
 | `desafioMagalu` | `ms-agendamento`, MySQL, Flyway, Docker Compose, local execution baseline | 10 to 16 points |
 | `desafioBTG` | frontend, `ms-customer`, `ms-order`, MySQL, RabbitMQ, root build | 12 to 18 points |
+| `desafio-fullstack` | `frontend`, `backend-module`, `ejb-module`, local DB setup, integrated compose baseline | 10 to 16 points |
 
 ### 2. Core Domain Delivery
 
@@ -56,6 +58,7 @@ Project focus:
 | `votacao-backend` | members, agendas, sessions, vote registration, session closing, result counting | 36 to 56 points |
 | `desafioMagalu` | create, retrieve, list, and delete communication schedules | 16 to 24 points |
 | `desafioBTG` | RabbitMQ order consumption, order persistence, customer aggregates, report APIs | 24 to 38 points |
+| `desafio-fullstack` | benefits CRUD, activate/cancel operations, transfer flow through EJB | 20 to 30 points |
 
 ### 3. Contracts, Integrations, and Consistency
 
@@ -77,6 +80,7 @@ Project focus:
 | `votacao-backend` | API contracts, RabbitMQ events, idempotent consumers, frontend stability | 24 to 40 points |
 | `desafioMagalu` | OpenAPI stabilization, integration tests with MySQL, contract regression | 8 to 12 points |
 | `desafioBTG` | report contracts, frontend/backend alignment, message idempotency, retry and failure handling | 22 to 34 points |
+| `desafio-fullstack` | OpenAPI hardening, frontend/backend contract alignment, transfer reliability across backend and EJB | 16 to 24 points |
 
 ### 4. Quality, Observability, and Release Readiness
 
@@ -98,15 +102,16 @@ Project focus:
 | `votacao-backend` | observability, hardening, Docker validation, release readiness | 8 to 16 points |
 | `desafioMagalu` | health checks, error handling, Docker validation, evaluation readiness | 6 to 10 points |
 | `desafioBTG` | logs, query performance, Docker validation, technical report readiness | 8 to 12 points |
+| `desafio-fullstack` | static quality, troubleshooting maturity, and release demonstration readiness | 8 to 12 points |
 
 ## Suggested Sprint Mapping
 
-| Sprint | `votacao-backend` | `desafioMagalu` | `desafioBTG` |
-| --- | --- | --- | --- |
-| Sprint 1 | foundation, contracts, startup baseline | foundation, migrations, API baseline | foundation, frontend/backend baseline, message contract review |
-| Sprint 2 | core CRUDs and vote flow | core scheduling endpoints | core ingestion and report APIs |
-| Sprint 3 | events, integration consistency, idempotency | contract hardening and integration stability | idempotency, retries, frontend report integration |
-| Sprint 4 | observability and release readiness | observability and evaluation readiness | observability, hardening, and delivery report |
+| Sprint | `votacao-backend` | `desafioMagalu` | `desafioBTG` | `desafio-fullstack` |
+| --- | --- | --- | --- | --- |
+| Sprint 1 | foundation, contracts, startup baseline | foundation, migrations, API baseline | foundation, frontend/backend baseline, message contract review | foundation, multi-module build, API baseline |
+| Sprint 2 | core CRUDs and vote flow | core scheduling endpoints | core ingestion and report APIs | benefits CRUD and state operations |
+| Sprint 3 | events, integration consistency, idempotency | contract hardening and integration stability | idempotency, retries, frontend report integration | frontend/backend integration and transfer hardening |
+| Sprint 4 | observability and release readiness | observability and evaluation readiness | observability, hardening, and delivery report | quality, observability, and release readiness |
 
 ## Executive Priorities
 
@@ -131,3 +136,4 @@ Project focus:
 | `votacao-backend` | 84 to 136 | 42 to 68 |
 | `desafioMagalu` | 50 to 78 | 25 to 39 |
 | `desafioBTG` | 66 to 102 | 33 to 51 |
+| `desafio-fullstack` | 54 to 82 | 27 to 41 |

@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Traduzir os planos dos três projetos em um backlog operacional com épicos, histórias e tasks curtas, pronto para cadastro em Jira ou GitHub Projects.
+Traduzir os planos dos projetos em um backlog operacional com épicos, histórias e tasks curtas, pronto para cadastro em Jira ou GitHub Projects.
 
 Padrão de IDs:
 
@@ -318,6 +318,71 @@ Tasks:
 - `BTG-TSK-017` Integrar consulta por cliente
 - `BTG-TSK-018` Ajustar estados de carregamento, vazio e erro
 
+## `desafio-fullstack`
+
+### Épicos
+
+| Tipo | ID | Título | Sprint sugerida | Labels |
+| --- | --- | --- | --- | --- |
+| Epic | `FST-EP-001` | Foundation e setup integrado | Sprint 1 | `fullstack`, `foundation`, `devops` |
+| Epic | `FST-EP-002` | Fluxo core de beneficios | Sprint 2 | `fullstack`, `backend`, `must-have` |
+| Epic | `FST-EP-003` | Integracao frontend e transferencia | Sprint 3 | `fullstack`, `frontend`, `ejb` |
+| Epic | `FST-EP-004` | Qualidade e readiness de release | Sprint 4 | `fullstack`, `quality`, `release` |
+
+### Histórias e Tasks
+
+#### `FST-BE-001` - CRUD de beneficios na API
+
+- Parent: `FST-EP-002`
+- Critérios de aceite:
+  - endpoints de CRUD funcionam conforme contrato
+  - validacoes de entrada e erros principais estao cobertos
+
+Tasks:
+
+- `FST-TSK-001` Revisar contratos e DTOs de beneficios
+- `FST-TSK-002` Implementar ou ajustar casos de uso do CRUD
+- `FST-TSK-003` Cobrir cenarios criticos com testes
+
+#### `FST-BE-002` - Operacoes de ativar e cancelar
+
+- Parent: `FST-EP-002`
+- Critérios de aceite:
+  - operacoes alteram estado corretamente
+  - transicoes invalidas retornam erro previsivel
+
+Tasks:
+
+- `FST-TSK-004` Revisar regras de estado
+- `FST-TSK-005` Implementar validacoes de transicao
+- `FST-TSK-006` Adicionar testes de estado
+
+#### `FST-EJB-001` - Transferencia via EJB
+
+- Parent: `FST-EP-003`
+- Critérios de aceite:
+  - transferencia usa regra centralizada no EJB
+  - cenarios invalidos retornam erro consistente
+
+Tasks:
+
+- `FST-TSK-007` Revisar interface e servico EJB
+- `FST-TSK-008` Integrar backend com regra de transferencia
+- `FST-TSK-009` Cobrir transferencia com testes de integracao
+
+#### `FST-FE-001` - Fluxo web de beneficios
+
+- Parent: `FST-EP-003`
+- Critérios de aceite:
+  - frontend executa CRUD e operacoes de estado
+  - estados de carregamento, erro e sucesso sao consistentes
+
+Tasks:
+
+- `FST-TSK-010` Integrar telas de manutencao de beneficios
+- `FST-TSK-011` Integrar acao de transferencia
+- `FST-TSK-012` Ajustar UX e tratamento de erro
+
 ## Sugestão de Colunas no Board
 
 - `Backlog`
@@ -329,7 +394,7 @@ Tasks:
 
 ## Sugestão de Labels
 
-- por projeto: `votacao`, `magalu`, `btg`
+- por projeto: `votacao`, `magalu`, `btg`, `fullstack`
 - por tipo: `epic`, `story`, `task`
 - por contexto: `backend`, `frontend`, `qa`, `devops`, `mensageria`, `api`, `infra`
 - por prioridade: `must-have`, `should-have`, `could-have`
