@@ -2,6 +2,55 @@
 
 [Português](README.md) | [English](README.en.md)
 
+Voting backend based on Spring Boot microservices, Spring Cloud, Eureka, MongoDB, RabbitMQ, and an Angular frontend.
+
+## Executive Summary
+
+This repository hosts the distributed voting solution, organized into independent services for members, agendas, and voting sessions, with service discovery and an entry gateway.
+
+Project goals:
+
+- separate domain responsibilities by microservice
+- enable incremental evolution through clear API contracts
+- support synchronous and asynchronous integration flows
+- keep quality visible through tests, coverage, and CI automation
+
+Main scope:
+
+- `ms-associados`: member management
+- `ms-pautas`: agenda management
+- `ms-sessoes`: session opening, vote registration, closing, and result counting
+- `api-gateway`: client entry point
+- `service-discovery`: service registry and discovery
+- `frontend`: Angular UI for the business flow
+
+Architecture at a glance:
+
+Frontend
+	|
+API Gateway
+	|
+Domain microservices
+	|
+RabbitMQ + MongoDB
+
+## Stack
+
+- Java 17
+- Spring Boot 3.5.x
+- Spring Cloud 2025.0.0
+- Maven multi-module
+- Angular
+- Docker Compose
+- GitHub Actions + Codecov
+
+## Project Status
+
+- microservices architecture established
+- build, test, and coverage pipelines published per module
+- technical documentation available per module and under `docs/architecture`
+- detailed roadmap available in [plano.md](plano.md)
+
 ## Build, Tests and Coverage
 
 | Type | Status |
@@ -12,32 +61,24 @@
 
 Coverage reports are generated with JaCoCo and published as artifacts in each module's test job.
 
-![Java](https://img.shields.io/badge/Java-17-007396?logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.x-6DB33F?logo=springboot&logoColor=white)
-![Spring Cloud](https://img.shields.io/badge/Spring%20Cloud-2025.0.0-6DB33F?logo=spring&logoColor=white)
-![Eureka](https://img.shields.io/badge/Eureka-Service%20Discovery-2C3E50)
-
-Voting backend based on a Spring Boot microservices architecture with Spring Cloud and Eureka.
-
 ## Table of Contents
 
-- [Overview](#overview)
+- [Executive Summary](#executive-summary)
+- [Stack](#stack)
+- [Project Status](#project-status)
 - [Module Documentation](#module-documentation)
 - [Build, Tests and Coverage](#build-tests-and-coverage)
+- [Aggregator Modules](#aggregator-modules)
 - [Ports and Discovery](#ports-and-discovery)
 - [Requirements](#requirements)
-- [How to Run](#how-to-run)
+- [Quick Start](#quick-start)
 - [Configuration](#configuration)
 - [Tests](#tests)
 - [Docker](#docker)
 - [Troubleshooting](#troubleshooting)
+- [References](#references)
 
-## Overview
-
-- Java 17
-- Spring Boot 3.5.x
-- Spring Cloud 2025.0.0
-- Maven multi-module project
+## Aggregator Modules
 
 Modules in the root aggregator (`pom.xml`):
 
@@ -72,7 +113,15 @@ Modules in dedicated repositories:
 - JDK 17
 - Maven 3.9+ (or `mvnw`)
 
-## How to Run
+## Quick Start
+
+### Essential local startup
+
+1. run the full build at the repository root
+2. start `service-discovery`
+3. start `api-gateway`
+4. start `ms-associados`, `ms-pautas`, and `ms-sessoes`
+5. start the frontend if needed
 
 ### 1. Full build
 
@@ -97,6 +146,12 @@ Set-Location "c:\Users\leo_a\projetos\votacao-backend\service-discovery"
 ```
 
 Repeat for other modules by changing directory.
+
+### Expected result
+
+- Eureka available at `http://localhost:8761`
+- Gateway available at `http://localhost:8082`
+- domain services automatically registered in Eureka
 
 ## Configuration
 
@@ -137,3 +192,11 @@ If you use `.env` variables, adjust values before starting.
 - Services do not appear in Eureka: verify `eurekaurl` and make sure discovery starts first.
 - Database connection errors: validate `dburl-*`, username, and password.
 - Port conflicts on `8082`/`8761`: change `application.properties` in fixed-port modules.
+
+## References
+
+- roadmap and planning: [plano.md](plano.md)
+- architecture diagrams: [docs/architecture](docs/architecture)
+- frontend: [frontend/README.md](frontend/README.md)
+- ms-associados: [ms-associados/README.en.md](ms-associados/README.en.md)
+- ms-pautas: [ms-pautas/README.en.md](ms-pautas/README.en.md)
