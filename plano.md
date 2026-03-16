@@ -287,9 +287,16 @@ Equivalente: 10 a 14 dias-pessoa
 
 ## 9. Backlog por Serviço
 
+Padrao de identificacao das historias:
+
+- `PROJETO-SERVICO-NNN`
+- `PROJETO`: `VTB`, `MAG` ou `BTG`
+- `SERVICO`: codigo curto do modulo ou contexto
+- `NNN`: sequencial de tres digitos
+
 ### `service-discovery`
 
-Historia `VB-DSC-01`
+Historia `VTB-DSC-001`
 
 - como time de plataforma, quero disponibilizar o registro e descoberta de servicos para permitir bootstrap previsivel do ecossistema
 
@@ -301,7 +308,7 @@ Criterios de aceite:
 
 ### `api-gateway`
 
-Historia `VB-GTW-01`
+Historia `VTB-GTW-001`
 
 - como consumidor das APIs, quero um ponto de entrada unico para acessar os servicos de dominio sem depender de portas dinamicas
 
@@ -313,7 +320,7 @@ Criterios de aceite:
 
 ### `ms-associados`
 
-Historia `VB-ASS-01`
+Historia `VTB-ASS-001`
 
 - como operador, quero cadastrar e consultar associados para habilitar o fluxo de votacao
 
@@ -323,7 +330,7 @@ Criterios de aceite:
 - validacoes de entrada impedem dados inconsistentes
 - testes cobrem cenarios de sucesso e falha mais criticos
 
-Historia `VB-ASS-02`
+Historia `VTB-ASS-002`
 
 - como servico de sessao, quero consumir os dados minimos do associado para validar operacoes de voto
 
@@ -334,7 +341,7 @@ Criterios de aceite:
 
 ### `ms-pautas`
 
-Historia `VB-PAU-01`
+Historia `VTB-PAU-001`
 
 - como operador, quero cadastrar e consultar pautas para preparar sessoes de votacao
 
@@ -344,7 +351,7 @@ Criterios de aceite:
 - a documentacao OpenAPI reflete os payloads reais
 - testes cobrem regras de negocio e persistencia essenciais
 
-Historia `VB-PAU-02`
+Historia `VTB-PAU-002`
 
 - como ecossistema de integracao, quero publicar eventos relevantes de pauta para desacoplar consumidores futuros
 
@@ -355,7 +362,7 @@ Criterios de aceite:
 
 ### `ms-sessoes`
 
-Historia `VB-SES-01`
+Historia `VTB-SES-001`
 
 - como operador, quero abrir e encerrar sessoes de votacao para controlar o periodo valido de votos
 
@@ -365,7 +372,7 @@ Criterios de aceite:
 - tentativas invalidas de abertura ou encerramento retornam erro consistente
 - testes cobrem cenarios de ciclo de vida da sessao
 
-Historia `VB-SES-02`
+Historia `VTB-SES-002`
 
 - como associado, quero registrar meu voto em uma sessao aberta para participar da deliberacao
 
@@ -375,7 +382,7 @@ Criterios de aceite:
 - a apuracao considera apenas votos validos
 - o resultado pode ser consultado ao final da sessao
 
-Historia `VB-SES-03`
+Historia `VTB-SES-003`
 
 - como servico integrado, quero publicar eventos de voto e encerramento para manter outros consumidores sincronizados
 
@@ -386,7 +393,7 @@ Criterios de aceite:
 
 ### `frontend`
 
-Historia `VB-FE-01`
+Historia `VTB-FE-001`
 
 - como usuario de negocio, quero executar o fluxo de associados, pautas e sessoes por interface web
 
@@ -396,7 +403,7 @@ Criterios de aceite:
 - a aplicacao consome contratos estaveis do backend
 - estados de carregamento, erro e sucesso sao exibidos de forma consistente
 
-Historia `VB-FE-02`
+Historia `VTB-FE-002`
 
 - como operador, quero visualizar o resultado da votacao para acompanhar o desfecho da sessao
 
