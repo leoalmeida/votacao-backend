@@ -1,4 +1,4 @@
-# votacao-backend
+# votacao-fullstack
 
 [Português](README.md) | [English](README.en.md)
 
@@ -55,9 +55,9 @@ RabbitMQ + MongoDB
 
 | Type | Status |
 | --- | --- |
-| Build | [![Build ms-associados](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Build ms-pautas](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Build ms-sessoes](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) [![Build api-gateway](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml) [![Build service-discovery](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml) |
-| Tests | [![Tests ms-associados](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-associados.yml?branch=main&label=tests-ms-associados)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Tests ms-pautas](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-pautas.yml?branch=main&label=tests-ms-pautas)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Tests ms-sessoes](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-sessoes.yml?branch=main&label=tests-ms-sessoes)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) [![Tests api-gateway](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-gateway.yml?branch=main&label=tests-api-gateway)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml) [![Tests service-discovery](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-backend/workflow-backend-discovery.yml?branch=main&label=tests-service-discovery)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml) |
-| Coverage (JaCoCo) | [![Coverage ms-associados](https://img.shields.io/badge/coverage-ms--associados%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-associados.yml) [![Coverage ms-pautas](https://img.shields.io/badge/coverage-ms--pautas%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-pautas.yml) [![Coverage ms-sessoes](https://img.shields.io/badge/coverage-ms--sessoes%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-sessoes.yml) [![Coverage api-gateway](https://img.shields.io/badge/coverage-api--gateway%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-gateway.yml) [![Coverage service-discovery](https://img.shields.io/badge/coverage-service--discovery%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-backend/actions/workflows/workflow-backend-discovery.yml) |
+| Build | [![Build ms-associados](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-associados.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-associados.yml) [![Build ms-pautas](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-pautas.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-pautas.yml) [![Build ms-sessoes](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-sessoes.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-sessoes.yml) [![Build api-gateway](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-gateway.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-gateway.yml) [![Build service-discovery](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-discovery.yml/badge.svg?branch=main)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-discovery.yml) |
+| Tests | [![Tests ms-associados](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-associados.yml?branch=main&label=tests-ms-associados)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-associados.yml) [![Tests ms-pautas](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-pautas.yml?branch=main&label=tests-ms-pautas)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-pautas.yml) [![Tests ms-sessoes](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-sessoes.yml?branch=main&label=tests-ms-sessoes)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-sessoes.yml) [![Tests api-gateway](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-gateway.yml?branch=main&label=tests-api-gateway)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-gateway.yml) [![Tests service-discovery](https://img.shields.io/github/actions/workflow/status/leoalmeida/votacao-fullstack/workflow-backend-discovery.yml?branch=main&label=tests-service-discovery)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-discovery.yml) |
+| Coverage (JaCoCo) | [![Coverage ms-associados](https://img.shields.io/badge/coverage-ms--associados%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-associados.yml) [![Coverage ms-pautas](https://img.shields.io/badge/coverage-ms--pautas%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-pautas.yml) [![Coverage ms-sessoes](https://img.shields.io/badge/coverage-ms--sessoes%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-sessoes.yml) [![Coverage api-gateway](https://img.shields.io/badge/coverage-api--gateway%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-gateway.yml) [![Coverage service-discovery](https://img.shields.io/badge/coverage-service--discovery%20JaCoCo-blue)](https://github.com/leoalmeida/votacao-fullstack/actions/workflows/workflow-backend-discovery.yml) |
 
 Coverage reports are generated with JaCoCo and published as artifacts in each module's test job.
 
@@ -126,7 +126,7 @@ Modules in dedicated repositories:
 ### 1. Full build
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack"
 .\mvnw.cmd clean install
 ```
 
@@ -141,7 +141,7 @@ Set-Location "c:\Users\leo_a\projetos\votacao-backend"
 Example (one module per terminal):
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend\service-discovery"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack\service-discovery"
 ..\mvnw.cmd spring-boot:run
 ```
 
@@ -166,14 +166,14 @@ Domain microservices use optional `.env` import (`spring.config.import=optional:
 Run tests for all modules:
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack"
 .\mvnw.cmd test
 ```
 
 Run tests for one module:
 
 ```powershell
-Set-Location "c:\Users\leo_a\projetos\votacao-backend\ms-sessoes"
+Set-Location "c:\Users\leo_a\projetos\votacao-fullstack\ms-sessoes"
 ..\mvnw.cmd test
 ```
 
