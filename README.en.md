@@ -196,6 +196,8 @@ If you use `.env` variables, adjust values before starting.
 ## References
 
 - roadmap and planning: [plano.md](plano.md)
+- executive portfolio backlog: [docs/portfolio/executive-backlog.md](docs/portfolio/executive-backlog.md)
+- challenge comparison matrix: [docs/portfolio/challenge-comparison.md](docs/portfolio/challenge-comparison.md)
 - architecture diagrams: [docs/architecture](docs/architecture)
 - frontend: [frontend/README.md](frontend/README.md)
 - ms-associados: [ms-associados/README.en.md](ms-associados/README.en.md)

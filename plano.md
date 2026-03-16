@@ -285,7 +285,137 @@ Equivalente: 10 a 14 dias-pessoa
 - release: validar imagens Docker, pipeline e prontidao para ambiente superior
 - docs: consolidar troubleshooting, operacao e checklist de release
 
-## 9. Priorização MoSCoW
+## 9. Backlog por Serviço
+
+### `service-discovery`
+
+Historia `VB-DSC-01`
+
+- como time de plataforma, quero disponibilizar o registro e descoberta de servicos para permitir bootstrap previsivel do ecossistema
+
+Criterios de aceite:
+
+- os servicos de dominio conseguem se registrar automaticamente no ambiente local
+- a documentacao informa ordem de subida e parametros minimos de configuracao
+- a verificacao de disponibilidade do discovery faz parte do checklist operacional
+
+### `api-gateway`
+
+Historia `VB-GTW-01`
+
+- como consumidor das APIs, quero um ponto de entrada unico para acessar os servicos de dominio sem depender de portas dinamicas
+
+Criterios de aceite:
+
+- rotas para `ms-associados`, `ms-pautas` e `ms-sessoes` estao documentadas e funcionando
+- erros de roteamento e indisponibilidade retornam respostas consistentes
+- configuracoes necessarias por ambiente ficam registradas na documentacao operacional
+
+### `ms-associados`
+
+Historia `VB-ASS-01`
+
+- como operador, quero cadastrar e consultar associados para habilitar o fluxo de votacao
+
+Criterios de aceite:
+
+- e possivel criar, consultar, atualizar e listar associados conforme o contrato definido
+- validacoes de entrada impedem dados inconsistentes
+- testes cobrem cenarios de sucesso e falha mais criticos
+
+Historia `VB-ASS-02`
+
+- como servico de sessao, quero consumir os dados minimos do associado para validar operacoes de voto
+
+Criterios de aceite:
+
+- o contrato exposto pelo modulo fornece os dados necessarios ao fluxo de sessao
+- erros de consulta sao tratados sem quebrar a integracao entre modulos
+
+### `ms-pautas`
+
+Historia `VB-PAU-01`
+
+- como operador, quero cadastrar e consultar pautas para preparar sessoes de votacao
+
+Criterios de aceite:
+
+- a API permite criar, consultar e listar pautas de forma consistente
+- a documentacao OpenAPI reflete os payloads reais
+- testes cobrem regras de negocio e persistencia essenciais
+
+Historia `VB-PAU-02`
+
+- como ecossistema de integracao, quero publicar eventos relevantes de pauta para desacoplar consumidores futuros
+
+Criterios de aceite:
+
+- eventos de pauta seguem contrato versionado
+- a publicacao e testada em cenarios de integracao
+
+### `ms-sessoes`
+
+Historia `VB-SES-01`
+
+- como operador, quero abrir e encerrar sessoes de votacao para controlar o periodo valido de votos
+
+Criterios de aceite:
+
+- a sessao respeita janelas temporais e regras de estado
+- tentativas invalidas de abertura ou encerramento retornam erro consistente
+- testes cobrem cenarios de ciclo de vida da sessao
+
+Historia `VB-SES-02`
+
+- como associado, quero registrar meu voto em uma sessao aberta para participar da deliberacao
+
+Criterios de aceite:
+
+- o sistema impede voto fora da janela ou em situacoes de duplicidade nao permitida
+- a apuracao considera apenas votos validos
+- o resultado pode ser consultado ao final da sessao
+
+Historia `VB-SES-03`
+
+- como servico integrado, quero publicar eventos de voto e encerramento para manter outros consumidores sincronizados
+
+Criterios de aceite:
+
+- eventos de sessao e voto possuem `eventId` e versionamento
+- o processamento assincrono e validado com testes de integracao
+
+### `frontend`
+
+Historia `VB-FE-01`
+
+- como usuario de negocio, quero executar o fluxo de associados, pautas e sessoes por interface web
+
+Criterios de aceite:
+
+- existem telas para os fluxos centrais definidos como Must Have
+- a aplicacao consome contratos estaveis do backend
+- estados de carregamento, erro e sucesso sao exibidos de forma consistente
+
+Historia `VB-FE-02`
+
+- como operador, quero visualizar o resultado da votacao para acompanhar o desfecho da sessao
+
+Criterios de aceite:
+
+- a interface apresenta dados de apuracao coerentes com a API
+- erros de integracao ficam visiveis sem travar o fluxo principal
+
+## 10. RACI Simplificada
+
+| Atividade | Backend | Frontend | QA | DevOps |
+| --- | --- | --- | --- | --- |
+| Contratos de API e regras de negocio | A/R | C | C | I |
+| Integracao da interface com APIs | C | A/R | C | I |
+| Estrategia e execucao de testes | R | R | A | C |
+| CI/CD, Docker e configuracao de ambiente | C | I | C | A/R |
+| Observabilidade e readiness de release | R | C | C | A/R |
+
+## 11. Priorização MoSCoW
 
 ### Must Have
 
@@ -317,7 +447,7 @@ Equivalente: 10 a 14 dias-pessoa
 - multi-região ou estratégias avançadas de disaster recovery
 - analytics avançado e relatórios gerenciais
 
-## 10. Estimativa por Frente
+## 12. Estimativa por Frente
 
 Referência inicial para planejamento macro:
 
@@ -335,7 +465,7 @@ Observações:
 - a reestimativa deve acontecer ao final de cada sprint com base em throughput real
 - se a equipe trabalhar com outra cadencia, basta recalibrar a regra de conversao sem alterar a priorizacao
 
-## 11. Definition of Done
+## 13. Definition of Done
 
 Antes de cada merge:
 
@@ -347,7 +477,7 @@ Antes de cada merge:
 - pipeline CI verde
 - documentação impactada atualizada
 
-## 12. Riscos e Mitigações
+## 14. Riscos e Mitigações
 
 Riscos principais:
 

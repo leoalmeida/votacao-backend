@@ -196,6 +196,8 @@ Se usar variaveis por `.env`, ajuste os valores antes da subida.
 ## Referencias
 
 - roadmap e planejamento: [plano.md](plano.md)
+- backlog executivo do portfólio: [docs/portfolio/backlog-executivo.md](docs/portfolio/backlog-executivo.md)
+- matriz comparativa dos desafios: [docs/portfolio/matriz-comparativa.md](docs/portfolio/matriz-comparativa.md)
 - diagramas: [docs/architecture](docs/architecture)
 - frontend: [frontend/README.md](frontend/README.md)
 - ms-associados: [ms-associados/README.md](ms-associados/README.md)
