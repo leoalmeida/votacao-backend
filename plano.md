@@ -1,4 +1,4 @@
-# Plano de Trabalho - votacao-backend
+# Plano de Trabalho - votacao-fullstack
 
 ## 1. Objetivo
 
