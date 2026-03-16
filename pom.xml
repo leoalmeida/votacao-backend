@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>space.lasf.votes</groupId>
-    <artifactId>votacao-backend-parent</artifactId>
+    <artifactId>votacao-fullstack</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>votacao-backend-parent</name>
+    <name>votacao-fullstack</name>
     <description>Aggregator for votacao-backend microservices and infrastructure components</description>
 
     <properties>
